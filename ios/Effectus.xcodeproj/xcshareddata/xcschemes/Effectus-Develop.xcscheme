@@ -5,15 +5,6 @@
    <BuildAction
       parallelizeBuildables = "NO"
       buildImplicitDependencies = "YES">
-      <PreActions>
-         <ExecutionAction
-            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
-            <ActionContent
-               title = "Run Script"
-               scriptText = "# Type a script or drag a script file from your workspace to insert its path.&#10;echo &quot;.env.staging&quot; &gt; /tmp/envfile&#10;">
-            </ActionContent>
-         </ExecutionAction>
-      </PreActions>
       <BuildActionEntries>
          <BuildActionEntry
             buildForTesting = "YES"
@@ -37,10 +28,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FE002AFA22E9DCD20027B199"
-               BuildableName = "ReactNativeBase-Staging.app"
-               BlueprintName = "ReactNativeBase-Staging"
-               ReferencedContainer = "container:ReactNativeBase.xcodeproj">
+               BlueprintIdentifier = "FE002B0B22EA13BF0027B199"
+               BuildableName = "Effectus-Develop.app"
+               BlueprintName = "Effectus-Develop"
+               ReferencedContainer = "container:Effectus.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -53,10 +44,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FE002AFA22E9DCD20027B199"
-            BuildableName = "ReactNativeBase-Staging.app"
-            BlueprintName = "ReactNativeBase-Staging"
-            ReferencedContainer = "container:ReactNativeBase.xcodeproj">
+            BlueprintIdentifier = "FE002B0B22EA13BF0027B199"
+            BuildableName = "Effectus-Develop.app"
+            BlueprintName = "Effectus-Develop"
+            ReferencedContainer = "container:Effectus.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <Testables>
@@ -76,10 +67,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FE002AFA22E9DCD20027B199"
-            BuildableName = "ReactNativeBase-Staging.app"
-            BlueprintName = "ReactNativeBase-Staging"
-            ReferencedContainer = "container:ReactNativeBase.xcodeproj">
+            BlueprintIdentifier = "FE002B0B22EA13BF0027B199"
+            BuildableName = "Effectus-Develop.app"
+            BlueprintName = "Effectus-Develop"
+            ReferencedContainer = "container:Effectus.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -93,10 +84,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FE002AFA22E9DCD20027B199"
-            BuildableName = "ReactNativeBase-Staging.app"
-            BlueprintName = "ReactNativeBase-Staging"
-            ReferencedContainer = "container:ReactNativeBase.xcodeproj">
+            BlueprintIdentifier = "FE002B0B22EA13BF0027B199"
+            BuildableName = "Effectus-Develop.app"
+            BlueprintName = "Effectus-Develop"
+            ReferencedContainer = "container:Effectus.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

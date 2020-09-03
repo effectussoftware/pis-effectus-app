@@ -1,8 +1,4 @@
-# React Native Base
-
-[![CircleCI](https://circleci.com/gh/rootstrap/react-native-base.svg?style=shield)](https://circleci.com/gh/rootstrap/react-native-base)
-[![Maintainability](https://api.codeclimate.com/v1/badges/8bb29bcea21bb5dda316/maintainability)](https://codeclimate.com/github/rootstrap/react-native-base/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/8bb29bcea21bb5dda316/test_coverage)](https://codeclimate.com/github/rootstrap/react-native-base/test_coverage)
+# Effectus App
 
 ## Commands
 
@@ -126,14 +122,14 @@ You can use build targets to configure different app-icons, splash, bundle-ids, 
 
 Build targets are a great way to manage multiple envs in TestFlight. When you have staging and production builds that need testing by the client in TestFlight and you are not using build target this can become a bit of an issue.
 
-Fortunately the base already comes with the build targets you will probably need to get to production: `ReactNativeBase-Develop`, `ReactNativeBase-Staging` and `ReactNativeBase` which is for production use.
+Fortunately the base already comes with the build targets you will probably need to get to production: `Effectus-Develop`, `Effectus-Staging` and `Effectus` which is for production use.
 
-Each build target has its respective scheme already set up, they all have the same name as the build target except for the production one, that one is called `ReactNativeBase-Prod`. This leaves `ReactNativeBase` scheme free of an env setup just in case you don't want to use build targets.
+Each build target has its respective scheme already set up, they all have the same name as the build target except for the production one, that one is called `Effectus-Prod`. This leaves `Effectus` scheme free of an env setup just in case you don't want to use build targets.
 
 To add a new build target do as follows:
 
 2. Open XCode and go to the project settings, there you should see a list of the already created targets.
-3. Right click in the `ReactNativeBase` build target (or your app's name if you have already renamed it) and select duplicate.
+3. Right click in the `Effectus` build target (or your app's name if you have already renamed it) and select duplicate.
 4. Select duplicate only.
 5. Rename the new build target appropriately.
 6. At the root of the `ios` folder a new copy of the info.plist file will be created. You also need to rename that file appropriately.

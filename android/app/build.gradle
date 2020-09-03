@@ -138,12 +138,12 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.reactnativebase"
+        applicationId "com.effectussoftware.effectus"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
-        resValue "string", "build_config_package", "com.reactnativebase"
+        resValue "string", "build_config_package", "com.effectussoftware.effectus"
     }
     splits {
         abi {
