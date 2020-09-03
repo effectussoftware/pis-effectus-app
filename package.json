@@ -19,7 +19,7 @@
     "android:bundle:staging": "cd android && ./gradlew bundleStagingRelease",
     "android:bundle:prod": "cd android && ./gradlew bundleProdRelease",
     "test": "jest",
-    "test:cover": "yarn run test --coverage",
+    "test:cover": " run test --coverage",
     "prettier": "prettier --write './src/**/*.js'"
   },
   "dependencies": {
@@ -86,7 +86,7 @@
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
       "prettier --write",
-      "yarn lint:fix --quiet",
+      " lint:fix --quiet",
       "git add"
     ]
   }

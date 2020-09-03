@@ -2,20 +2,20 @@
 
 ## Commands
 
-1. **Start the app**: `yarn android:{env}` or `yarn ios:{env}` (envs: `dev`, `staging`, and `prod`)
-2. **Start metro bundler**: `yarn start`
-3. **Lint the app**: `yarn lint`
-4. **Test the app**: `yarn test`
+1. **Start the app**: `android:{env}` or `ios:{env}` (envs: `dev`, `staging`, and `prod`)
+2. **Start metro bundler**: `start`
+3. **Lint the app**: `lint`
+4. **Test the app**: `test`
 
 ## Getting started
 
-1. Install dependencies: `yarn`
+1. Install dependencies: ``
 2. Create a `.env` file in the root directory of the project, based on the `.env.defaults` sample file and the extra constants that you may need. This will be your development env.
 
 You can also create `.env.prod` and `.env.staging` to define environment variables for production and staging.
 
 3. Rename your new project using [react-native-rename](https://github.com/junedomingo/react-native-rename)
-4. Start on android or ios: `yarn android:{env}` or `yarn ios:{env}` (envs: `dev`, `staging`, and `prod`)
+4. Start on android or ios: `android:{env}` or `ios:{env}` (envs: `dev`, `staging`, and `prod`)
 
 If you don't want to make use of the Android Flavors and iOS Build Targets then you can run these commands instead:
 
@@ -70,7 +70,7 @@ pod install
 
 ### Create release
 
-1. Run `yarn android:release:{env}`
+1. Run `android:release:{env}`
 2. The generated APK can be found under `android/app/build/outputs/apk/{env}/app-release.apk`
 
 ## Build iOS Release

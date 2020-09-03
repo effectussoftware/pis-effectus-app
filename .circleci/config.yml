@@ -11,13 +11,13 @@ jobs:
       - checkout
       - node/with-cache:
           steps:
-            - run: yarn
+            - run:
       - run:
           name: Run linter
-          command: yarn lint
+          command: lint
       - run:
           name: Run tests
-          command: yarn test:cover
+          command: test:cover
       - run:
           name: Setup Code Climate test reporter
           command: |
