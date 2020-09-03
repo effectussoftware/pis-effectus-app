@@ -18,9 +18,11 @@
     "android:bundle:dev": "cd android && ./gradlew bundleDevRelease",
     "android:bundle:staging": "cd android && ./gradlew bundleStagingRelease",
     "android:bundle:prod": "cd android && ./gradlew bundleProdRelease",
+    "android:clean": "cd android && ./gradlew clean",
     "test": "jest",
     "test:cover": " run test --coverage",
-    "prettier": "prettier --write './src/**/*.js'"
+    "prettier": "prettier --write './src/**/*.js'",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "@react-native-community/async-storage": "1.7.1",
@@ -72,9 +74,10 @@
     "jest": "^25.1.0",
     "lint-staged": "9.2.0",
     "metro-react-native-babel-preset": "0.58.0",
+    "patch-package": "^6.2.2",
     "prettier": "1.18.2",
     "react-dom": "16.9.0",
-    "react-native-flipper": "0.55.0",
+    "react-native-flipper": "0.50.0",
     "react-test-renderer": "16.11.0",
     "redux-logger": "3.0.6"
   },
