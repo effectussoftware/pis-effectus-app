@@ -11,7 +11,7 @@ import useValidation from 'hooks/useValidation';
 import useTextInputProps from 'hooks/useTextInputProps';
 import signUpValidations from 'validations/signUpValidations';
 import ErrorView from 'components/common/ErrorView';
-import styles from './styles';
+import styles from './SignUpForm.styles';
 
 const FIELDS = {
   email: 'email',

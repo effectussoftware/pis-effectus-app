@@ -89,7 +89,7 @@
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
       "prettier --write",
-      " lint:fix --quiet",
+      "npm run lint:fix --quiet",
       "git add"
     ]
   }

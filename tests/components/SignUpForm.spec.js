@@ -1,5 +1,5 @@
 import React from 'react';
-import SignUpForm from 'components/SignUpForm';
+import SignUpForm from 'screens/SignUpScreen/SignUpForm';
 import { fireEvent, waitFor } from '@testing-library/react-native';
 
 import { renderWithRedux, configureStore } from '../helpers';

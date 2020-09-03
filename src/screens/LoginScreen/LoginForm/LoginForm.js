@@ -11,7 +11,7 @@ import loginValidations from 'validations/loginValidations';
 import ErrorView from 'components/common/ErrorView';
 import useTextInputProps from 'hooks/useTextInputProps';
 import strings from 'locale';
-import styles from './styles';
+import styles from './LoginForm.styles';
 
 const FIELDS = {
   email: 'email',

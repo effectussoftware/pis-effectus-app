@@ -1,5 +1,5 @@
 import React from 'react';
-import LoginForm from 'components/LoginForm';
+import LoginForm from 'screens/LoginScreen/LoginForm';
 import { fireEvent, waitFor } from '@testing-library/react-native';
 
 import { renderWithRedux, configureStore } from '../helpers';
