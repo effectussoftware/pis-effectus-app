@@ -12,4 +12,6 @@ jobs:
         uses: rtCamp/action-slack-notify@master
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_FRONT }}
-          SLACK_MESSAGE: '${{ github.event.pull_request.title }} \n https://github.com/effectussoftware/pis-effectus-app/pull/${{ github.event.pull_request.number }} \n ${{ github.event.pull_request.head.ref }}'
+          SLACK_MESSAGE: '${{ github.event.pull_request.title }}
+            https://github.com/effectussoftware/pis-effectus-app/pull/${{ github.event.pull_request.number }}
+            ${{ github.event.pull_request.head.label }}'
