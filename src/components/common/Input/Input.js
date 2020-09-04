@@ -1,6 +1,9 @@
 import React from 'react';
 import { string } from 'prop-types';
-import { View, TextInput, Text } from 'react-native';
+import { View, TextInput } from 'react-native';
+
+import Text from 'components/Text';
+
 import styles from './Input.styles';
 
 const Input = ({ label, error, ...props }) => (
