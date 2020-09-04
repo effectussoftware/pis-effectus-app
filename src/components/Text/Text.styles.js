@@ -1,10 +1,11 @@
 import { StyleSheet } from 'react-native';
 
 import { PRIMARY_FONT_REGULAR, PRIMARY_FONT_BOLD, PRIMARY_FONT_SEMI } from 'constants/fonts';
+import { BLACK } from 'constants/colors';
 
 const styles = StyleSheet.create({
   // ToDo: replace color with constant once pr is merged
-  base: { color: 'black' },
+  base: { color: BLACK },
   H1: {
     fontFamily: PRIMARY_FONT_BOLD,
     fontSize: 30,

@@ -6,7 +6,7 @@ import { object } from 'prop-types';
 import { login } from 'actions/userActions';
 import strings from 'locale';
 import { SIGN_UP_SCREEN, LOGIN_SCREEN } from 'constants/screens';
-import Text, { H1 } from 'components/Text';
+import Text from 'components/Text';
 import LoginForm from 'screens/LoginScreen/LoginForm';
 
 import styles from './LoginScreen.styles';
@@ -18,7 +18,7 @@ const LoginScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container} testID={LOGIN_SCREEN}>
-      <Text type={H1} style={styles.welcome}>
+      <Text type="H1" style={styles.welcome}>
         {strings.SIGN_IN.title}
       </Text>
       <LoginForm onSubmit={loginRequest} />

@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 
 import { logout } from 'actions/userActions';
 import { MAIN_SCREEN } from 'constants/screens';
-import Text, { H2 } from 'components/Text';
+import Text from 'components/Text';
 import strings from 'locale';
 import useSession from 'hooks/useSession';
 import styles from './MainScreen.styles';
@@ -19,7 +19,7 @@ const MainScreen = () => {
 
   return (
     <View style={styles.container} testID={MAIN_SCREEN}>
-      <Text type={H2}>Hey{` ${email}` || ''}, you&#39;re logged in!</Text>
+      <Text type="H2">Hey{` ${email}` || ''}, you&#39;re logged in!</Text>
       <Button testID="logout-button" onPress={logoutRequest} title={strings.MAIN_SCREEN.logout} />
     </View>
   );
