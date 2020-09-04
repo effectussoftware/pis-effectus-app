@@ -21,11 +21,7 @@ if (IS_IOS && !Platform.isPad && !Platform.isTVOS) {
 
 export const IPHONE_X_STATUS_BAR_HEIGHT = 44;
 const IPHONE_STATUS_BAR_HEIGHT = 20;
-const IPHONE_X_BOTTOM_SPACE = 34;
 
-export const getBottomSpace = () => {
-  return isIPhoneX ? IPHONE_X_BOTTOM_SPACE : 0;
-};
 export const getStatusBarHeight = skipAndroid => {
   return Platform.select({
     ios: isIPhoneX ? IPHONE_X_STATUS_BAR_HEIGHT : IPHONE_STATUS_BAR_HEIGHT,
