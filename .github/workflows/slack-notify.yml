@@ -5,8 +5,9 @@ jobs:
     name: Slack Notification
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Slack Notification
-      uses: rtCamp/action-slack-notify@master
-      env:
-        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_FRONT }}
+      - uses: actions/checkout@v2
+      - name: Slack Notification
+        uses: rtCamp/action-slack-notify@master
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_FRONT }}
+          SLACK_MESSAGE: 'https://github.com/effectussoftware/pis-effectus-app/pull/${{ github.event.pull_request.number }}'
