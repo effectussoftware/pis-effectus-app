@@ -1,12 +1,13 @@
 import React, { memo, useCallback } from 'react';
-import { Text, View, Button } from 'react-native';
+import { View, Button } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { object } from 'prop-types';
 
-import SignUpForm from 'screens/SignUpScreen/SignUpForm';
-import { SIGN_UP_SCREEN } from 'constants/screens';
-import { signUp } from 'actions/userActions';
 import strings from 'locale';
+import { signUp } from 'actions/userActions';
+import { SIGN_UP_SCREEN } from 'constants/screens';
+import Text from 'components/Text';
+import SignUpForm from 'screens/SignUpScreen/SignUpForm';
 import styles from './SignUpScreen.styles';
 
 const SignUpScreen = memo(({ navigation }) => {

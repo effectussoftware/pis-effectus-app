@@ -1,12 +1,14 @@
 import React, { memo, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
-import { Text, View, Button } from 'react-native';
+import { View, Button } from 'react-native';
 import { object } from 'prop-types';
 
-import LoginForm from 'screens/LoginScreen/LoginForm';
 import { login } from 'actions/userActions';
 import strings from 'locale';
 import { SIGN_UP_SCREEN, LOGIN_SCREEN } from 'constants/screens';
+import Text from 'components/Text';
+import LoginForm from 'screens/LoginScreen/LoginForm';
+
 import styles from './LoginScreen.styles';
 
 const LoginScreen = ({ navigation }) => {
@@ -16,7 +18,9 @@ const LoginScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container} testID={LOGIN_SCREEN}>
-      <Text style={styles.welcome}>{strings.SIGN_IN.title}</Text>
+      <Text type="H1" style={styles.welcome}>
+        {strings.SIGN_IN.title}
+      </Text>
       <LoginForm onSubmit={loginRequest} />
       <Button testID="sign-up-button" title={strings.SIGN_UP.title} onPress={handleLogin} />
     </View>
