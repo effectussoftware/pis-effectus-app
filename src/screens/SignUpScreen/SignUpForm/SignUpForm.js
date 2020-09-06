@@ -4,13 +4,13 @@ import { Button, View } from 'react-native';
 import { useStatus, LOADING } from '@rootstrap/redux-tools';
 
 import { signUp } from 'actions/userActions';
-import Input from 'components/common/Input';
+import Input from 'components/form/Input';
 import strings from 'locale';
 import useForm from 'hooks/useForm';
 import useValidation from 'hooks/useValidation';
 import useTextInputProps from 'hooks/useTextInputProps';
 import signUpValidations from 'validations/signUpValidations';
-import ErrorView from 'components/common/ErrorView';
+import ErrorView from 'components/form/ErrorView';
 import styles from './SignUpForm.styles';
 
 const FIELDS = {
