@@ -13,6 +13,9 @@ import applyDefaultInterceptors from 'httpClient/applyDefaultInterceptors';
 
 const TEST_NAVIGATOR = 'TestNavigator';
 
+export const LOADING = 'Cargando';
+export const SOMETHING_WENT_WRONG = 'Algo salió mal';
+
 export const AUTHENTICATED_RESPONSE_HEADERS = {
   'access-token': 'token',
   uid: 'example@rootstrap.com',

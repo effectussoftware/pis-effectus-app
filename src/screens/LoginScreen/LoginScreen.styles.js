@@ -1,16 +1,14 @@
 import { StyleSheet } from 'react-native';
 
+import { DEFAULT_HORIZONTAL_SEPARATION } from 'constants/dimensions';
+import { WHITE } from 'constants/colors';
+
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#F5FCFF',
     flex: 1,
-    justifyContent: 'center',
-    paddingHorizontal: 50,
-  },
-  welcome: {
-    fontSize: 20,
-    margin: 10,
-    textAlign: 'center',
+    paddingTop: 16,
+    paddingHorizontal: DEFAULT_HORIZONTAL_SEPARATION,
+    backgroundColor: WHITE,
   },
 });
 

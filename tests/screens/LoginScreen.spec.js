@@ -8,6 +8,8 @@ import {
   mockedHttpClient,
   configureStore,
   AUTHENTICATED_RESPONSE_HEADERS,
+  LOADING,
+  SOMETHING_WENT_WRONG,
 } from '../helpers';
 
 describe('<LoginScreen />', () => {
@@ -43,8 +45,8 @@ describe('<LoginScreen />', () => {
         .reply(200);
       fireEvent.press(wrapper.queryByTestId('login-submit-button'));
 
-      expect(wrapper.queryByText('Loading')).toBeTruthy();
-      await waitFor(() => expect(wrapper.queryByText('Loading')).toBeNull());
+      expect(wrapper.queryByText(LOADING)).toBeTruthy();
+      await waitFor(() => expect(wrapper.queryByText(LOADING)).toBeNull());
     });
 
     describe('if the user exist', () => {
@@ -65,7 +67,7 @@ describe('<LoginScreen />', () => {
         fireEvent.press(wrapper.queryByTestId('login-submit-button'));
 
         expect(wrapper.queryAllByLabelText('form-error')).toEqual([]);
-        await waitFor(() => expect(wrapper.queryByText('Loading')).toBeNull());
+        await waitFor(() => expect(wrapper.queryByText(LOADING)).toBeNull());
       });
     });
 
@@ -94,7 +96,7 @@ describe('<LoginScreen />', () => {
 
         await waitFor(() => {
           expect(wrapper.queryAllByLabelText('form-error')).toHaveLength(1);
-          expect(wrapper.queryByText('Something Went Wrong')).toBeTruthy();
+          expect(wrapper.queryByText(SOMETHING_WENT_WRONG)).toBeTruthy();
         });
       });
     });
