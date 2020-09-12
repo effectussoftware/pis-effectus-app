@@ -11,9 +11,8 @@ const Button = ({ title, onPress, secondary, style = {}, textStyle = {}, ...rest
       styles.container,
       secondary ? styles.containerSecondary : styles.containerPrimary,
       style,
-    ]}
-    {...restProps}>
-    <TouchableOpacity onPress={onPress}>
+    ]}>
+    <TouchableOpacity onPress={onPress} {...restProps}>
       <Text type="H3" style={[secondary ? styles.textSecondary : styles.textPrimary, textStyle]}>
         {title}
       </Text>

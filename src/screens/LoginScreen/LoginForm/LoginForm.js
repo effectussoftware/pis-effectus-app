@@ -20,7 +20,17 @@ const FIELDS = {
 const LoginForm = ({ onSubmit }) => {
   const { error, status } = useStatus(login);
   const validator = useValidation(loginValidations);
-  const { values, errors, handleValueChange, handleSubmit, handleBlur } = useForm(
+  const {
+    values,
+    errors,
+    handleValueChange,
+    handleSubmit,
+    handleFocus,
+    handleBlur,
+    activeFields,
+    touched,
+    formHasErrors,
+  } = useForm(
     {
       onSubmit,
       validator,
@@ -30,8 +40,15 @@ const LoginForm = ({ onSubmit }) => {
     [onSubmit],
   );
 
-  const inputProps = useTextInputProps(handleValueChange, handleBlur, values);
-
+  const inputProps = useTextInputProps(
+    handleValueChange,
+    handleFocus,
+    handleBlur,
+    values,
+    errors,
+    activeFields,
+    touched,
+  );
   return (
     <>
       <Input
@@ -47,11 +64,12 @@ const LoginForm = ({ onSubmit }) => {
         secureTextEntry
         {...inputProps(FIELDS.password)}
       />
-      <ErrorView errors={{ ...errors, error }} />
+      <ErrorView errors={{ error }} />
       <Button
         testID="login-submit-button"
         title={status === LOADING ? strings.COMMON.loading : strings.SIGN_IN.button}
         onPress={handleSubmit}
+        disabled={formHasErrors}
       />
     </>
   );

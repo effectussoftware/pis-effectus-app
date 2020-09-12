@@ -2,7 +2,7 @@ import React from 'react';
 import LoginForm from 'screens/LoginScreen/LoginForm';
 import { fireEvent, waitFor } from '@testing-library/react-native';
 
-import { renderWithRedux, configureStore } from '../helpers';
+import { renderWithRedux, configureStore } from '../../helpers';
 
 describe('<LoginForm />', () => {
   let wrapper;
