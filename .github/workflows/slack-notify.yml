@@ -1,6 +1,6 @@
 on:
   pull_request:
-    types: [open, synchronize]
+    types: [opened, synchronize]
 name: Slack Notification App
 jobs:
   slackNotification:
