@@ -1,16 +1,14 @@
 import { StyleSheet } from 'react-native';
+
 import { ALERT } from 'constants/colors';
 
 const styles = StyleSheet.create({
   container: {
-    justifyContent: 'center',
-    padding: 12,
+    minHeight: 14,
+    marginTop: 5,
   },
-  error: {
+  message: {
     color: ALERT,
-    fontSize: 14,
-    fontWeight: '500',
-    marginBottom: 8,
   },
 });
 

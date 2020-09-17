@@ -8,4 +8,4 @@ export const GRAY = '#BDBDBD';
 export const DARK_GRAY = '#666666';
 export const BLACK = '#000000';
 
-export const ERROR = '#FF5252';
+export const ALERT = '#FF5252';

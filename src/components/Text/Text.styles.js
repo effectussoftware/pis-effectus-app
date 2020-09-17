@@ -50,6 +50,11 @@ const styles = StyleSheet.create({
     fontSize: 10,
     lineHeight: 14,
   },
+  P3_B: {
+    fontFamily: PRIMARY_FONT_BOLD,
+    fontSize: 10,
+    lineHeight: 14,
+  },
 });
 
 export default styles;

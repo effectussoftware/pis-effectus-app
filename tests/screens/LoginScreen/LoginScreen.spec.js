@@ -1,7 +1,7 @@
 import { fireEvent, waitFor } from '@testing-library/react-native';
 
-import { SIGN_UP_SCREEN } from 'constants/screens';
-import SignUpScreen from 'screens/SignUpScreen';
+import { LOGIN_SCREEN } from 'constants/screens';
+import LoginScreen from 'screens/LoginScreen';
 
 import {
   renderWithNavigation,
@@ -10,19 +10,19 @@ import {
   AUTHENTICATED_RESPONSE_HEADERS,
   LOADING,
   SOMETHING_WENT_WRONG,
-} from '../helpers';
+} from '../../helpers';
 
-describe('<SignUpScreen />', () => {
+describe('<LoginScreen />', () => {
   let wrapper;
   let store;
 
   beforeEach(() => {
     store = configureStore();
-    wrapper = renderWithNavigation(SignUpScreen, store);
+    wrapper = renderWithNavigation(LoginScreen, store);
   });
 
-  it('should render the sign up screen', () => {
-    expect(wrapper.queryByTestId(SIGN_UP_SCREEN)).toBeTruthy();
+  it('should render the login screen', () => {
+    expect(wrapper.queryByTestId(LOGIN_SCREEN)).toBeTruthy();
   });
 
   it('should display an email field', () => {
@@ -33,49 +33,26 @@ describe('<SignUpScreen />', () => {
     expect(wrapper.queryByTestId('password-input')).toBeTruthy();
   });
 
-  it('should display a password confirmation field', () => {
-    expect(wrapper.queryByTestId('confirm-password-input')).toBeTruthy();
-  });
-
   describe('when the user submits the form', () => {
     beforeEach(() => {
       fireEvent.changeText(wrapper.queryByTestId('email-input'), 'example@rootstrap.com');
       fireEvent.changeText(wrapper.queryByTestId('password-input'), 'password');
-      fireEvent.changeText(wrapper.queryByTestId('confirm-password-input'), 'password');
     });
 
     it('should show the loading spinner', async () => {
       mockedHttpClient(store)
-        .onPost('/users')
+        .onPost('/users/sign_in')
         .reply(200);
-      fireEvent.press(wrapper.queryByTestId('signup-submit-button'));
+      fireEvent.press(wrapper.queryByTestId('login-submit-button'));
 
       expect(wrapper.queryByText(LOADING)).toBeTruthy();
       await waitFor(() => expect(wrapper.queryByText(LOADING)).toBeNull());
     });
 
     describe('if the user exist', () => {
-      it('should show existing user errors', async () => {
-        mockedHttpClient(store)
-          .onPost('/users')
-          .reply(422, {
-            errors: {
-              email: ['has already been taken'],
-            },
-          });
-        fireEvent.press(wrapper.queryByTestId('signup-submit-button'));
-
-        await waitFor(() => {
-          expect(wrapper.queryAllByLabelText('form-error')).toHaveLength(1);
-          expect(wrapper.queryByText('email has already been taken')).toBeTruthy();
-        });
-      });
-    });
-
-    describe('if the user does not exist', () => {
       it('should show no errors', async () => {
         mockedHttpClient(store)
-          .onPost('/users')
+          .onPost('/users/sign_in')
           .reply(
             200,
             {
@@ -87,18 +64,35 @@ describe('<SignUpScreen />', () => {
             },
             AUTHENTICATED_RESPONSE_HEADERS,
           );
-        fireEvent.press(wrapper.queryByTestId('signup-submit-button'));
+        fireEvent.press(wrapper.queryByTestId('login-submit-button'));
 
-        await waitFor(() => expect(wrapper.queryAllByLabelText('form-error')).toEqual([]));
+        expect(wrapper.queryAllByLabelText('form-error')).toEqual([]);
+        await waitFor(() => expect(wrapper.queryByText(LOADING)).toBeNull());
+      });
+    });
+
+    describe('if the user does not exist or has invalid credentials', () => {
+      it('should show no errors', async () => {
+        mockedHttpClient(store)
+          .onPost('/users/sign_in')
+          .reply(401, {
+            error: 'Invalid login credentials. Please try again.',
+          });
+        fireEvent.press(wrapper.queryByTestId('login-submit-button'));
+
+        await waitFor(() => {
+          expect(wrapper.queryAllByLabelText('form-error')).toHaveLength(1);
+          expect(wrapper.queryByText('Invalid login credentials. Please try again.')).toBeTruthy();
+        });
       });
     });
 
     describe('if there is a network error', () => {
-      it('should an error', async () => {
+      it('should show no errors', async () => {
         mockedHttpClient(store)
-          .onPost('/users')
+          .onPost('/users/sign_in')
           .networkError();
-        fireEvent.press(wrapper.queryByTestId('signup-submit-button'));
+        fireEvent.press(wrapper.queryByTestId('login-submit-button'));
 
         await waitFor(() => {
           expect(wrapper.queryAllByLabelText('form-error')).toHaveLength(1);

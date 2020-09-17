@@ -1,4 +1,5 @@
 import { useState, useCallback } from 'react';
+import { isEmpty, pickBy } from 'lodash';
 
 const useForm = (
   {
@@ -12,7 +13,7 @@ const useForm = (
 ) => {
   const [values, setValues] = useState(initialValues);
   const [errors, setErrors] = useState({});
-  const [blurredFields, setBlurredFields] = useState({});
+  const [activeFields, setActiveFields] = useState({});
   const [touched, setTouched] = useState({});
 
   const handleSubmit = useCallback(() => {
@@ -44,42 +45,56 @@ const useForm = (
   );
 
   const handleValueChange = useCallback(
-    (key, value) => {
+    (key, value, isInitialSetup = false) => {
       const newValues = {
         ...values,
         [key]: value,
       };
       setValues(newValues);
-      if (validateOnChange && touched[key]) {
-        runValidations(newValues, key);
+      if (validateOnChange) {
+        runValidations(newValues, !isInitialSetup && key);
       }
     },
-    [values, touched, setValues, runValidations, validateOnChange],
+    [values, setValues, runValidations, validateOnChange],
+  );
+
+  const handleFocus = useCallback(
+    key => {
+      setActiveFields({
+        ...activeFields,
+        [key]: true,
+      });
+    },
+    [activeFields, setActiveFields],
   );
 
   const handleBlur = useCallback(
     key => {
-      setBlurredFields({
-        ...blurredFields,
-        [key]: true,
+      setActiveFields({
+        ...activeFields,
+        [key]: false,
       });
       if (validateOnBlur) runValidations(values, key);
       setTouched({ ...touched, [key]: true });
     },
-    [blurredFields, setBlurredFields, runValidations, values, validateOnBlur, setTouched, touched],
+    [activeFields, setActiveFields, runValidations, values, validateOnBlur, setTouched, touched],
   );
+
+  const formHasErrors = !isEmpty(pickBy(errors));
 
   return {
     values,
     setValues,
     errors,
     setErrors,
-    blurredFields,
-    setBlurredFields,
+    activeFields,
+    setActiveFields,
     handleValueChange,
     handleSubmit,
+    handleFocus,
     handleBlur,
     touched,
+    formHasErrors,
   };
 };
 
