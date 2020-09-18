@@ -16,9 +16,6 @@
 		5537A5DD24376A1800F9B9FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5537A5DB24376A1800F9B9FE /* LaunchScreen.storyboard */; };
 		5537A5DE24376A1800F9B9FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5537A5DB24376A1800F9B9FE /* LaunchScreen.storyboard */; };
 		98DD89244F774B008485DF2F /* NunitoSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6E931840F78A42DE9907A241 /* NunitoSans-SemiBold.ttf */; };
-		BBCDE83BA965486201CF31AB /* libPods-Effectus-Develop.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AE1AB4DBFE1058BF55733D8B /* libPods-Effectus-Develop.a */; };
-		D35AFCB0D169AD30C275822B /* libPods-Effectus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F7C7C84CAE6734BF690017FE /* libPods-Effectus.a */; };
-		E77860054D22D4DDB9D5F9AA /* libPods-Effectus-Staging.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5194B9636EC5B962F89DA5B8 /* libPods-Effectus-Staging.a */; };
 		F00EB8B456814DBC8034B288 /* NunitoSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F69FF92D02E48A2948C2399 /* NunitoSans-Bold.ttf */; };
 		FB6BDEC32501C6B200C497C7 /* NunitoSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F69FF92D02E48A2948C2399 /* NunitoSans-Bold.ttf */; };
 		FB6BDEC42501C6B200C497C7 /* NunitoSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 95859CEF66C0457791F55DA2 /* NunitoSans-Light.ttf */; };
@@ -28,6 +25,9 @@
 		FB6BDEC82501C6BA00C497C7 /* NunitoSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 95859CEF66C0457791F55DA2 /* NunitoSans-Light.ttf */; };
 		FB6BDEC92501C6BA00C497C7 /* NunitoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 189CE0CBC3ED4D51BB1C8D51 /* NunitoSans-Regular.ttf */; };
 		FB6BDECA2501C6BA00C497C7 /* NunitoSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6E931840F78A42DE9907A241 /* NunitoSans-SemiBold.ttf */; };
+		FB91BED52514F8C600B0D580 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB91BED42514F8C600B0D580 /* GoogleService-Info.plist */; };
+		FB91BED72514F8D200B0D580 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB91BED62514F8D200B0D580 /* GoogleService-Info.plist */; };
+		FB91BED92514F8DB00B0D580 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB91BED82514F8DB00B0D580 /* GoogleService-Info.plist */; };
 		FE002AFE22E9DCD20027B199 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		FE002AFF22E9DCD20027B199 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		FE002B0322E9DCD20027B199 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
@@ -38,7 +38,6 @@
 
 /* Begin PBXFileReference section */
 		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
-		00AC18E667F4EDFD330B4527 /* libPods-Effectus-EffectusTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Effectus-EffectusTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* EffectusTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EffectusTests.m; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* Effectus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Effectus.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -48,36 +47,23 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Effectus/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Effectus/main.m; sourceTree = "<group>"; };
 		189CE0CBC3ED4D51BB1C8D51 /* NunitoSans-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "NunitoSans-Regular.ttf"; path = "../src/assets/fonts/NunitoSans-Regular.ttf"; sourceTree = "<group>"; };
-		1C98C079CDC74151BC1BE98E /* Pods-Effectus-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Effectus-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-Effectus-tvOSTests/Pods-Effectus-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
-		1FF6942EBA95C3A6D7CF89DD /* Pods-Effectus-Develop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Effectus-Develop.debug.xcconfig"; path = "Target Support Files/Pods-Effectus-Develop/Pods-Effectus-Develop.debug.xcconfig"; sourceTree = "<group>"; };
 		2D7C75E124C2820E00CBB15B /* Effectus-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Effectus-Bridging-Header.h"; sourceTree = "<group>"; };
 		2D7C75E224C2820E00CBB15B /* Effectus-Staging-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Effectus-Staging-Bridging-Header.h"; sourceTree = "<group>"; };
 		2D7C75E324C2820E00CBB15B /* Effectus-Develop-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Effectus-Develop-Bridging-Header.h"; sourceTree = "<group>"; };
-		44697982F9284E7E43F44305 /* libPods-Effectus-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Effectus-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4AA7982FEEB6DA2C52ACBD5E /* Pods-Effectus-EffectusTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Effectus-EffectusTests.release.xcconfig"; path = "Target Support Files/Pods-Effectus-EffectusTests/Pods-Effectus-EffectusTests.release.xcconfig"; sourceTree = "<group>"; };
 		4F69FF92D02E48A2948C2399 /* NunitoSans-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "NunitoSans-Bold.ttf"; path = "../src/assets/fonts/NunitoSans-Bold.ttf"; sourceTree = "<group>"; };
-		5194B9636EC5B962F89DA5B8 /* libPods-Effectus-Staging.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Effectus-Staging.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5537A5DB24376A1800F9B9FE /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		5FFF1A0A0D79A52FA343994E /* libPods-Effectus-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Effectus-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E931840F78A42DE9907A241 /* NunitoSans-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "NunitoSans-SemiBold.ttf"; path = "../src/assets/fonts/NunitoSans-SemiBold.ttf"; sourceTree = "<group>"; };
-		83ACE6892685D8C6AAE6DA9C /* Pods-Effectus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Effectus.release.xcconfig"; path = "Target Support Files/Pods-Effectus/Pods-Effectus.release.xcconfig"; sourceTree = "<group>"; };
-		8BE8208158E18B7F778E5A71 /* Pods-Effectus-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Effectus-tvOS.release.xcconfig"; path = "Target Support Files/Pods-Effectus-tvOS/Pods-Effectus-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		95859CEF66C0457791F55DA2 /* NunitoSans-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "NunitoSans-Light.ttf"; path = "../src/assets/fonts/NunitoSans-Light.ttf"; sourceTree = "<group>"; };
-		972824CB458A25B53AC1EFEA /* Pods-Effectus-Staging.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Effectus-Staging.release.xcconfig"; path = "Target Support Files/Pods-Effectus-Staging/Pods-Effectus-Staging.release.xcconfig"; sourceTree = "<group>"; };
-		A5F764061187CD576D860FC4 /* Pods-Effectus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Effectus.debug.xcconfig"; path = "Target Support Files/Pods-Effectus/Pods-Effectus.debug.xcconfig"; sourceTree = "<group>"; };
-		A6D74305879FCEDD3E81ED1B /* Pods-Effectus-Develop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Effectus-Develop.release.xcconfig"; path = "Target Support Files/Pods-Effectus-Develop/Pods-Effectus-Develop.release.xcconfig"; sourceTree = "<group>"; };
-		ABEEF0B1DB8EDFD53517D32C /* Pods-Effectus-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Effectus-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-Effectus-tvOSTests/Pods-Effectus-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
-		AE1AB4DBFE1058BF55733D8B /* libPods-Effectus-Develop.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Effectus-Develop.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BD532F9B2E00989E2D8BF49D /* Pods-EffectusTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EffectusTests.release.xcconfig"; path = "Target Support Files/Pods-EffectusTests/Pods-EffectusTests.release.xcconfig"; sourceTree = "<group>"; };
-		C759D31818F4F72821F8604D /* Pods-Effectus-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Effectus-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-Effectus-tvOS/Pods-Effectus-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
-		DD77FD7C5108B7A4A649604F /* Pods-EffectusTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EffectusTests.debug.xcconfig"; path = "Target Support Files/Pods-EffectusTests/Pods-EffectusTests.debug.xcconfig"; sourceTree = "<group>"; };
-		E280833A393130671A73F396 /* Pods-Effectus-Staging.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Effectus-Staging.debug.xcconfig"; path = "Target Support Files/Pods-Effectus-Staging/Pods-Effectus-Staging.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
-		F7C7C84CAE6734BF690017FE /* libPods-Effectus.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Effectus.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F9EB8F114CD0FD664770E646 /* Pods-Effectus-EffectusTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Effectus-EffectusTests.debug.xcconfig"; path = "Target Support Files/Pods-Effectus-EffectusTests/Pods-Effectus-EffectusTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FB6BDEC12501C39100C497C7 /* Info-Dev.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info-Dev.plist"; path = "Effectus/Info-Dev.plist"; sourceTree = "<group>"; };
 		FB6BDEC22501C39100C497C7 /* Info-Staging.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info-Staging.plist"; path = "Effectus/Info-Staging.plist"; sourceTree = "<group>"; };
+		FB91BECB25140B2F00B0D580 /* Effectus-Develop.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Effectus-Develop.entitlements"; sourceTree = "<group>"; };
+		FB91BECC25140C0B00B0D580 /* Effectus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Effectus.entitlements; path = Effectus/Effectus.entitlements; sourceTree = "<group>"; };
+		FB91BECD25140C1500B0D580 /* Effectus-Staging.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Effectus-Staging.entitlements"; sourceTree = "<group>"; };
+		FB91BED42514F8C600B0D580 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Effectus/Firebase/Dev/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FB91BED62514F8D200B0D580 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Effectus/Firebase/Staging/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FB91BED82514F8DB00B0D580 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Effectus/Firebase/Prod/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FE002B0922E9DCD20027B199 /* Effectus-Staging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Effectus-Staging.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE002B1A22EA13BF0027B199 /* Effectus-Develop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Effectus-Develop.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -87,7 +73,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D35AFCB0D169AD30C275822B /* libPods-Effectus.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,7 +80,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E77860054D22D4DDB9D5F9AA /* libPods-Effectus-Staging.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,7 +87,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BBCDE83BA965486201CF31AB /* libPods-Effectus-Develop.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,6 +113,8 @@
 		13B07FAE1A68108700A75B9A /* Effectus */ = {
 			isa = PBXGroup;
 			children = (
+				FB91BED02514F8A600B0D580 /* Firebase */,
+				FB91BECC25140C0B00B0D580 /* Effectus.entitlements */,
 				FB6BDEC12501C39100C497C7 /* Info-Dev.plist */,
 				FB6BDEC22501C39100C497C7 /* Info-Staging.plist */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
@@ -151,12 +136,6 @@
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
-				F7C7C84CAE6734BF690017FE /* libPods-Effectus.a */,
-				44697982F9284E7E43F44305 /* libPods-Effectus-tvOS.a */,
-				5FFF1A0A0D79A52FA343994E /* libPods-Effectus-tvOSTests.a */,
-				AE1AB4DBFE1058BF55733D8B /* libPods-Effectus-Develop.a */,
-				5194B9636EC5B962F89DA5B8 /* libPods-Effectus-Staging.a */,
-				00AC18E667F4EDFD330B4527 /* libPods-Effectus-EffectusTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -182,6 +161,8 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				FB91BECD25140C1500B0D580 /* Effectus-Staging.entitlements */,
+				FB91BECB25140B2F00B0D580 /* Effectus-Develop.entitlements */,
 				13B07FAE1A68108700A75B9A /* Effectus */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* EffectusTests */,
@@ -208,22 +189,42 @@
 		D61026C4A3CF4DDFB97A0F07 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				C759D31818F4F72821F8604D /* Pods-Effectus-tvOS.debug.xcconfig */,
-				8BE8208158E18B7F778E5A71 /* Pods-Effectus-tvOS.release.xcconfig */,
-				ABEEF0B1DB8EDFD53517D32C /* Pods-Effectus-tvOSTests.debug.xcconfig */,
-				1C98C079CDC74151BC1BE98E /* Pods-Effectus-tvOSTests.release.xcconfig */,
-				DD77FD7C5108B7A4A649604F /* Pods-EffectusTests.debug.xcconfig */,
-				BD532F9B2E00989E2D8BF49D /* Pods-EffectusTests.release.xcconfig */,
-				A5F764061187CD576D860FC4 /* Pods-Effectus.debug.xcconfig */,
-				83ACE6892685D8C6AAE6DA9C /* Pods-Effectus.release.xcconfig */,
-				E280833A393130671A73F396 /* Pods-Effectus-Staging.debug.xcconfig */,
-				972824CB458A25B53AC1EFEA /* Pods-Effectus-Staging.release.xcconfig */,
-				1FF6942EBA95C3A6D7CF89DD /* Pods-Effectus-Develop.debug.xcconfig */,
-				A6D74305879FCEDD3E81ED1B /* Pods-Effectus-Develop.release.xcconfig */,
-				F9EB8F114CD0FD664770E646 /* Pods-Effectus-EffectusTests.debug.xcconfig */,
-				4AA7982FEEB6DA2C52ACBD5E /* Pods-Effectus-EffectusTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		FB91BED02514F8A600B0D580 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				FB91BED32514F8BD00B0D580 /* Prod */,
+				FB91BED22514F8B600B0D580 /* Staging */,
+				FB91BED12514F8AD00B0D580 /* Dev */,
+			);
+			name = Firebase;
+			sourceTree = "<group>";
+		};
+		FB91BED12514F8AD00B0D580 /* Dev */ = {
+			isa = PBXGroup;
+			children = (
+				FB91BED42514F8C600B0D580 /* GoogleService-Info.plist */,
+			);
+			name = Dev;
+			sourceTree = "<group>";
+		};
+		FB91BED22514F8B600B0D580 /* Staging */ = {
+			isa = PBXGroup;
+			children = (
+				FB91BED62514F8D200B0D580 /* GoogleService-Info.plist */,
+			);
+			name = Staging;
+			sourceTree = "<group>";
+		};
+		FB91BED32514F8BD00B0D580 /* Prod */ = {
+			isa = PBXGroup;
+			children = (
+				FB91BED82514F8DB00B0D580 /* GoogleService-Info.plist */,
+			);
+			name = Prod;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,7 +234,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Effectus" */;
 			buildPhases = (
-				37D0E53BA7A052DA1ACCEE02 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
@@ -253,7 +253,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FE002B0622E9DCD20027B199 /* Build configuration list for PBXNativeTarget "Effectus-Staging" */;
 			buildPhases = (
-				27E75E17105192B75AF11FF9 /* [CP] Check Pods Manifest.lock */,
 				FE002AFC22E9DCD20027B199 /* Start Packager */,
 				FE002AFD22E9DCD20027B199 /* Sources */,
 				FE002B0022E9DCD20027B199 /* Frameworks */,
@@ -273,7 +272,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FE002B1722EA13BF0027B199 /* Build configuration list for PBXNativeTarget "Effectus-Develop" */;
 			buildPhases = (
-				FE002B0C22EA13BF0027B199 /* [CP] Check Pods Manifest.lock */,
 				FE002B0D22EA13BF0027B199 /* Start Packager */,
 				FE002B0E22EA13BF0027B199 /* Sources */,
 				FE002B1122EA13BF0027B199 /* Frameworks */,
@@ -344,6 +342,7 @@
 				0E1AE309C93E48E48FD92D39 /* NunitoSans-Light.ttf in Resources */,
 				4B13FDC62CCD4ADCA3F26AA3 /* NunitoSans-Regular.ttf in Resources */,
 				98DD89244F774B008485DF2F /* NunitoSans-SemiBold.ttf in Resources */,
+				FB91BED92514F8DB00B0D580 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,6 +356,7 @@
 				FB6BDEC82501C6BA00C497C7 /* NunitoSans-Light.ttf in Resources */,
 				FB6BDEC92501C6BA00C497C7 /* NunitoSans-Regular.ttf in Resources */,
 				FB6BDECA2501C6BA00C497C7 /* NunitoSans-SemiBold.ttf in Resources */,
+				FB91BED72514F8D200B0D580 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,6 +370,7 @@
 				FB6BDEC42501C6B200C497C7 /* NunitoSans-Light.ttf in Resources */,
 				FB6BDEC52501C6B200C497C7 /* NunitoSans-Regular.ttf in Resources */,
 				FB6BDEC62501C6B200C497C7 /* NunitoSans-SemiBold.ttf in Resources */,
+				FB91BED52514F8C600B0D580 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,50 +390,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
-		};
-		27E75E17105192B75AF11FF9 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Effectus-Staging-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		37D0E53BA7A052DA1ACCEE02 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Effectus-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -485,28 +442,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
-		};
-		FE002B0C22EA13BF0027B199 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Effectus-Develop-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
 		};
 		FE002B0D22EA13BF0027B199 /* Start Packager */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -576,11 +511,11 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A5F764061187CD576D860FC4 /* Pods-Effectus.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Effectus/Effectus.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = F44N5MSDA3;
@@ -610,11 +545,11 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 83ACE6892685D8C6AAE6DA9C /* Pods-Effectus.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Effectus/Effectus.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F44N5MSDA3;
 				INFOPLIST_FILE = Effectus/Info.plist;
@@ -757,11 +692,11 @@
 		};
 		FE002B0722E9DCD20027B199 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E280833A393130671A73F396 /* Pods-Effectus-Staging.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-stage";
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Effectus-Staging.entitlements";
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = F44N5MSDA3;
@@ -791,11 +726,11 @@
 		};
 		FE002B0822E9DCD20027B199 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 972824CB458A25B53AC1EFEA /* Pods-Effectus-Staging.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-stage";
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Effectus-Staging.entitlements";
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F44N5MSDA3;
 				INFOPLIST_FILE = "$(SRCROOT)/Effectus/Info-Staging.plist";
@@ -823,11 +758,11 @@
 		};
 		FE002B1822EA13BF0027B199 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1FF6942EBA95C3A6D7CF89DD /* Pods-Effectus-Develop.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-dev";
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Effectus-Develop.entitlements";
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = F44N5MSDA3;
@@ -857,11 +792,11 @@
 		};
 		FE002B1922EA13BF0027B199 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A6D74305879FCEDD3E81ED1B /* Pods-Effectus-Develop.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-dev";
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Effectus-Develop.entitlements";
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F44N5MSDA3;
 				INFOPLIST_FILE = "$(SRCROOT)/Effectus/Info-Dev.plist";
