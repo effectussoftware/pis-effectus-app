@@ -1,4 +1,7 @@
 platform :ios, '9.0'
+# This is a temporary fix cocoapods cdn is broken
+source 'https://cocoapods-cdn.netlify.app/'
+
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
 def add_flipper_pods!(versions = {})
