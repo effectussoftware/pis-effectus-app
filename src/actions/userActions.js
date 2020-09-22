@@ -4,22 +4,28 @@ import { createThunk, createAction } from '@rootstrap/redux-tools';
 import userService from 'services/userService';
 import parseError from 'utils/parseError';
 
-const registerDevice = () => async () => {
-  if (!messaging().isRegisteredForRemoteNotifications) {
-    await messaging().registerForRemoteNotifications();
+export const registerDevice = createThunk('REGISTER_DEVICE', async () => {
+  try {
+    debugger;
+    if (!messaging().isDeviceRegisteredForRemoteMessages) {
+      await messaging().registerDeviceForRemoteMessages();
+    }
+    // await messaging().getToken();
+    const token = await messaging().getToken();
+    console.log(token);
+    // await userService.registerDevice(token);
+  } catch (err) {
+    console.log(err);
   }
-  await messaging().getToken();
-  // const token = await messaging().getToken();
-  // await userService.registerDevice(token);
-};
+});
 
 export const login = createThunk('LOGIN', async (user, dispatch) => {
   try {
-    const {
-      data: { user: loggedUser },
-    } = await userService.login({ user });
+    // const {
+    //   data: { user: loggedUser },
+    // } = await userService.login({ user });
     dispatch(registerDevice());
-    return loggedUser;
+    // return loggedUser;
   } catch ({ response }) {
     throw parseError(response);
   }

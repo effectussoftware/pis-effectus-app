@@ -1,21 +1,8 @@
-import { NavigationActions } from '@react-navigation/native';
+import React from 'react';
 
-let _navigator = null;
+export const navigationRef = React.createRef();
 
-function setTopLevelNavigator(navigatorRef) {
-  _navigator = navigatorRef;
+export function navigate(name, params) {
+  // eslint-disable-next-line no-unused-expressions
+  navigationRef.current?.navigate(name, params);
 }
-
-function navigate(routeName, params) {
-  _navigator.dispatch(
-    NavigationActions.navigate({
-      routeName,
-      params,
-    }),
-  );
-}
-
-export default {
-  navigate,
-  setTopLevelNavigator,
-};

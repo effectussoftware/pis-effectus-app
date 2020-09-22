@@ -7,7 +7,6 @@ import httpClient from 'httpClient';
 import applyDefaultInterceptors from 'httpClient/applyDefaultInterceptors';
 import { requestNotifications } from 'react-native-permissions';
 
-import NavigationService from 'services/navigationService';
 import Navigation from 'navigators';
 import configureStore from 'store/configureStore';
 import useNotification from 'hooks/useNotification';
@@ -16,24 +15,26 @@ const { store, persistor } = configureStore({});
 
 applyDefaultInterceptors(store, httpClient);
 
-const checkPermission = useCallback(async () => {
-  requestNotifications(['alert', 'badge', 'sound']);
-}, []);
+const App = () => {
+  const checkPermission = useCallback(async () => {
+    requestNotifications(['alert', 'badge', 'sound']);
+  }, []);
 
-useEffect(() => {
-  checkPermission();
-}, [checkPermission]);
+  useEffect(() => {
+    checkPermission();
+  }, [checkPermission]);
 
-useNotification();
+  useNotification();
 
-const App = () => (
-  <Provider store={store}>
-    <PersistGate loading={<ActivityIndicator />} persistor={persistor}>
-      <SafeAreaProvider>
-        <Navigation ref={navigatorRef => NavigationService.setTopLevelNavigator(navigatorRef)} />
-      </SafeAreaProvider>
-    </PersistGate>
-  </Provider>
-);
+  return (
+    <Provider store={store}>
+      <PersistGate loading={<ActivityIndicator />} persistor={persistor}>
+        <SafeAreaProvider>
+          <Navigation />
+        </SafeAreaProvider>
+      </PersistGate>
+    </Provider>
+  );
+};
 
 export default App;

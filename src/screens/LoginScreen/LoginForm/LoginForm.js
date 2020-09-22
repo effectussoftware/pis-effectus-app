@@ -29,7 +29,6 @@ const LoginForm = ({ onSubmit }) => {
     handleBlur,
     activeFields,
     touched,
-    formHasErrors,
   } = useForm(
     {
       onSubmit,
@@ -69,7 +68,7 @@ const LoginForm = ({ onSubmit }) => {
         testID="login-submit-button"
         title={status === LOADING ? strings.COMMON.loading : strings.SIGN_IN.button}
         onPress={handleSubmit}
-        disabled={formHasErrors}
+        // disabled={formHasErrors}
       />
     </>
   );
