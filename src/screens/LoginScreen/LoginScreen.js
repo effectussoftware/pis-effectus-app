@@ -29,9 +29,10 @@ const LoginScreen = () => {
   const signIn = async () => {
     try {
       await GoogleSignin.hasPlayServices();
-      const userInfo = await GoogleSignin.signIn();
-      console.log(userInfo);
-      loginRequest(userInfo);
+
+      const { idToken } = await GoogleSignin.signIn();
+
+      loginRequest(idToken);
     } catch (error) {
       switch (error.code) {
         case statusCodes.SIGN_IN_CANCELLED:
