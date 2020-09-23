@@ -3,11 +3,8 @@ export default {
     loading: 'Cargando',
     somethingWentWrong: 'Algo salió mal',
   },
-  SIGN_IN: {
-    title: 'Iniciar sesión',
-    email: 'Email',
-    password: 'Contraseña',
-    button: 'Iniciar sesión',
+  LOGIN_SCREEN: {
+    submit: 'Iniciar sesión',
   },
 
   MAIN_SCREEN: {

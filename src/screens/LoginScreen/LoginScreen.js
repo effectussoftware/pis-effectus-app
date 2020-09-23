@@ -1,36 +1,36 @@
 import React, { memo, useCallback, useEffect } from 'react';
-import { object } from 'prop-types';
 import { View, Image, Alert } from 'react-native';
 import { useDispatch } from 'react-redux';
+import Config from 'react-native-config';
 
-import {
-  GoogleSignin,
-  GoogleSigninButton,
-  statusCodes,
-} from '@react-native-community/google-signin';
+import { GoogleSignin, statusCodes } from '@react-native-community/google-signin';
 
-import { login } from 'actions/userActions';
 import strings from 'locale';
+import { login } from 'actions/userActions';
 import { LOGIN_SCREEN } from 'constants/screens';
 
-import appLogo from '../../assets/images/appLogo/default.png';
+import { Button } from 'components';
+
+import appLogo from 'assets/images/appLogo/default.png';
 
 import styles from './LoginScreen.styles';
 
-const LoginScreen = ({ navigation }) => {
-  navigation.setOptions({ title: strings.SIGN_IN.title });
-
+const LoginScreen = () => {
   const dispatch = useDispatch();
   const loginRequest = useCallback(user => dispatch(login(user)), [dispatch]);
 
   useEffect(() => {
-    GoogleSignin.configure();
+    GoogleSignin.configure({
+      webClientId: Config.GOOGLE_AUTH_CLIENT_ID_SERVER,
+      iosClientId: Config.GOOGLE_AUTH_CLIENT_ID_IOS,
+    });
   }, []);
 
-  const _signIn = async () => {
+  const signIn = async () => {
     try {
       await GoogleSignin.hasPlayServices();
       const userInfo = await GoogleSignin.signIn();
+      console.log(userInfo);
       loginRequest(userInfo);
     } catch (error) {
       switch (error.code) {
@@ -54,18 +54,10 @@ const LoginScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container} testID={LOGIN_SCREEN}>
-      <Image source={appLogo} />
-      <GoogleSigninButton
-        size={GoogleSigninButton.Size.Standard}
-        color={GoogleSigninButton.Color.Auto}
-        onPress={_signIn}
-      />
+      <Image style={styles.logo} source={appLogo} />
+      <Button title={strings.LOGIN_SCREEN.submit} onPress={signIn} />
     </View>
   );
-};
-
-LoginScreen.propTypes = {
-  navigation: object.isRequired,
 };
 
 export default memo(LoginScreen);

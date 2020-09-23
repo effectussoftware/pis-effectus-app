@@ -6,9 +6,13 @@ import { WHITE } from 'constants/colors';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 16,
+    alignItems: 'center',
+    paddingTop: '30%',
     paddingHorizontal: DEFAULT_HORIZONTAL_SEPARATION,
     backgroundColor: WHITE,
+  },
+  logo: {
+    marginBottom: 50,
   },
 });
 
