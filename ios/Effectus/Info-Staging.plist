@@ -27,7 +27,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>$(GOOGLE_AUTH_URL_SCHEME_IOS)</string>
+				<string>com.apps.googleusercontent.943371264745-ru3rt3btv0j55oo59663vh294hs77e25</string>
 			</array>
 		</dict>
 	</array>
