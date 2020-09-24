@@ -12,7 +12,7 @@ export default {
 
   MAIN_SCREEN: {
     logout: 'Cerrar sesión',
-    title: 'Pagina Principal',
+    title: 'Novedades',
   },
 
   SIGN_UP: {
