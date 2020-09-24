@@ -1,8 +1,9 @@
-import { PRIMARY } from 'constants/colors';
+import { LIGHT_GRAY, PRIMARY } from 'constants/colors';
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: LIGHT_GRAY,
     alignItems: 'center',
     justifyContent: 'center',
     width: 36,
