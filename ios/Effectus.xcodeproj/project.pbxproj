@@ -275,8 +275,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FE002B1722EA13BF0027B199 /* Build configuration list for PBXNativeTarget "Effectus-Develop" */;
 			buildPhases = (
-				0ACBAB50251B83D3004A558B /* React Native Config */,
 				FE002B0C22EA13BF0027B199 /* [CP] Check Pods Manifest.lock */,
+				0ACBAB50251B83D3004A558B /* React Native Config */,
 				FE002B0D22EA13BF0027B199 /* Start Packager */,
 				FE002B0E22EA13BF0027B199 /* Sources */,
 				FE002B1122EA13BF0027B199 /* Frameworks */,
