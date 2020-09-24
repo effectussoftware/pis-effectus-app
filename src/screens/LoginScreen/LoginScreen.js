@@ -8,6 +8,7 @@ import strings from 'locale';
 import { LOGIN_SCREEN } from 'constants/screens';
 import LoginForm from 'screens/LoginScreen/LoginForm';
 
+import FeedCard from 'components/FeedCard';
 import styles from './LoginScreen.styles';
 
 const LoginScreen = ({ navigation }) => {
@@ -19,6 +20,7 @@ const LoginScreen = ({ navigation }) => {
   return (
     <View style={styles.container} testID={LOGIN_SCREEN}>
       <LoginForm onSubmit={loginRequest} />
+      <FeedCard />
     </View>
   );
 };
