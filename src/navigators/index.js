@@ -16,7 +16,7 @@ const Navigation = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator headerMode="none">
-        {user && info ? (
+        {(user && info) || true ? (
           <Stack.Screen name={APP_STACK} component={AppStack} />
         ) : (
           <Stack.Screen name={AUTH_STACK} component={AuthStack} />
