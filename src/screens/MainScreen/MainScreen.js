@@ -1,4 +1,5 @@
 import React, { useCallback } from 'react';
+import { object } from 'prop-types';
 import { View, Button } from 'react-native';
 import { useDispatch } from 'react-redux';
 
@@ -9,7 +10,9 @@ import strings from 'locale';
 import useSession from 'hooks/useSession';
 import styles from './MainScreen.styles';
 
-const MainScreen = () => {
+const MainScreen = ({ navigation }) => {
+  navigation.setOptions({ title: strings.MAIN_SCREEN.title });
+
   const dispatch = useDispatch();
   const logoutRequest = useCallback(() => dispatch(logout()), [dispatch]);
 
@@ -25,8 +28,8 @@ const MainScreen = () => {
   );
 };
 
-MainScreen.navigationOptions = {
-  title: strings.MAIN_SCREEN.title,
+MainScreen.propTypes = {
+  navigation: object.isRequired,
 };
 
 export default MainScreen;

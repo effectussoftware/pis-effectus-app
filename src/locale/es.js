@@ -15,6 +15,11 @@ export default {
     title: 'Novedades',
   },
 
+  PROFILE_SCREEN: {
+    logout: 'Cerrar sesión',
+    title: 'Perfil',
+  },
+
   SIGN_UP: {
     title: 'Registro',
     email: 'Email',
