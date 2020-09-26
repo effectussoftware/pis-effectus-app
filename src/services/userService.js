@@ -1,8 +1,8 @@
 import httpClient from 'httpClient';
 
 class UserService {
-  login(idToken) {
-    return httpClient.post('/auth/login', idToken);
+  login(token) {
+    return httpClient.post('/auth/login', token);
   }
 
   logout() {
