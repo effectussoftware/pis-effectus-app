@@ -6,16 +6,13 @@ import parseError from 'utils/parseError';
 
 export const registerDevice = createThunk('REGISTER_DEVICE', async () => {
   try {
-    debugger;
     if (!messaging().isDeviceRegisteredForRemoteMessages) {
       await messaging().registerDeviceForRemoteMessages();
     }
-    // await messaging().getToken();
     const token = await messaging().getToken();
-    console.log(token);
-    // await userService.registerDevice(token);
-  } catch (err) {
-    console.log(err);
+    await userService.registerDevice(token);
+  } catch ({ response }) {
+    throw parseError(response);
   }
 });
 

@@ -14,7 +14,7 @@ class UserService {
   }
 
   registerDevice(token) {
-    return httpClient.post('/devices', { device: { token } });
+    return httpClient.post('/device_registrations', { device: { token } });
   }
 }
 
