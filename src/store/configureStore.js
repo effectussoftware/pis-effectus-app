@@ -4,7 +4,9 @@ import { thunkMiddleware } from '@rootstrap/redux-tools';
 import { createLogger } from 'redux-logger';
 import createDebugger from 'redux-flipper';
 import { persistStore, persistReducer } from 'redux-persist';
+
 import AppReducer from 'reducers';
+import parseError from 'utils/parseError';
 
 /* eslint-disable */
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -17,7 +19,8 @@ const persistConfig = {
 };
 
 export default function configureStore(initialState) {
-  const middlewares = [thunkMiddleware];
+  thunkMiddleware.withConfig({ parseError });
+  const middlewares = [thunkMiddleware.withConfig({ parseError })];
 
   if (__DEV__) {
     middlewares.push(createDebugger());
