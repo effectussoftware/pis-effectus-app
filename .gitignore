@@ -22,7 +22,6 @@ DerivedData
 *.xcuserstate
 project.xcworkspace
 ios/Pods
-ios/tmp.xcconfig
 
 # Android/IntelliJ
 #

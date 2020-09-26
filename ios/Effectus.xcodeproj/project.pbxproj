@@ -276,7 +276,6 @@
 			buildConfigurationList = FE002B1722EA13BF0027B199 /* Build configuration list for PBXNativeTarget "Effectus-Develop" */;
 			buildPhases = (
 				FE002B0C22EA13BF0027B199 /* [CP] Check Pods Manifest.lock */,
-				0ACBAB50251B83D3004A558B /* React Native Config */,
 				FE002B0D22EA13BF0027B199 /* Start Packager */,
 				FE002B0E22EA13BF0027B199 /* Sources */,
 				FE002B1122EA13BF0027B199 /* Frameworks */,
@@ -393,24 +392,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
-		};
-		0ACBAB50251B83D3004A558B /* React Native Config */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "React Native Config";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${SRCROOT}/../node_modules/react-native-config/ios/ReactNativeConfig/BuildXCConfig.rb\" \"${SRCROOT}/..\" \"${SRCROOT}/tmp.xcconfig\"\n";
 		};
 		0E2618544CE110F86A9E0D64 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
