@@ -21,8 +21,7 @@
     "android:clean": "cd android && ./gradlew clean",
     "test": "jest",
     "test:cover": " run test --coverage",
-    "prettier": "prettier --write './src/**/*.js'",
-    "postinstall": "patch-package"
+    "prettier": "prettier --write './src/**/*.js'"
   },
   "dependencies": {
     "@react-native-community/async-storage": "1.7.1",
@@ -75,7 +74,6 @@
     "jest": "^25.1.0",
     "lint-staged": "9.2.0",
     "metro-react-native-babel-preset": "0.59.0",
-    "patch-package": "^6.2.2",
     "prettier": "1.18.2",
     "react-dom": "16.9.0",
     "react-native-flipper": "0.54.0",
