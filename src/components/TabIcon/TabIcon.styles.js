@@ -8,13 +8,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     width: 36,
     aspectRatio: 1,
-    borderRadius: 19,
+    borderRadius: 22,
   },
   focused: {
     backgroundColor: PRIMARY,
   },
   icon: {
-    height: 17,
+    height: 20,
   },
 });
 
