@@ -21,8 +21,7 @@
     "android:clean": "cd android && ./gradlew clean",
     "test": "jest",
     "test:cover": " run test --coverage",
-    "prettier": "prettier --write './src/**/*.js'",
-    "postinstall": "patch-package"
+    "prettier": "prettier --write './src/**/*.js'"
   },
   "dependencies": {
     "@react-native-community/async-storage": "1.7.1",
@@ -30,6 +29,7 @@
     "@react-native-community/push-notification-ios": "^1.5.0",
     "@react-native-firebase/app": "^8.4.3",
     "@react-native-firebase/messaging": "^7.8.6",
+    "@react-navigation/bottom-tabs": "5.0.0",
     "@react-navigation/native": "5.0.0",
     "@react-navigation/stack": "5.0.0",
     "@rootstrap/redux-tools": "^0.4.2",
@@ -39,8 +39,8 @@
     "immer": "5.0.0",
     "lodash": "4.17.15",
     "prop-types": "15.7.2",
-    "react": "16.11.0",
-    "react-native": "0.62.2",
+    "react": "16.13.1",
+    "react-native": "0.63.2",
     "react-native-config": "0.12.0",
     "react-native-gesture-handler": "^1.5.6",
     "react-native-localization": "2.1.5",
@@ -78,12 +78,11 @@
     "isomorphic-fetch": "2.2.1",
     "jest": "^25.1.0",
     "lint-staged": "9.2.0",
-    "metro-react-native-babel-preset": "0.58.0",
-    "patch-package": "^6.2.2",
+    "metro-react-native-babel-preset": "0.59.0",
     "prettier": "1.18.2",
     "react-dom": "16.9.0",
-    "react-native-flipper": "0.50.0",
-    "react-test-renderer": "16.11.0",
+    "react-native-flipper": "0.54.0",
+    "react-test-renderer": "16.13.1",
     "redux-logger": "3.0.6"
   },
   "husky": {

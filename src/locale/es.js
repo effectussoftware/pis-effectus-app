@@ -3,6 +3,7 @@ export default {
     loading: 'Cargando',
     somethingWentWrong: 'Algo salió mal',
   },
+
   SIGN_IN: {
     title: 'Iniciar sesión',
     email: 'Email',
@@ -10,9 +11,16 @@ export default {
     button: 'Iniciar sesión',
   },
 
-  MAIN_SCREEN: {
+  SIGN_OUT: {
     logout: 'Cerrar sesión',
-    title: 'Pagina Principal',
+  },
+
+  MAIN_SCREEN: {
+    title: 'Novedades',
+  },
+
+  PROFILE_SCREEN: {
+    title: 'Perfil',
   },
 
   SIGN_UP: {

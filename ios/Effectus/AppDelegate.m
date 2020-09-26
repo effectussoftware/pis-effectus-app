@@ -9,6 +9,7 @@
 #import <React/RCTRootView.h>
 
 #if DEBUG
+#ifdef FB_SONARKIT_ENABLED
 #import <FlipperKit/FlipperClient.h>
 #import <FlipperKitLayoutPlugin/FlipperKitLayoutPlugin.h>
 #import <FlipperKitUserDefaultsPlugin/FKUserDefaultsPlugin.h>
@@ -26,6 +27,7 @@ static void InitializeFlipper(UIApplication *application) {
   [client start];
 }
 #endif
+#endif
 
 @implementation AppDelegate
 
@@ -34,7 +36,9 @@ static void InitializeFlipper(UIApplication *application) {
  
   
   #if DEBUG
-    InitializeFlipper(application);
+    #ifdef FB_SONARKIT_ENABLED
+      InitializeFlipper(application);
+    #endif
   #endif
   
   RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
