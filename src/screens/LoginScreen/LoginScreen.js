@@ -56,7 +56,7 @@ const LoginScreen = () => {
   return (
     <View style={styles.container} testID={LOGIN_SCREEN}>
       <Image style={styles.logo} source={appLogo} />
-      <Button title={strings.LOGIN_SCREEN.submit} onPress={signIn} />
+      <Button title={strings.LOGIN_SCREEN.submit} onPress={signIn} testID="login-submit-button" />
     </View>
   );
 };
