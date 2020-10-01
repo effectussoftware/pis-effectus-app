@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { object } from 'prop-types';
 import { View } from 'react-native';
 
@@ -8,7 +8,9 @@ import SignOut from 'components/SignOut';
 import styles from './ProfileScreen.styles';
 
 const ProfileScreen = ({ navigation }) => {
-  navigation.setOptions({ title: strings.PROFILE_SCREEN.title });
+  useEffect(() => {
+    navigation.setOptions({ title: strings.PROFILE_SCREEN.title });
+  }, [navigation]);
 
   return (
     <View style={styles.container} testID={PROFILE_SCREEN}>
