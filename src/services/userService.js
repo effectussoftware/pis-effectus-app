@@ -6,7 +6,7 @@ class UserService {
   }
 
   logout() {
-    return httpClient.delete('/users/sign_out', { data: {} });
+    return httpClient.delete('/auth/sign_out');
   }
 
   signUp(user) {
