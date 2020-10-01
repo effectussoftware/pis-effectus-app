@@ -3,6 +3,7 @@ import { fireEvent, waitFor } from '@testing-library/react-native';
 
 import { LOGIN_SCREEN, MAIN_SCREEN } from 'constants/screens';
 import Navigator from 'navigators';
+import testIds from 'constants/testIds';
 
 import {
   renderWithRedux,
@@ -63,19 +64,19 @@ describe('Navigator', () => {
       expect(wrapper.queryByTestId(MAIN_SCREEN)).toBeTruthy();
     });
 
-    // describe('when the user press the logout button', () => {
-    //   it('should redirect the user to the login screen', async () => {
-    //     mockedHttpClient(store)
-    //       .onDelete('/users/sign_out')
-    //       .reply(200, { success: true }, {});
+    describe('when the user press the logout button', () => {
+      it('should redirect the user to the login screen', async () => {
+        mockedHttpClient(store)
+          .onDelete('/auth/sign_out')
+          .reply(200, { success: true }, {});
+        fireEvent.press(wrapper.queryByTestId(testIds.TABS.profile));
+        fireEvent.press(wrapper.queryByTestId(testIds.PROFILE_SCREEN.logoutButton));
 
-    //     fireEvent.press(wrapper.queryByTestId('logout-button'));
-
-    //     await waitFor(() => {
-    //       expect(wrapper.queryByTestId(LOGIN_SCREEN)).toBeTruthy();
-    //       expect(wrapper.queryByTestId(MAIN_SCREEN)).toBeNull();
-    //     });
-    //   });
-    // });
+        await waitFor(() => {
+          expect(wrapper.queryByTestId(LOGIN_SCREEN)).toBeTruthy();
+          expect(wrapper.queryByTestId(MAIN_SCREEN)).toBeNull();
+        });
+      });
+    });
   });
 });

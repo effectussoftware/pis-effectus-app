@@ -8,6 +8,7 @@ import { GoogleSignin, statusCodes } from '@react-native-community/google-signin
 import strings from 'locale';
 import { login } from 'actions/userActions';
 import { LOGIN_SCREEN } from 'constants/screens';
+import testIds from 'constants/testIds';
 
 import { Button } from 'components';
 
@@ -56,7 +57,11 @@ const LoginScreen = () => {
   return (
     <View style={styles.container} testID={LOGIN_SCREEN}>
       <Image style={styles.logo} source={appLogo} />
-      <Button title={strings.LOGIN_SCREEN.submit} onPress={signIn} testID="login-submit-button" />
+      <Button
+        title={strings.LOGIN_SCREEN.submit}
+        onPress={signIn}
+        testID={testIds.LOGIN_SCREEN.submitButton}
+      />
     </View>
   );
 };
