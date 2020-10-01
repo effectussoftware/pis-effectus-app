@@ -12,8 +12,6 @@ describe('<MainScreen />', () => {
     wrapper = renderWithNavigation(MainScreen, store);
   });
 
-
-  
   it('should render the main screen', () => {
     expect(wrapper.queryByTestId(MAIN_SCREEN)).toBeTruthy();
   });
