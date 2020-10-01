@@ -1,9 +1,9 @@
 import React from 'react';
 import { oneOf } from 'prop-types';
 
-import OneOnOneIcon from 'assets/images/feedIcons/OneOnOne/default.png';
-import PollIcon from 'assets/images/feedIcons/Poll/default.png';
-import ExchangeIcon from 'assets/images/feedIcons/Exchange/default.png';
+import OneOnOneIcon from 'assets/images/feedIcons/oneOnOne/default.png';
+import PollIcon from 'assets/images/feedIcons/poll/default.png';
+import ExchangeIcon from 'assets/images/feedIcons/exchange/default.png';
 import Card from 'components/Card';
 
 // AVAILABLE FEED TYPES
