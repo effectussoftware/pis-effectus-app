@@ -32,8 +32,10 @@ describe('<LoginScreen />', () => {
           .reply(
             200,
             {
-              id: 482,
-              email: 'example@rootstrap.com',
+              user: {
+                id: 482,
+                email: 'example@rootstrap.com',
+              },
             },
             AUTHENTICATED_RESPONSE_HEADERS,
           );
