@@ -1,5 +1,5 @@
 import { createReducer } from '@rootstrap/redux-tools';
-import { loginSuccess, signUpSuccess, logoutSuccess, updateSession } from 'actions/userActions';
+import { loginSuccess, logoutSuccess, updateSession } from 'actions/userActions';
 
 const initialState = {
   user: null,
@@ -21,6 +21,5 @@ const handleUpdateSession = (state, { payload }) => {
 export default createReducer(initialState, {
   [loginSuccess]: handleLoginSuccess,
   [logoutSuccess]: handleLogoutSuccess,
-  [signUpSuccess]: handleLoginSuccess,
   [updateSession]: handleUpdateSession,
 });

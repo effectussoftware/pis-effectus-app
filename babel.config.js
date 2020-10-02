@@ -7,9 +7,9 @@ module.exports = {
         alias: {
           actions: './src/actions',
           assets: './src/assets',
+          components: './src/components',
           httpClient: './src/httpClient',
           services: './src/services',
-          components: './src/components',
           constants: './src/constants',
           screens: './src/screens',
           hooks: './src/hooks',

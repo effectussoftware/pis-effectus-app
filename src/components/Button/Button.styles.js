@@ -2,10 +2,6 @@ import { StyleSheet } from 'react-native';
 import { PRIMARY, WHITE } from 'constants/colors';
 
 const styles = StyleSheet.create({
-  container: {
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   containerPrimary: {
     backgroundColor: PRIMARY,
     height: 54,
@@ -22,6 +18,12 @@ const styles = StyleSheet.create({
   },
   textSecondary: {
     color: PRIMARY,
+  },
+  pressable: {
+    alignSelf: 'stretch',
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 

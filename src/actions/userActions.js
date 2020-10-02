@@ -16,13 +16,11 @@ export const registerDevice = createThunk('REGISTER_DEVICE', async () => {
   }
 });
 
-export const login = createThunk('LOGIN', async (user, dispatch) => {
+export const login = createThunk('LOGIN', async (token, dispatch) => {
   try {
-    // const {
-    //   data: { user: loggedUser },
-    // } = await userService.login({ user });
+    const { data } = await userService.login({ token });
     dispatch(registerDevice());
-    // return loggedUser;
+    return data.user;
   } catch ({ response }) {
     throw parseError(response);
   }
@@ -36,18 +34,7 @@ export const logout = createThunk('LOGOUT', async () => {
   }
 });
 
-export const signUp = createThunk('SIGNUP', async (user, dispatch) => {
-  try {
-    const { data } = await userService.signUp({ user });
-    dispatch(registerDevice());
-    return data;
-  } catch ({ response }) {
-    throw parseError(response);
-  }
-});
-
 export const updateSession = createAction('UPDATE_SESSION');
 
 export const { success: loginSuccess } = login;
-export const { success: signUpSuccess } = signUp;
 export const { success: logoutSuccess } = logout;
