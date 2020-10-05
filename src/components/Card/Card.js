@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Image } from 'react-native';
-import { bool, string } from 'prop-types';
+import { bool, number, string } from 'prop-types';
 
 import Text from 'components/Text';
 
@@ -41,7 +41,7 @@ Card.propTypes = {
   title: string.isRequired,
   description: string.isRequired,
   time: string,
-  icon: string,
+  icon: number,
 };
 
 export default Card;
