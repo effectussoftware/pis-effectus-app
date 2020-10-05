@@ -15,7 +15,7 @@ export const logout = createThunk('LOGOUT', async () => {
   try {
     await userService.logout();
   } catch ({ response }) {
-    throw parseError(response);
+    // logout user anyways by catching error and allowing success to be dispatched
   }
 });
 
