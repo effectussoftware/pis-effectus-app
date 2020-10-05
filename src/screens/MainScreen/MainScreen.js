@@ -1,26 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { object } from 'prop-types';
 import { View } from 'react-native';
 
 import { MAIN_SCREEN } from 'constants/screens';
 import Text from 'components/Text';
 import strings from 'locale';
-import useSession from 'hooks/useSession';
 import styles from './MainScreen.styles';
 
-const MainScreen = () => {
-  const {
-    user: { email },
-  } = useSession();
+const MainScreen = ({ navigation }) => {
+  useEffect(() => {
+    navigation.setOptions({ title: strings.MAIN_SCREEN.title });
+  }, [navigation]);
 
   return (
     <View style={styles.container} testID={MAIN_SCREEN}>
-      <Text type="H2">{`Hey ${email || ''}, you're logged in!`}</Text>
+      <Text type="H2">No hay novedades</Text>
     </View>
   );
 };
 
-MainScreen.navigationOptions = {
-  title: strings.MAIN_SCREEN.title,
+MainScreen.propTypes = {
+  navigation: object.isRequired,
 };
 
 export default MainScreen;

@@ -1,4 +1,6 @@
+import { GoogleSignin } from '@react-native-community/google-signin';
 import { createThunk, createAction } from '@rootstrap/redux-tools';
+
 import userService from 'services/userService';
 import parseError from 'utils/parseError';
 
@@ -15,7 +17,9 @@ export const logout = createThunk('LOGOUT', async () => {
   try {
     await userService.logout();
   } catch ({ response }) {
-    throw parseError(response);
+    // logout user anyways by catching error and allowing success to be
+  } finally {
+    await GoogleSignin.signOut();
   }
 });
 

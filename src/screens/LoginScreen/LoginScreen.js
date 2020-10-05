@@ -2,6 +2,7 @@ import React, { memo, useCallback, useEffect } from 'react';
 import { View, Image, Alert } from 'react-native';
 import { useDispatch } from 'react-redux';
 import Config from 'react-native-config';
+import { useLoading } from '@rootstrap/redux-tools';
 
 import { GoogleSignin, statusCodes } from '@react-native-community/google-signin';
 
@@ -20,10 +21,13 @@ const LoginScreen = () => {
   const dispatch = useDispatch();
   const loginRequest = useCallback(user => dispatch(login(user)), [dispatch]);
 
+  const loading = useLoading(login);
+
   useEffect(() => {
     GoogleSignin.configure({
       webClientId: Config.GOOGLE_AUTH_CLIENT_ID_SERVER,
       iosClientId: Config.GOOGLE_AUTH_CLIENT_ID_IOS,
+      hostedDomain: 'effectussoftware.com',
     });
   }, []);
 
@@ -35,6 +39,8 @@ const LoginScreen = () => {
 
       loginRequest(idToken);
     } catch (error) {
+      await GoogleSignin.revokeAccess();
+      await GoogleSignin.signOut();
       switch (error.code) {
         case statusCodes.SIGN_IN_CANCELLED:
           // sign in was cancelled
@@ -51,6 +57,8 @@ const LoginScreen = () => {
         default:
           Alert.alert('Something went wrong', error.toString());
       }
+      // await GoogleSignin.revokeAccess();
+      // await GoogleSignin.signOut();
     }
   };
 
@@ -58,9 +66,10 @@ const LoginScreen = () => {
     <View style={styles.container} testID={LOGIN_SCREEN}>
       <Image style={styles.logo} source={appLogo} />
       <Button
-        title={strings.LOGIN_SCREEN.submit}
+        title={loading ? strings.COMMON.loading : strings.LOGIN_SCREEN.submit}
         onPress={signIn}
         testID={testIds.LOGIN_SCREEN.submitButton}
+        disabled={loading}
       />
     </View>
   );
