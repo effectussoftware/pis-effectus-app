@@ -14,6 +14,8 @@ export default {
 
   MAIN_SCREEN: {
     title: 'Novedades',
+    viewMore: 'Ver más',
+    viewLess: 'Ver menos',
   },
 
   PROFILE_SCREEN: {

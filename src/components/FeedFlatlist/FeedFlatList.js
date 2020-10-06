@@ -10,7 +10,8 @@ const DATA = [
     id: '1',
     type: 'exchange',
     title: 'Titulo exchange',
-    description: 'Esta es la primer card de exchange del feed',
+    description:
+      'Esta es la primer card de exchange del feed y bla bla bla y bla bla blay bla bla blay bla bla blay bla bla blay bla bla blay bla bla blay bla bla blay bla bla blay bla bla blay bla bla bla',
   },
   {
     id: '2',
