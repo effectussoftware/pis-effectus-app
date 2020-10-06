@@ -19,7 +19,6 @@ const persistConfig = {
 };
 
 export default function configureStore(initialState) {
-  thunkMiddleware.withConfig({ parseError });
   const middlewares = [thunkMiddleware.withConfig({ parseError })];
 
   if (__DEV__) {

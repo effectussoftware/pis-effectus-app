@@ -19,7 +19,7 @@ const handleUpdateSession = (state, { payload }) => {
 };
 
 export default createReducer(initialState, {
-  [login.logoutSuccess]: handleLoginSuccess,
+  [login.success]: handleLoginSuccess,
   [logout.success]: handleLogoutSuccess,
   [updateSession]: handleUpdateSession,
 });
