@@ -53,7 +53,7 @@ const parseErrors = errors => {
 export default err => {
   if (!err) return strings.COMMON.somethingWentWrong;
 
-  const { error, errors } = err.data;
+  const { error, errors } = err.response?.data || {};
 
   if (error) return error;
 
