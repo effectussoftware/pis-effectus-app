@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { oneOf } from 'prop-types';
 
 import OneOnOneIcon from 'assets/images/feedIcons/oneOnOne/default.png';
@@ -24,24 +24,30 @@ const icons = {
 };
 
 const FeedCard = ({ type, ...restProps }) => {
-  const NUMBER_OF_LINES = 2;
+  const LINES_CUTOFF = 2;
   const [descriptionLines, setDescriptionLines] = useState(0);
   const [viewMoreActive, setViewMoreActive] = useState(false);
 
+  const changeActive = useCallback(() => {
+    setViewMoreActive(!viewMoreActive);
+  }, [viewMoreActive]);
+
+  const setLines = useCallback(({ nativeEvent: { lines } }) => {
+    setDescriptionLines(lines.length);
+  }, []);
+
   const descriptionProps = {
-    numberOfLines: viewMoreActive ? descriptionLines : NUMBER_OF_LINES,
+    numberOfLines: viewMoreActive ? descriptionLines : LINES_CUTOFF,
     ellipsizeMode: 'tail',
-    onTextLayout: ({ nativeEvent: { lines } }) => setDescriptionLines(lines.length),
+    onTextLayout: setLines,
   };
 
   return (
     <Card descriptionProps={descriptionProps} icon={icons[type]} {...restProps}>
-      {descriptionLines > NUMBER_OF_LINES && (
+      {descriptionLines > LINES_CUTOFF && (
         <Button
           title={viewMoreActive ? strings.MAIN_SCREEN.viewLess : strings.MAIN_SCREEN.viewMore}
-          onPress={() => {
-            setViewMoreActive(!viewMoreActive);
-          }}
+          onPress={changeActive}
           secondary
         />
       )}
