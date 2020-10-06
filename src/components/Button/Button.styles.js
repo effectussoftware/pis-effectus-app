@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { PRIMARY, WHITE } from 'constants/colors';
+import { GRAY, PRIMARY, WHITE } from 'constants/colors';
 
 const styles = StyleSheet.create({
   containerPrimary: {
@@ -24,6 +24,12 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  containerDisabledPrimary: {
+    backgroundColor: GRAY,
+  },
+  textDisabledSecondary: {
+    color: GRAY,
   },
 });
 

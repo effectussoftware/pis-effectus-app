@@ -16,6 +16,6 @@ describe('<MainScreen />', () => {
     expect(wrapper.queryByTestId(MAIN_SCREEN)).toBeTruthy();
   });
   it('should render the welcome message in screen', () => {
-    expect(wrapper.queryByText("Hey example@rootstrap.com, you're logged in!")).toBeTruthy();
+    expect(wrapper.queryByText('No hay novedades')).toBeTruthy();
   });
 });
