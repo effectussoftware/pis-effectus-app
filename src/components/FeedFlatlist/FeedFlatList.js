@@ -43,9 +43,7 @@ const FeedFlatList = () => {
     <FlatList
       style={styles.flatList}
       data={DATA}
-      renderItem={({ item }) => (
-        <FeedCard type={item.type} title={item.title} description={item.description} />
-      )}
+      renderItem={({ item }) => <FeedCard {...item} />}
       keyExtractor={item => item.id}
     />
   );
