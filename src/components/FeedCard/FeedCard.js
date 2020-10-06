@@ -7,6 +7,7 @@ import ExchangeIcon from 'assets/images/feedIcons/exchange/default.png';
 import Card from 'components/Card';
 import Button from 'components/Button';
 import strings from 'locale';
+import styles from './FeedCard.styles';
 
 // AVAILABLE FEED TYPES
 const POLL = 'poll';
@@ -46,6 +47,7 @@ const FeedCard = ({ type, ...restProps }) => {
     <Card descriptionProps={descriptionProps} icon={icons[type]} {...restProps}>
       {descriptionLines > LINES_CUTOFF && (
         <Button
+          style={styles.viewMoreLessButton}
           title={viewMoreActive ? strings.MAIN_SCREEN.viewLess : strings.MAIN_SCREEN.viewMore}
           onPress={changeActive}
           secondary
