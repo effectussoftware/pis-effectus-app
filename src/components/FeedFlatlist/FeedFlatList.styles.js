@@ -1,18 +1,11 @@
 import { StyleSheet } from 'react-native';
-
 import { DEFAULT_HORIZONTAL_SEPARATION } from 'constants/dimensions';
-import { WHITE } from 'constants/colors';
 
 const styles = StyleSheet.create({
-  container: {
+  flatList: {
     flex: 1,
-    alignItems: 'center',
-    paddingTop: '30%',
+    display: 'flex',
     paddingHorizontal: DEFAULT_HORIZONTAL_SEPARATION,
-    backgroundColor: WHITE,
-  },
-  logo: {
-    marginBottom: 50,
   },
 });
 

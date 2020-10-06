@@ -15,12 +15,4 @@ describe('<MainScreen />', () => {
   it('should render the main screen', () => {
     expect(wrapper.queryByTestId(MAIN_SCREEN)).toBeTruthy();
   });
-
-  it('should render the logout', () => {
-    expect(wrapper.queryByTestId('logout-button')).toBeTruthy();
-  });
-
-  it('should render the welcome message in screen', () => {
-    expect(wrapper.queryByText("Hey example@rootstrap.com, you're logged in!")).toBeTruthy();
-  });
 });

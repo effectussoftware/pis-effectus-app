@@ -1,12 +1,12 @@
 import httpClient from 'httpClient';
 
 class UserService {
-  login(user) {
-    return httpClient.post('/users/sign_in', user);
+  login(token) {
+    return httpClient.post('/auth/login', token);
   }
 
   logout() {
-    return httpClient.delete('/users/sign_out', { data: {} });
+    return httpClient.delete('/auth/sign_out');
   }
 
   signUp(user) {
