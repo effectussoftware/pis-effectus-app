@@ -11,7 +11,7 @@ const DATA = [
   {
     id: '1',
     type: 'exchange',
-    title: 'Titulo exchange',
+    title: 'Titulo exchange de Usuario',
     description: 'Esta es la primer card de exchange del feed',
     time: moment(),
   },
