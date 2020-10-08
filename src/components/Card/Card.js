@@ -1,12 +1,22 @@
 import React from 'react';
 import { View, Image } from 'react-native';
-import { bool, number, string } from 'prop-types';
+import { bool, number, object, string } from 'prop-types';
+
+import { CALENDAR_FORMATS } from 'constants/dateFormats';
 
 import Text from 'components/Text';
 
 import styles from './Card.styles';
 
-const Card = ({ image, hasBigImage = false, title, description, time, icon }) => (
+const Card = ({
+  image,
+  hasBigImage = false,
+  title,
+  description,
+  time,
+  timeFormats = CALENDAR_FORMATS,
+  icon,
+}) => (
   <View style={styles.container}>
     {hasBigImage && (
       <View style={styles.imageContainer}>
@@ -26,7 +36,7 @@ const Card = ({ image, hasBigImage = false, title, description, time, icon }) =>
             {title}
           </Text>
           <Text type="P1" style={styles.date}>
-            {time}
+            {time.calendar(timeFormats)}
           </Text>
         </View>
         <Text style={styles.description}>{description}</Text>
@@ -40,7 +50,8 @@ Card.propTypes = {
   hasBigImage: bool,
   title: string.isRequired,
   description: string.isRequired,
-  time: string,
+  time: object,
+  timeFormats: object,
   icon: number,
 };
 
