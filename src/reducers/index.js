@@ -4,7 +4,7 @@ import { statusReducer } from '@rootstrap/redux-tools';
 
 const AppReducer = combineReducers({
   session,
-  actionStatus: statusReducer,
+  statusReducer,
 });
 
 export default AppReducer;

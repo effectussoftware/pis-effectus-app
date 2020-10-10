@@ -1,40 +1,31 @@
 import messaging from '@react-native-firebase/messaging';
+import { GoogleSignin } from '@react-native-community/google-signin';
 import { createThunk, createAction } from '@rootstrap/redux-tools';
 
 import userService from 'services/userService';
-import parseError from 'utils/parseError';
 
 export const registerDevice = createThunk('REGISTER_DEVICE', async () => {
-  try {
-    if (!messaging().isDeviceRegisteredForRemoteMessages) {
-      await messaging().registerDeviceForRemoteMessages();
-    }
-    const token = await messaging().getToken();
-    await userService.registerDevice(token);
-  } catch ({ response }) {
-    throw parseError(response);
+  if (!messaging().isDeviceRegisteredForRemoteMessages) {
+    await messaging().registerDeviceForRemoteMessages();
   }
+  const token = await messaging().getToken();
+  await userService.registerDevice(token);
 });
 
 export const login = createThunk('LOGIN', async (token, dispatch) => {
-  try {
-    const { data } = await userService.login({ token });
-    dispatch(registerDevice());
-    return data.user;
-  } catch ({ response }) {
-    throw parseError(response);
-  }
+  const { data } = await userService.login({ token });
+  dispatch(registerDevice());
+  return data.user;
 });
 
 export const logout = createThunk('LOGOUT', async () => {
   try {
     await userService.logout();
   } catch ({ response }) {
-    throw parseError(response);
+    // logout user anyways by catching error and allowing success to be
+  } finally {
+    await GoogleSignin.signOut();
   }
 });
 
 export const updateSession = createAction('UPDATE_SESSION');
-
-export const { success: loginSuccess } = login;
-export const { success: logoutSuccess } = logout;

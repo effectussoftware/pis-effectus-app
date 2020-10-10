@@ -1,12 +1,21 @@
 import React from 'react';
 import { View, Image } from 'react-native';
-import { bool, string } from 'prop-types';
+import { bool, number, oneOfType, string, node, arrayOf, object } from 'prop-types';
 
 import Text from 'components/Text';
 
 import styles from './Card.styles';
 
-const Card = ({ image, hasBigImage = false, title, description, time, icon }) => (
+const Card = ({
+  image,
+  hasBigImage = false,
+  title,
+  children,
+  description,
+  time,
+  icon,
+  descriptionProps = {},
+}) => (
   <View style={styles.container}>
     {hasBigImage && (
       <View style={styles.imageContainer}>
@@ -29,7 +38,10 @@ const Card = ({ image, hasBigImage = false, title, description, time, icon }) =>
             {time}
           </Text>
         </View>
-        <Text style={styles.description}>{description}</Text>
+        <Text {...descriptionProps} style={styles.description}>
+          {description}
+        </Text>
+        {children}
       </View>
     </View>
   </View>
@@ -41,7 +53,9 @@ Card.propTypes = {
   title: string.isRequired,
   description: string.isRequired,
   time: string,
-  icon: string,
+  icon: number,
+  children: oneOfType([node, arrayOf(node)]),
+  descriptionProps: object,
 };
 
 export default Card;
