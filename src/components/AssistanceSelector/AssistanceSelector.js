@@ -21,13 +21,13 @@ const AssistanceSelector = ({ initialSelection = MAYBE, onPress }) => {
     <View style={styles.container}>
       {options.map(option => {
         const isSelected = selection === option;
+
+        const handleOnPress = () => {
+          setSelection(option);
+          onPress(option);
+        };
         return (
-          <TouchableWithoutFeedback
-            key={option}
-            onPress={() => {
-              setSelection(option);
-              onPress();
-            }}>
+          <TouchableWithoutFeedback key={option} onPress={handleOnPress}>
             <View style={[styles.option, isSelected && styles.optionSelected]}>
               <Text
                 type={isSelected ? 'H3' : 'P1_S'}
