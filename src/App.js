@@ -5,6 +5,8 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import httpClient from 'httpClient';
 import applyDefaultInterceptors from 'httpClient/applyDefaultInterceptors';
+import moment from 'moment';
+import 'moment/locale/es';
 
 import Navigation from 'navigators';
 import configureStore from 'store/configureStore';
@@ -12,6 +14,8 @@ import configureStore from 'store/configureStore';
 const { store, persistor } = configureStore({});
 
 applyDefaultInterceptors(store, httpClient);
+
+moment.locale('es');
 
 const App = () => (
   <Provider store={store}>
