@@ -29,4 +29,8 @@ export default {
     passwordConfirmation: 'Repetir contraseña',
     button: 'Iniciar sesión',
   },
+
+  EVENT_DETAIL_SCREEN: {
+    title: 'Ver evento',
+  },
 };

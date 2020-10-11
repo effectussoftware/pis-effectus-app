@@ -21,9 +21,9 @@ const DATA = [
   },
   {
     id: '3',
-    type: 'poll',
-    title: 'Titulo poll',
-    description: 'Esta es la primer card de poll del feed',
+    type: 'event',
+    title: 'After-Office',
+    description: 'Evento para ir a tomar algo ',
   },
   {
     id: '4',
