@@ -4,7 +4,7 @@ import { oneOf } from 'prop-types';
 import OneOnOneIcon from 'assets/images/feedIcons/oneOnOne/default.png';
 import PollIcon from 'assets/images/feedIcons/poll/default.png';
 import ExchangeIcon from 'assets/images/feedIcons/exchange/default.png';
-import Release from 'assets/images/feedIcons/release/default.png';
+import NewIcon from 'assets/images/feedIcons/new/default.png';
 import Card from 'components/Card';
 import Button from 'components/Button';
 import strings from 'locale';
@@ -14,17 +14,15 @@ import styles from './FeedCard.styles';
 const POLL = 'poll';
 const EXCHANGE = 'exchange';
 const ONE_ON_ONE = 'oneOnOne';
-const RELEASE = 'release';
 const NEWS = 'news';
 
-export const typeShape = oneOf([POLL, EXCHANGE, ONE_ON_ONE, NEWS, RELEASE]);
+export const typeShape = oneOf([POLL, EXCHANGE, ONE_ON_ONE, NEWS]);
 
 const icons = {
   [POLL]: PollIcon,
   [EXCHANGE]: ExchangeIcon,
   [ONE_ON_ONE]: OneOnOneIcon,
-  [NEWS]: OneOnOneIcon,
-  [RELEASE]: Release,
+  [NEWS]: NewIcon,
 };
 
 const FeedCard = ({ type, ...restProps }) => {
