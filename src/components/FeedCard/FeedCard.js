@@ -24,7 +24,7 @@ const icons = {
   [NEWS]: OneOnOneIcon,
 };
 
-const FeedCard = ({ type, ...restProps }) => {
+const FeedCard = ({ type, updatedAt, ...restProps }) => {
   const LINES_CUTOFF = 2;
   const [descriptionLines, setDescriptionLines] = useState();
   const [viewMoreActive, setViewMoreActive] = useState(false);
@@ -43,7 +43,7 @@ const FeedCard = ({ type, ...restProps }) => {
   };
 
   return (
-    <Card descriptionProps={descriptionProps} icon={icons[type]} {...restProps}>
+    <Card descriptionProps={descriptionProps} icon={icons[type]} time={updatedAt} {...restProps}>
       {descriptionLines > LINES_CUTOFF && (
         <Button
           style={styles.viewMoreLessButton}

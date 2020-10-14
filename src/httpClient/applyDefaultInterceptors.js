@@ -43,6 +43,7 @@ export default (store, client) => {
       if (error.response && error.response.status === UNAUTHORIZED) {
         store.dispatch(logout());
       }
+      debugger;
 
       return Promise.reject(error);
     },
