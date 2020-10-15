@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
   H3: {
     fontFamily: PRIMARY_FONT_BOLD,
     fontSize: 16,
-    lineHeight: 22,
+    lineHeight: 20,
   },
   H4: {
     fontFamily: PRIMARY_FONT_BOLD,
@@ -28,12 +28,12 @@ const styles = StyleSheet.create({
   P1: {
     fontFamily: PRIMARY_FONT_REGULAR,
     fontSize: 16,
-    lineHeight: 22,
+    lineHeight: 20,
   },
   P1_S: {
     fontFamily: PRIMARY_FONT_SEMI,
     fontSize: 16,
-    lineHeight: 22,
+    lineHeight: 20,
   },
   P2: {
     fontFamily: PRIMARY_FONT_REGULAR,
