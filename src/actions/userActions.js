@@ -1,20 +1,17 @@
-import messaging from '@react-native-firebase/messaging';
 import { GoogleSignin } from '@react-native-community/google-signin';
 import { createThunk, createAction } from '@rootstrap/redux-tools';
 
 import userService from 'services/userService';
 
-export const registerDevice = createThunk('REGISTER_DEVICE', async () => {
-  if (!messaging().isDeviceRegisteredForRemoteMessages) {
-    await messaging().registerDeviceForRemoteMessages();
-  }
-  const token = await messaging().getToken();
-  await userService.registerDevice(token);
+export const registerDevice = createThunk('REGISTER_DEVICE', async (_, getState) => {
+  const { firebaseToken, firebaseTokenUpdated } = getState().session;
+  console.log('fbt: ', firebaseToken);
+  console.log('fbtu: ', firebaseTokenUpdated);
+  await userService.registerDevice(firebaseToken);
 });
 
-export const login = createThunk('LOGIN', async (token, dispatch) => {
+export const login = createThunk('LOGIN', async token => {
   const { data } = await userService.login({ token });
-  dispatch(registerDevice());
   return data.user;
 });
 
@@ -29,3 +26,4 @@ export const logout = createThunk('LOGOUT', async () => {
 });
 
 export const updateSession = createAction('UPDATE_SESSION');
+export const updateFirebaseToken = createAction('UPDATE_FIREBASE_TOKEN');

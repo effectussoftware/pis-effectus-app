@@ -12,11 +12,13 @@ import 'moment/locale/es';
 
 import Navigation from 'navigators';
 import configureStore from 'store/configureStore';
-import useNotification from 'hooks/useNotification';
+import configureNotifications from 'utils/configureNotifications';
 
 const { store, persistor } = configureStore({});
 
 applyDefaultInterceptors(store, httpClient);
+
+configureNotifications(store);
 
 const App = () => {
   moment.locale('es');
@@ -28,8 +30,6 @@ const App = () => {
   useEffect(() => {
     checkPermission();
   }, [checkPermission]);
-
-  useNotification();
 
   return (
     <Provider store={store}>
