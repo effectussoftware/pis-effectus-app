@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect } from 'react';
 import { FlatList } from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 import { useLoading } from '@rootstrap/redux-tools';
 
 import FeedCard from 'components/FeedCard/index';
@@ -12,7 +12,7 @@ const FeedFlatList = () => {
   const dispatch = useDispatch();
 
   const handleRefresh = useCallback(() => {
-    dispatch(getFeed({}));
+    dispatch(getFeed({ shouldReplace: true }));
   }, [dispatch]);
 
   useEffect(() => {
@@ -21,18 +21,18 @@ const FeedFlatList = () => {
 
   const loading = useLoading(getFeed);
 
-  const feed = useSelector(({ feed }) => feed.data);
+  const { data: feed, endReached } = useSelector(({ feed }) => feed, shallowEqual);
 
   const handleLoadMore = useCallback(() => {
-    dispatch(getFeed({ start: 1 || feed[feed.length - 1].updatedAt }));
-  }, [dispatch, feed]);
+    !endReached && dispatch(getFeed({ start: feed[feed.length - 1].updatedAt }));
+  }, [endReached, dispatch, feed]);
 
   return (
     <FlatList
       style={styles.flatList}
       data={feed}
       renderItem={({ item }) => <FeedCard {...item} />}
-      keyExtractor={item => item.id}
+      keyExtractor={item => item.id.toString()}
       onEndReached={handleLoadMore}
       onEndReachedThreshold={0.5}
       initialNumToRender={10}
