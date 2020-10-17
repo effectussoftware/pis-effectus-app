@@ -16,6 +16,14 @@ export default {
     title: 'Novedades',
     viewMore: 'Ver más',
     viewLess: 'Ver menos',
+
+    // FIXME: Move this fields to the Event Detail Screen once it is created.
+    openSheetButton: 'Open bottom sheet',
+    addGCalTitle: 'Agregar a Google Calendar',
+    addGCalDescription:
+      'Si el evento fue modificado y ya lo habías agregado, recuerda borrar de tu Google Calendar el evento viejo.',
+    addButton: 'Agregar',
+    notNowButton: 'Por ahora no',
   },
 
   PROFILE_SCREEN: {

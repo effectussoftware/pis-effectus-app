@@ -10,11 +10,8 @@ const styles = StyleSheet.create({
   },
   containerSecondary: {
     // Make pressable area bigger, take into account for spacing
-    backgroundColor: WHITE,
-    height: 54,
-    borderRadius: 54 / 2,
     padding: 5,
-    alignSelf: 'stretch',
+    alignSelf: 'auto',
   },
   textPrimary: {
     color: WHITE,

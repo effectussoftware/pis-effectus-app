@@ -5,8 +5,7 @@ const styles = StyleSheet.create({
   container: {
     paddingTop: 30,
     paddingBottom: 20,
-    paddingLeft: 30,
-    paddingRight: 30,
+    paddingHorizontal: 24,
   },
   title: {
     textAlign: 'center',
@@ -17,9 +16,12 @@ const styles = StyleSheet.create({
     paddingBottom: 15,
     color: DARK_GRAY,
   },
-  button: {
-    marginTop: 5,
-    marginBottom: 5,
+  primaryButton: {
+    marginVertical: 5,
+  },
+  secondaryButton: {
+    marginVertical: 5,
+    height: 54,
   },
 });
 

@@ -1,28 +1,17 @@
 import React from 'react';
 import { object, node } from 'prop-types';
 import RBSheet from 'react-native-raw-bottom-sheet';
+import styles from './BottomSheet.styles';
 
-import { LIGHT_GRAY } from 'constants/colors';
-
-const BottomSheet = ({ children, reference }) => {
+const BottomSheet = ({ children, reference, ...restProps }) => {
   return (
     <RBSheet
       ref={reference}
       closeOnDragDown
       closeOnPressMask={false}
       height={375}
-      customStyles={{
-        wrapper: {
-          backgroundColor: 'rgba(51, 51, 51, 0.5);',
-        },
-        draggableIcon: {
-          backgroundColor: LIGHT_GRAY,
-        },
-        container: {
-          borderTopLeftRadius: 20,
-          borderTopRightRadius: 20,
-        },
-      }}>
+      customStyles={styles}
+      {...restProps}>
       {children}
     </RBSheet>
   );

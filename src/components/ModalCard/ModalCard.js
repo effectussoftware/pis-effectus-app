@@ -14,8 +14,13 @@ const ModalCard = ({ handleOnClose, title, description, primaryText, secondaryTe
       <Text type="P1_S" numberOfLines={3} style={styles.description}>
         {description}
       </Text>
-      <Button title={primaryText} onPress={handleOnClose} style={styles.button} />
-      <Button title={secondaryText} onPress={handleOnClose} secondary style={styles.button} />
+      <Button title={primaryText} onPress={handleOnClose} style={styles.primaryButton} />
+      <Button
+        title={secondaryText}
+        onPress={handleOnClose}
+        secondary
+        style={styles.secondaryButton}
+      />
     </View>
   );
 };
