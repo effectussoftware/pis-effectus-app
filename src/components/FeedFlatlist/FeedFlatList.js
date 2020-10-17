@@ -40,7 +40,7 @@ const DATA = [
   },
   {
     id: '5',
-    type: 'poll',
+    type: 'news',
     title: 'Titulo poll 3',
     description: 'Esta es la primer card de poll del feed',
     time: moment().subtract({ years: 1 }),
