@@ -3,9 +3,12 @@ import { Provider } from 'react-redux';
 import { ActivityIndicator } from 'react-native';
 import { PersistGate } from 'redux-persist/integration/react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { requestNotifications } from 'react-native-permissions';
+
 import httpClient from 'httpClient';
 import applyDefaultInterceptors from 'httpClient/applyDefaultInterceptors';
-import { requestNotifications } from 'react-native-permissions';
+import moment from 'moment';
+import 'moment/locale/es';
 
 import Navigation from 'navigators';
 import configureStore from 'store/configureStore';
@@ -16,6 +19,8 @@ const { store, persistor } = configureStore({});
 applyDefaultInterceptors(store, httpClient);
 
 const App = () => {
+  moment.locale('es');
+
   const checkPermission = useCallback(async () => {
     requestNotifications(['alert', 'badge', 'sound']);
   }, []);
