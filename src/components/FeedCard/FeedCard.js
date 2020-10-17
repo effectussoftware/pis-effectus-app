@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { oneOf } from 'prop-types';
+import { oneOf, string } from 'prop-types';
 
 import OneOnOneIcon from 'assets/images/feedIcons/oneOnOne/default.png';
 import PollIcon from 'assets/images/feedIcons/poll/default.png';
@@ -14,18 +14,18 @@ import styles from './FeedCard.styles';
 const POLL = 'poll';
 const EXCHANGE = 'exchange';
 const ONE_ON_ONE = 'oneOnOne';
-const NEWS = 'news';
+const COMMUNICATION = 'communication';
 
-export const typeShape = oneOf([POLL, EXCHANGE, ONE_ON_ONE, NEWS]);
+export const typeShape = oneOf([POLL, EXCHANGE, ONE_ON_ONE, COMMUNICATION]);
 
 const icons = {
   [POLL]: PollIcon,
   [EXCHANGE]: ExchangeIcon,
   [ONE_ON_ONE]: OneOnOneIcon,
-  [NEWS]: NewsIcon,
+  [COMMUNICATION]: NewsIcon,
 };
 
-const FeedCard = ({ type, ...restProps }) => {
+const FeedCard = ({ type, updatedAt, ...restProps }) => {
   const LINES_CUTOFF = 2;
   const [descriptionLines, setDescriptionLines] = useState();
   const [viewMoreActive, setViewMoreActive] = useState(false);
@@ -44,7 +44,7 @@ const FeedCard = ({ type, ...restProps }) => {
   };
 
   return (
-    <Card descriptionProps={descriptionProps} icon={icons[type]} {...restProps}>
+    <Card descriptionProps={descriptionProps} icon={icons[type]} time={updatedAt} {...restProps}>
       {descriptionLines > LINES_CUTOFF && (
         <Button
           style={styles.viewMoreLessButton}
@@ -58,7 +58,8 @@ const FeedCard = ({ type, ...restProps }) => {
 };
 
 FeedCard.propTypes = {
-  type: typeShape,
+  type: typeShape.isRequired,
+  updatedAt: string.isRequired,
 };
 
 export default FeedCard;

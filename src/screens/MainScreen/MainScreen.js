@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { object } from 'prop-types';
 import { View } from 'react-native';
+
 import FeedFlatList from 'components/FeedFlatlist';
 
 import { MAIN_SCREEN } from 'constants/screens';
