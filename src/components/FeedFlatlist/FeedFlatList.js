@@ -11,7 +11,6 @@ const DATA = [
   {
     id: '1',
     type: 'exchange',
-
     title: 'Titulo exchange',
     description:
       'Esta es la primer card de exchange del feed y bla bla bla y bla bla blay bla bla blay bla bla blay bla bla blay bla bla blay bla bla blay bla bla blay bla bla blay bla bla blay bla bla bla',
@@ -28,7 +27,14 @@ const DATA = [
     id: '3',
     type: 'event',
     title: 'Titulo evento',
+    adress: 'Calle falsa 1 2 3',
     description: 'Esta es la primer card de evento del feed',
+    startTime: moment()
+      .add({ hours: 2 })
+      .format(),
+    endTime: moment()
+      .add({ hours: 3 })
+      .format(),
     time: moment().subtract({ days: 3 }),
   },
   {
