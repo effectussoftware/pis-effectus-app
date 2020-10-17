@@ -5,10 +5,13 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    alignItems: 'center',
-    paddingHorizontal: DEFAULT_HORIZONTAL_SEPARATION,
+    justifyContent: 'space-between',
     borderBottomWidth: 2,
     borderBottomColor: SUPER_LIGHT_GRAY,
+    alignItems: 'center',
+  },
+  innerComtainer: {
+    flexDirection: 'row',
   },
   bullet: {
     width: 17,
@@ -22,7 +25,6 @@ const styles = StyleSheet.create({
     backgroundColor: SECONDARY,
   },
   name: { paddingHorizontal: DEFAULT_HORIZONTAL_SEPARATION },
-  check: { alignSelf: 'flex-end' },
 });
 
 export default styles;
