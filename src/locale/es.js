@@ -29,4 +29,11 @@ export default {
     passwordConfirmation: 'Repetir contraseña',
     button: 'Iniciar sesión',
   },
+  EVENT_DETAILS_SCREEN: {
+    assistanceSelector: {
+      maybe: 'Quizás',
+      no: 'No',
+      yes: 'Sí',
+    },
+  },
 };
