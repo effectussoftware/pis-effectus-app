@@ -1,12 +1,50 @@
-import { Platform } from 'react-native';
 import messaging from '@react-native-firebase/messaging';
 import PushNotification from 'react-native-push-notification';
 import PushNotificationIOS from '@react-native-community/push-notification-ios';
-import { navigate } from 'services/navigationService';
+import humps from 'humps';
 
-import { APP_STACK } from 'constants/screens';
-import { IS_IOS } from 'constants';
+import { IS_ANDROID, IS_IOS } from 'constants';
 import { updateFirebaseToken } from 'actions/userActions';
+
+export const handleNotifications = data => {
+  const notification = humps.camelizeKeys(data || {});
+  console.log('notification: ', notification);
+};
+
+export const handleIosPushNotification = info => {
+  const {
+    data,
+    notification: { body, title },
+  } = info || {};
+  PushNotificationIOS.presentLocalNotification({
+    alertBody: body,
+    alertTitle: title,
+    userInfo: data,
+  });
+};
+
+export const handleIosInitialNotification = async () => {
+  const notification = await messaging().getInitialNotification();
+  notification?.data && handleNotifications(notification.data);
+};
+
+export const handleAndroidPushNotification = notification => {
+  if (IS_ANDROID) {
+    const { foreground, userInteraction } = notification;
+    if (foreground && userInteraction) {
+      handleNotifications(notification.data);
+    }
+  }
+};
+
+export const startListeningIosNotifications = async () => {
+  messaging().onMessage(data => handleIosPushNotification(data));
+
+  messaging().onNotificationOpenedApp(({ data }) => handleNotifications(data));
+  PushNotificationIOS.addEventListener('localNotification', notification => {
+    handleNotifications(notification?.getData());
+  });
+};
 
 const configureNotifications = store => {
   PushNotification.configure({
@@ -21,48 +59,14 @@ const configureNotifications = store => {
       } else {
         fcmToken = token;
       }
-      console.log('[LocalNotificationService] onRegister: ', fcmToken);
       store.dispatch(updateFirebaseToken(fcmToken));
     },
     onRegistrationError: err => {
       console.log(err);
     },
-    onNotification: notification => {
-      const { userInfo = {}, data = {}, message, userInteraction } = notification;
-      // const { notification_type: notificationType, resource_id: id } = Platform.select({
-      const { resource_id: id } = Platform.select({
-        ios: data,
-        android: userInfo.notification_type ? userInfo : notification,
-      });
-      console.log('notification: ', notification);
 
-      const notificationOpened = userInteraction || data.userInteraction;
-
-      if (notificationOpened) {
-        // TODO: Add cases for each push so it navigates to the correct screen.
-        navigate(APP_STACK, { id });
-      } else if (IS_IOS && message?.title) {
-        const { title, body, data } = message;
-
-        // Relay notification display for iOS when app is in foreground
-        PushNotificationIOS.presentLocalNotification({
-          alertTitle: title,
-          alertBody: body,
-          userInfo: data,
-          data,
-        });
-      }
-      notification.finish(PushNotificationIOS.FetchResult.NoData);
-    },
-
-    onRemoteFetch: data => {
-      console.log('onRemoteFetch: ');
-      console.log(data);
-    },
-    onAction: data => {
-      console.log('onAction: ');
-      console.log(data);
-    },
+    // ON NOTIFICATION
+    onNotification: handleAndroidPushNotification,
     popInitialNotification: true,
     requestPermissions: false,
   });

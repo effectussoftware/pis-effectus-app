@@ -12,7 +12,9 @@ import 'moment/locale/es';
 
 import Navigation from 'navigators';
 import configureStore from 'store/configureStore';
-import configureNotifications from 'utils/configureNotifications';
+import configureNotifications, {
+  startListeningIosNotifications,
+} from 'utils/configureNotifications';
 
 const { store, persistor } = configureStore({});
 
@@ -29,6 +31,7 @@ const App = () => {
 
   useEffect(() => {
     checkPermission();
+    startListeningIosNotifications();
   }, [checkPermission]);
 
   return (

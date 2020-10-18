@@ -78,14 +78,8 @@ static void InitializeFlipper(UIApplication *application) {
       willPresentNotification:(UNNotification *)notification
         withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler
 {
-  // Still call the JS onNotification handler so it can display the new message right away
-  NSDictionary *userInfo = notification.request.content.userInfo;
-  [RNCPushNotificationIOS didReceiveRemoteNotification:userInfo
-                                fetchCompletionHandler:^void (UIBackgroundFetchResult result){}];
-
   // hide push notification
   completionHandler(UNAuthorizationOptionSound | UNAuthorizationOptionAlert | UNAuthorizationOptionBadge);
-  
 }
 
 // Required to register for notifications
