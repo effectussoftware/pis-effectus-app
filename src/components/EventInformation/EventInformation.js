@@ -1,7 +1,8 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, Linking } from 'react-native';
 import { string } from 'prop-types';
 import moment from 'moment';
+import ParsedText from 'react-native-parsed-text';
 
 import { EVENT_DATE_FORMATS, TIME_FORMAT } from 'constants/dateFormats';
 import Text from 'components/Text';
@@ -17,6 +18,10 @@ const EventInformation = ({ title, adress, startDate, endDate, description }) =>
   const timeNewStartDate = newStartDate.format(TIME_FORMAT);
   const timeNewEndDate = newEndDate.format(TIME_FORMAT);
 
+  function handleUrlPress(url) {
+    Linking.openURL(url);
+  }
+
   return (
     <View style={styles.container}>
       <Text type="H2">{title}</Text>
@@ -26,9 +31,12 @@ const EventInformation = ({ title, adress, startDate, endDate, description }) =>
         } ${timeNewEndDate}`}
       </Text>
       <Text style={styles.P1}>{adress}</Text>
-      <Text type="P1" style={styles.description}>
+      <ParsedText
+        style={styles.description}
+        parse={[{ type: 'url', style: styles.url, onPress: handleUrlPress }]}
+        childrenProps={{ allowFontScaling: false }}>
         {description}
-      </Text>
+      </ParsedText>
     </View>
   );
 };
