@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Image } from 'react-native';
 import { arrayOf, bool, node, number, object, oneOfType, string } from 'prop-types';
-
+import moment from 'moment';
 import { CALENDAR_FORMATS } from 'constants/dateFormats';
 
 import Text from 'components/Text';
@@ -13,7 +13,7 @@ const Card = ({
   hasBigImage = false,
   title,
   children,
-  description,
+  text,
   time,
   timeFormats = CALENDAR_FORMATS,
   icon,
@@ -38,11 +38,11 @@ const Card = ({
             {title}
           </Text>
           <Text type="P1" style={styles.date}>
-            {time.calendar(timeFormats)}
+            {moment(time).calendar(timeFormats)}
           </Text>
         </View>
         <Text {...descriptionProps} style={styles.description}>
-          {description}
+          {text}
         </Text>
         {children}
       </View>
@@ -54,8 +54,8 @@ Card.propTypes = {
   image: string,
   hasBigImage: bool,
   title: string.isRequired,
-  description: string.isRequired,
-  time: object,
+  text: string.isRequired,
+  time: string,
   timeFormats: object,
   icon: number,
   children: oneOfType([node, arrayOf(node)]),

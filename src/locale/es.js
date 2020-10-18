@@ -32,5 +32,10 @@ export default {
 
   EVENT_DETAIL_SCREEN: {
     title: 'Ver evento',
+    assistanceSelector: {
+      maybe: 'Quizás',
+      no: 'No',
+      yes: 'Sí',
+    },
   },
 };

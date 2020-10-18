@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { oneOf } from 'prop-types';
+import { oneOf, string } from 'prop-types';
 import { useNavigation } from '@react-navigation/native';
 
 import { EVENT_DETAIL_SCREEN } from 'constants/screens';
@@ -7,6 +7,7 @@ import OneOnOneIcon from 'assets/images/feedIcons/oneOnOne/default.png';
 import PollIcon from 'assets/images/feedIcons/poll/default.png';
 import ExchangeIcon from 'assets/images/feedIcons/exchange/default.png';
 import EventIcon from 'assets/images/feedIcons/event/default.png';
+import NewsIcon from 'assets/images/feedIcons/news/default.png';
 import Card from 'components/Card';
 import Button from 'components/Button';
 import strings from 'locale';
@@ -17,17 +18,19 @@ const POLL = 'poll';
 const EXCHANGE = 'exchange';
 const ONE_ON_ONE = 'oneOnOne';
 const EVENT = 'event';
+const COMMUNICATION = 'communication';
 
-export const typeShape = oneOf([POLL, EXCHANGE, ONE_ON_ONE, EVENT]);
+export const typeShape = oneOf([POLL, EXCHANGE, ONE_ON_ONE, EVENT, COMMUNICATION]);
 
 const icons = {
   [POLL]: PollIcon,
   [EXCHANGE]: ExchangeIcon,
   [ONE_ON_ONE]: OneOnOneIcon,
   [EVENT]: EventIcon,
+  [COMMUNICATION]: NewsIcon,
 };
 
-const FeedCard = ({ type, ...restProps }) => {
+const FeedCard = ({ type, updatedAt, ...restProps }) => {
   const LINES_CUTOFF = 2;
   const [descriptionLines, setDescriptionLines] = useState();
   const [viewMoreActive, setViewMoreActive] = useState(false);
@@ -48,7 +51,7 @@ const FeedCard = ({ type, ...restProps }) => {
   };
 
   return (
-    <Card descriptionProps={descriptionProps} icon={icons[type]} {...restProps}>
+    <Card descriptionProps={descriptionProps} icon={icons[type]} time={updatedAt} {...restProps}>
       {descriptionLines > LINES_CUTOFF && (
         <Button
           style={styles.viewMoreLessButton}
@@ -72,7 +75,8 @@ const FeedCard = ({ type, ...restProps }) => {
 };
 
 FeedCard.propTypes = {
-  type: typeShape,
+  type: typeShape.isRequired,
+  updatedAt: string.isRequired,
 };
 
 export default FeedCard;

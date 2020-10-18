@@ -1,65 +1,43 @@
-import React from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { FlatList } from 'react-native';
-import FeedCard from 'components/FeedCard/index';
-import moment from 'moment';
+import { useDispatch, useSelector, shallowEqual } from 'react-redux';
+import { useLoading } from '@rootstrap/redux-tools';
 
+import FeedCard from 'components/FeedCard/index';
+
+import { getFeed } from 'actions/feedActions';
 import styles from './FeedFlatList.styles';
 
-// Needs to be changed for data fetched from API when its done
-// TODO: parse dates correctly once we have real data
-const DATA = [
-  {
-    id: '1',
-    type: 'exchange',
-    title: 'Titulo exchange',
-    description:
-      'Esta es la primer card de exchange del feed y bla bla bla y bla bla blay bla bla blay bla bla blay bla bla blay bla bla blay bla bla blay bla bla blay bla bla blay bla bla blay bla bla bla',
-    time: moment(),
-  },
-  {
-    id: '2',
-    type: 'oneOnOne',
-    title: 'Titulo oneOnOne 1',
-    description: 'Esta es la primer card de oneOnOne del feed',
-    time: moment().subtract({ days: 1 }),
-  },
-  {
-    id: '3',
-    type: 'event',
-    title: 'Titulo evento',
-    adress: 'Calle falsa 1 2 3',
-    description: 'Esta es la primer card de evento del feed',
-    startTime: moment()
-      .add({ hours: 2 })
-      .format(),
-    endTime: moment()
-      .add({ hours: 3 })
-      .format(),
-    time: moment().subtract({ days: 3 }),
-  },
-  {
-    id: '4',
-    type: 'poll',
-    title: 'Titulo poll 2',
-    description: 'Esta es la primer card de poll del feed',
-    time: moment().subtract({ days: 10 }),
-  },
-  {
-    id: '5',
-    type: 'poll',
-    title: 'Titulo poll 3',
-    description: 'Esta es la primer card de poll del feed',
-    time: moment().subtract({ years: 1 }),
-  },
-];
-
 const FeedFlatList = () => {
+  const dispatch = useDispatch();
+
+  const handleRefresh = useCallback(() => {
+    dispatch(getFeed({ shouldReplace: true }));
+  }, [dispatch]);
+
+  useEffect(() => {
+    handleRefresh();
+  }, [handleRefresh]);
+
+  const loading = useLoading(getFeed);
+
+  const { data: feed, endReached } = useSelector(({ feed }) => feed, shallowEqual);
+
+  const handleLoadMore = useCallback(() => {
+    !endReached && dispatch(getFeed({ start: feed[feed.length - 1].updatedAt }));
+  }, [endReached, dispatch, feed]);
+
   return (
     <FlatList
       style={styles.flatList}
-      data={DATA}
+      data={feed}
       renderItem={({ item }) => <FeedCard {...item} />}
-      keyExtractor={item => item.id}
+      keyExtractor={item => item.id.toString()}
+      onEndReached={handleLoadMore}
+      onEndReachedThreshold={0.5}
+      initialNumToRender={10}
+      onRefresh={handleRefresh}
+      refreshing={loading}
     />
   );
 };
