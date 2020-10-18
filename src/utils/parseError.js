@@ -51,7 +51,6 @@ const parseErrors = errors => {
  * 5- `{ errors: ['Some error'] }` returns `"Some error"`
  */
 export default err => {
-  debugger;
   if (!err) return strings.COMMON.somethingWentWrong;
 
   const { error, errors } = err.response?.data || {};
