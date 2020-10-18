@@ -1,0 +1,7 @@
+API_URL=https://pis-push-notifications.herokuapp.com/api/v1
+GOOGLE_AUTH_CLIENT_ID_SERVER=943371264745-iifm08brkjlniauu9o63r9sjp2v1e0g2.apps.googleusercontent.com
+GOOGLE_AUTH_CLIENT_ID_IOS=943371264745-v664fok1ult1mhb3iq9nlggvtsgfbf09.apps.googleusercontent.com
+RELEASE_STORE_FILE=deploy.keystore
+RELEASE_STORE_PASSWORD=Effe2021ctus
+RELEASE_KEY_ALIAS=deploy
+RELEASE_KEY_PASSWORD=Effe2021ctus

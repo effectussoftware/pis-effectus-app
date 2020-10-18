@@ -12,6 +12,10 @@ class UserService {
   signUp(user) {
     return httpClient.post('/users', user);
   }
+
+  registerDevice(token) {
+    return httpClient.post('/device_registrations', { device: { token } });
+  }
 }
 
 export default new UserService();
