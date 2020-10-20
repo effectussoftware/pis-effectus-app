@@ -20,8 +20,8 @@ const Navigation = () => {
   return (
     <NavigationContainer ref={navigationRef}>
       <Stack.Navigator headerMode="none">
-        {/* <Stack.Screen name={AUTH_STACK} component={AuthStack} />
-        <Stack.Screen name={APP_STACK} component={AppStack} /> */}
+        {/* <Stack.Screen name={AUTH_STACK} component={AuthStack} /> */}
+        {/* <Stack.Screen name={APP_STACK} component={AppStack} /> */}
         {user && info ? (
           <Stack.Screen name={APP_STACK} component={AppStack} />
         ) : (
