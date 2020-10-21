@@ -1,5 +1,7 @@
 # Effectus App
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/4c34855698538645a3d2/maintainability)](https://codeclimate.com/github/effectussoftware/pis-effectus-app/maintainability)
+
 ## Commands
 
 1. **Start the app**: `android:{env}` or `ios:{env}` (envs: `dev`, `staging`, and `prod`)
