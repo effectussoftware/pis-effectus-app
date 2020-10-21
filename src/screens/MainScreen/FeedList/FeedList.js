@@ -1,13 +1,14 @@
 import React, { useCallback, useEffect } from 'react';
-import { Alert, FlatList, View } from 'react-native';
+import { FlatList, View } from 'react-native';
 import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 import { LOADING, SUCCESS, useStatus } from '@rootstrap/redux-tools';
 
 import strings from 'locale';
 import { getFeed } from 'actions/feedActions';
+import useAlertError from 'hooks/useAlertError';
 
 import { Text } from 'components';
-import FeedCard from './FeedCard/index';
+import FeedCard from './FeedCard';
 
 import styles from './FeedList.styles';
 
@@ -24,9 +25,7 @@ const FeedList = () => {
 
   const { status, error } = useStatus(getFeed);
 
-  useEffect(() => {
-    error && Alert.alert(error);
-  }, [error]);
+  useAlertError(error, getFeed);
 
   const loading = status === LOADING;
 
