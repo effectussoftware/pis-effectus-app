@@ -2,11 +2,11 @@ import React, { useEffect } from 'react';
 import { object } from 'prop-types';
 import { View } from 'react-native';
 
-import FeedFlatList from 'components/FeedFlatlist';
-
+import strings from 'locale';
 import { MAIN_SCREEN } from 'constants/screens';
 
-import strings from 'locale';
+import FeedList from './FeedList';
+
 import styles from './MainScreen.styles';
 
 const MainScreen = ({ navigation }) => {
@@ -16,7 +16,7 @@ const MainScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container} testID={MAIN_SCREEN}>
-      <FeedFlatList />
+      <FeedList />
     </View>
   );
 };
