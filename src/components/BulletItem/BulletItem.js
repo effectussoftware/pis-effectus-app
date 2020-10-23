@@ -9,7 +9,7 @@ import styles from './BulletItem.styles';
 const BulletItem = ({ id, text, children }) => {
   return (
     <View style={styles.container}>
-      <View style={styles.innerComtainer}>
+      <View style={styles.innerContainer}>
         <View style={[styles.bullet, id % 2 ? styles.odd : styles.even]} />
         <Text style={(styles.text, styles.name)} type="H3">
           {text}

@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     borderBottomColor: SUPER_LIGHT_GRAY,
     alignItems: 'center',
   },
-  innerComtainer: {
+  innerContainer: {
     flexDirection: 'row',
   },
   bullet: {
