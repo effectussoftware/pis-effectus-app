@@ -9,6 +9,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 2,
     borderBottomColor: SUPER_LIGHT_GRAY,
     alignItems: 'center',
+    paddingVertical: 10,
   },
   innerContainer: {
     flexDirection: 'row',

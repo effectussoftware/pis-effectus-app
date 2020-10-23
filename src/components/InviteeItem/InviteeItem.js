@@ -1,8 +1,8 @@
 import React from 'react';
 import { Image } from 'react-native';
 import { string, bool, number } from 'prop-types';
-import Tick from 'assets/images/inviteeIcons/tick/default.png';
-import Cross from 'assets/images/inviteeIcons/cross/default.png';
+import Tick from 'assets/images/tickIcon/default.png';
+import Cross from 'assets/images/crossIcon/default.png';
 
 import BulletItem from 'components/BulletItem';
 
