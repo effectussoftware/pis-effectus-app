@@ -22,6 +22,10 @@ end
 
 def base_pods
   # Base react pods
+  pod 'Firebase/Analytics'
+
+  permissions_path = '../node_modules/react-native-permissions/ios'
+  pod 'Permission-Notifications', :path => "#{permissions_path}/Notifications.podspec"
 end
 
 target 'Effectus' do
@@ -40,6 +44,7 @@ end
 
 target 'Effectus-Develop' do
   # Pods for Effectus
+  base_pods
   config = use_native_modules!
   use_react_native!(:path => config["reactNativePath"])
 end

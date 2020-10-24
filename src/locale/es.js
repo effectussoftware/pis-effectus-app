@@ -16,6 +16,7 @@ export default {
     title: 'Novedades',
     viewMore: 'Ver más',
     viewLess: 'Ver menos',
+    emptyState: 'Aún no tienes novedades',
   },
 
   PROFILE_SCREEN: {
