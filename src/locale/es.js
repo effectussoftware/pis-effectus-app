@@ -37,4 +37,7 @@ export default {
       yes: 'Sí',
     },
   },
+  ONE_ON_ONE_SCREEN: {
+    title: 'Ver Detalle',
+  },
 };
