@@ -18,10 +18,6 @@ const EventInformation = ({ title, adress, startDate, endDate, description }) =>
   const timeNewStartDate = newStartDate.format(TIME_FORMAT);
   const timeNewEndDate = newEndDate.format(TIME_FORMAT);
 
-  function handleUrlPress(url) {
-    Linking.openURL(url);
-  }
-
   return (
     <View style={styles.container}>
       <Text type="H2">{title}</Text>
@@ -33,7 +29,7 @@ const EventInformation = ({ title, adress, startDate, endDate, description }) =>
       <Text style={styles.P1}>{adress}</Text>
       <ParsedText
         style={styles.description}
-        parse={[{ type: 'url', style: styles.url, onPress: handleUrlPress }]}
+        parse={[{ type: 'url', style: styles.url, onPress: Linking.openURL }]}
         childrenProps={{ allowFontScaling: false }}>
         {description}
       </ParsedText>
