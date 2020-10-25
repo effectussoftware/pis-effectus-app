@@ -1,5 +1,4 @@
 import { PRIMARY, SECONDARY, SUPER_LIGHT_GRAY } from 'constants/colors';
-import { DEFAULT_HORIZONTAL_SEPARATION } from 'constants/dimensions';
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
@@ -9,15 +8,16 @@ const styles = StyleSheet.create({
     borderBottomWidth: 2,
     borderBottomColor: SUPER_LIGHT_GRAY,
     alignItems: 'center',
-    paddingVertical: 10,
+    paddingTop: 16,
+    paddingBottom: 13,
   },
   innerContainer: {
     flexDirection: 'row',
   },
   bullet: {
-    width: 17,
+    width: 16,
     aspectRatio: 1,
-    borderRadius: 22,
+    borderRadius: 8,
   },
   odd: {
     backgroundColor: PRIMARY,
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
   even: {
     backgroundColor: SECONDARY,
   },
-  name: { paddingHorizontal: DEFAULT_HORIZONTAL_SEPARATION },
+  text: { paddingHorizontal: 16 },
 });
 
 export default styles;
