@@ -4,6 +4,10 @@ export default {
     somethingWentWrong: 'Algo salió mal',
   },
 
+  NAVIGATION: {
+    back: 'Atrás',
+  },
+
   LOGIN_SCREEN: {
     submit: 'Iniciar sesión',
   },

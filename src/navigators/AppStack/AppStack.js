@@ -1,44 +1,28 @@
 /* eslint-disable react/no-multi-comp */
 import React from 'react';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
 
-import { MAIN_STACK, PROFILE_STACK } from 'constants/screens';
-import { PRIMARY, LIGHT_GRAY } from 'constants/colors';
-import testIds from 'constants/testIds';
+import { COMMUNICATION_SCREEN, TAB_NAVIGATOR } from 'constants/screens';
+import { HEADER_OPTIONS } from 'constants/navigationOptions';
 
-import TabIcon from 'components/TabIcon';
-import MainIcon from 'assets/images/tabIcons/MainIcon/default.png';
-import ProfileIcon from 'assets/images/tabIcons/ProfileIcon/default.png';
+import CommunicationScreen from 'screens/CommunicationScreen';
+import TabNavigator, { getHeaderTitle } from './TabNavigator';
 
-import MainStack from './MainStack';
-import ProfileStack from './ProfileStack';
+const Stack = createStackNavigator();
 
-const Tab = createBottomTabNavigator();
-
-const TabNavigator = () => (
-  <Tab.Navigator
-    tabBarOptions={{
-      activeTintColor: LIGHT_GRAY,
-      inactiveTintColor: PRIMARY,
-      showLabel: false,
-    }}>
-    <Tab.Screen
-      name={MAIN_STACK}
-      component={MainStack}
-      options={{
-        tabBarTestID: testIds.TABS.main,
-        tabBarIcon: props => <TabIcon {...props} source={MainIcon} />,
-      }}
+const AppStack = () => (
+  <Stack.Navigator screenOptions={HEADER_OPTIONS}>
+    {/* <Stack.Screen name={COMMUNICATION_SCREEN} component={CommunicationScreen} /> */}
+    <Stack.Screen
+      name={TAB_NAVIGATOR}
+      component={TabNavigator}
+      options={({ route }) => ({
+        headerTitle: getHeaderTitle(route),
+      })}
     />
-    <Tab.Screen
-      name={PROFILE_STACK}
-      component={ProfileStack}
-      options={{
-        tabBarTestID: testIds.TABS.profile,
-        tabBarIcon: props => <TabIcon {...props} source={ProfileIcon} />,
-      }}
-    />
-  </Tab.Navigator>
+
+    <Stack.Screen name={COMMUNICATION_SCREEN} component={CommunicationScreen} />
+  </Stack.Navigator>
 );
 
-export default TabNavigator;
+export default AppStack;
