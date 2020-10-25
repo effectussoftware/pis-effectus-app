@@ -10,6 +10,7 @@ import applyDefaultInterceptors from 'httpClient/applyDefaultInterceptors';
 import moment from 'moment';
 import 'moment/locale/es';
 
+import { IS_IOS } from 'constants/index.js';
 import Navigation from 'navigators';
 import configureStore from 'store/configureStore';
 import configureNotifications, {
@@ -31,7 +32,7 @@ const App = () => {
 
   useEffect(() => {
     checkPermission();
-    startListeningIosNotifications();
+    if (IS_IOS) startListeningIosNotifications();
   }, [checkPermission]);
 
   return (
