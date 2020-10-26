@@ -12,7 +12,6 @@ const Stack = createStackNavigator();
 
 const AppStack = () => (
   <Stack.Navigator screenOptions={HEADER_OPTIONS}>
-    {/* <Stack.Screen name={COMMUNICATION_SCREEN} component={CommunicationScreen} /> */}
     <Stack.Screen
       name={TAB_NAVIGATOR}
       component={TabNavigator}
@@ -20,7 +19,6 @@ const AppStack = () => (
         headerTitle: getHeaderTitle(route),
       })}
     />
-
     <Stack.Screen name={COMMUNICATION_SCREEN} component={CommunicationScreen} />
   </Stack.Navigator>
 );

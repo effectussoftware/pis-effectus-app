@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 
 import { container } from 'constants/styles';
-import { WHITE } from 'constants/colors';
+import { DARK_GRAY, WHITE } from 'constants/colors';
 import { DEFAULT_HORIZONTAL_SEPARATION } from 'constants/dimensions';
 
 const styles = StyleSheet.create({
@@ -14,6 +14,10 @@ const styles = StyleSheet.create({
   },
   title: {
     marginVertical: 16,
+  },
+  updatedAt: {
+    marginBottom: 16,
+    color: DARK_GRAY,
   },
   image: {
     alignSelf: 'stretch',
