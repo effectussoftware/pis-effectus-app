@@ -30,6 +30,7 @@ export default {
   ONE_ON_ONE: {
     title: 'Resultados 1 on 1',
     emptyState: 'Aún no tienes resultados 1 on 1',
+    noComments: 'Sin comentarios',
   },
 
   SIGN_UP: {

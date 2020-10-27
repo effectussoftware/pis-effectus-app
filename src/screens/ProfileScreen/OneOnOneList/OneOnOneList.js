@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FlatList, View } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
 
+import { getOneOnOnes } from 'actions/oneOnOneActions';
 import strings from 'locale';
 
 import { Text } from 'components';
@@ -9,7 +11,14 @@ import OneOnOneItem from './OneOnOneItem';
 import styles from './OneOnOneList.styles';
 
 const OneOnOneList = () => {
-  const list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getOneOnOnes());
+  }, [dispatch]);
+
+  const list = useSelector(({ oneOnOne }) => oneOnOne.data);
+
   return (
     <FlatList
       style={styles.flatList}
