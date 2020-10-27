@@ -25,7 +25,7 @@ const icons = {
   [COMMUNICATION]: NewsIcon,
 };
 
-const FeedCard = ({ type, updatedAt, ...restProps }) => {
+const FeedCard = ({ type, updatedAt, image, ...restProps }) => {
   const LINES_CUTOFF = 2;
   const [descriptionLines, setDescriptionLines] = useState();
   const [viewMoreActive, setViewMoreActive] = useState(false);
@@ -44,7 +44,12 @@ const FeedCard = ({ type, updatedAt, ...restProps }) => {
   };
 
   return (
-    <Card descriptionProps={descriptionProps} icon={icons[type]} time={updatedAt} {...restProps}>
+    <Card
+      descriptionProps={descriptionProps}
+      icon={icons[type]}
+      time={updatedAt}
+      image={image}
+      {...restProps}>
       {descriptionLines > LINES_CUTOFF && (
         <Button
           style={styles.viewMoreLessButton}
