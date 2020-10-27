@@ -4,6 +4,10 @@ export default {
     somethingWentWrong: 'Algo salió mal',
   },
 
+  NAVIGATION: {
+    back: 'Atrás',
+  },
+
   LOGIN_SCREEN: {
     submit: 'Iniciar sesión',
   },
@@ -16,6 +20,7 @@ export default {
     title: 'Novedades',
     viewMore: 'Ver más',
     viewLess: 'Ver menos',
+    emptyState: 'Aún no tienes novedades',
   },
 
   PROFILE_SCREEN: {

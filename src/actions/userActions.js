@@ -4,9 +4,7 @@ import { createThunk, createAction } from '@rootstrap/redux-tools';
 import userService from 'services/userService';
 
 export const registerDevice = createThunk('REGISTER_DEVICE', async (_, getState) => {
-  const { firebaseToken, firebaseTokenUpdated } = getState().session;
-  console.log('fbt: ', firebaseToken);
-  console.log('fbtu: ', firebaseTokenUpdated);
+  const { firebaseToken } = getState().session;
   await userService.registerDevice(firebaseToken);
 });
 
