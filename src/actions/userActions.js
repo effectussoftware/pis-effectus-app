@@ -19,7 +19,10 @@ export const logout = createThunk('LOGOUT', async () => {
   } catch ({ response }) {
     // logout user anyways by catching error and allowing success to be
   } finally {
-    await GoogleSignin.signOut();
+    const isSignedIn = await GoogleSignin.isSignedIn();
+    if (isSignedIn) {
+      await GoogleSignin.signOut();
+    }
   }
 });
 
