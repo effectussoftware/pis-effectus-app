@@ -4,12 +4,14 @@ import { View } from 'react-native';
 
 import strings from 'locale';
 import { MAIN_SCREEN } from 'constants/screens';
+import useNotifications from 'hooks/useNotifications';
 
 import FeedList from './FeedList';
 
 import styles from './MainScreen.styles';
 
 const MainScreen = ({ navigation }) => {
+  useNotifications();
   useEffect(() => {
     navigation.setOptions({ title: strings.MAIN_SCREEN.title });
   }, [navigation]);
