@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Image } from 'react-native';
-import { arrayOf, bool, node, number, object, oneOfType, string } from 'prop-types';
+import { arrayOf, node, number, object, oneOfType, string } from 'prop-types';
 import moment from 'moment';
 import { CALENDAR_FORMATS } from 'constants/dateFormats';
 
@@ -10,7 +10,6 @@ import styles from './Card.styles';
 
 const Card = ({
   image,
-  hasBigImage = false,
   title,
   children,
   text,
@@ -20,14 +19,14 @@ const Card = ({
   descriptionProps = {},
 }) => (
   <View style={styles.container}>
-    {hasBigImage && (
+    {!!image && (
       <View style={styles.imageContainer}>
-        <Image source={image} />
+        <Image source={{ uri: image }} style={{ alignSelf: 'stretch', flex: 1 }} />
       </View>
     )}
 
     <View style={styles.bodyContainer}>
-      {!hasBigImage && (
+      {!image && (
         <View style={styles.iconContainer}>
           <Image source={icon} />
         </View>
@@ -52,7 +51,6 @@ const Card = ({
 
 Card.propTypes = {
   image: string,
-  hasBigImage: bool,
   title: string.isRequired,
   text: string.isRequired,
   time: string,

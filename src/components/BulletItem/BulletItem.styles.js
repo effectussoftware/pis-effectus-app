@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
   even: {
     backgroundColor: SECONDARY,
   },
-  name: { paddingHorizontal: DEFAULT_HORIZONTAL_SEPARATION },
+  text: { paddingHorizontal: DEFAULT_HORIZONTAL_SEPARATION },
 });
 
 export default styles;
