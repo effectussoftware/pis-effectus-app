@@ -12,7 +12,6 @@ import { SignOut, Text } from 'components';
 import OneOnOneList from './OneOnOneList';
 
 import styles from './ProfileScreen.styles';
-import {} from 'react-native-gesture-handler';
 
 const ProfileScreen = () => {
   useSetNavigationOptions({

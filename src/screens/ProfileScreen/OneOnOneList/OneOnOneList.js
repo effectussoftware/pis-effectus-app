@@ -25,7 +25,7 @@ const OneOnOneList = () => {
       data={list}
       renderItem={({ item }) => <OneOnOneItem item={item} />}
       keyExtractor={item => item.toString()}
-      contentContainerStyle={[styles.contentContainer]}
+      contentContainerStyle={styles.contentContainer}
       ListHeaderComponent={() => (
         <Text type="H2" style={styles.oneOnOneTitle}>
           {strings.ONE_ON_ONE.title}

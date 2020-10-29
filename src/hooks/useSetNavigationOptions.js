@@ -2,10 +2,10 @@ import { useNavigation } from '@react-navigation/native';
 import { useEffect } from 'react';
 
 const useSetNavigationOptions = options => {
-  const navigation = useNavigation();
+  const { setOptions } = useNavigation();
   useEffect(() => {
-    navigation.setOptions(options);
-  }, [navigation, options]);
+    setOptions(options);
+  }, [setOptions, options]);
 };
 
 export default useSetNavigationOptions;
