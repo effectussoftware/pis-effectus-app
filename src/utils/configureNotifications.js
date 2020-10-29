@@ -40,8 +40,8 @@ export const handleIosInitialNotification = async () => {
 export const handleAndroidPushNotification = notification => {
   if (IS_ANDROID) {
     const { foreground, userInteraction } = notification;
-    if (foreground && userInteraction) {
-      handleNotifications(notification.data);
+    if (userInteraction) {
+      handleNotifications(foreground ? notification.data : notification);
     }
   }
 };
