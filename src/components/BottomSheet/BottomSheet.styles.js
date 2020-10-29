@@ -1,7 +1,6 @@
-import { StyleSheet } from 'react-native';
 import { DIM_BACKGROUND, LIGHT_GRAY } from 'constants/colors';
 
-const styles = StyleSheet.create({
+const styles = bottom => ({
   wrapper: {
     backgroundColor: DIM_BACKGROUND,
   },
@@ -11,6 +10,7 @@ const styles = StyleSheet.create({
   container: {
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
+    paddingBottom: 16 + bottom,
   },
 });
 

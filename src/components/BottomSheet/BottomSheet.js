@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { object, node } from 'prop-types';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import RBSheet from 'react-native-raw-bottom-sheet';
-import styles from './BottomSheet.styles';
+import stylesProps from './BottomSheet.styles';
 
 const BottomSheet = ({ children, reference, ...restProps }) => {
+  const { bottom } = useSafeAreaInsets();
+  const styles = useMemo(stylesProps(bottom), [bottom]);
   return (
     <RBSheet
       ref={reference}
@@ -16,7 +19,6 @@ const BottomSheet = ({ children, reference, ...restProps }) => {
     </RBSheet>
   );
 };
-
 BottomSheet.propTypes = {
   reference: object.isRequired,
   children: node,

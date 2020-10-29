@@ -6,6 +6,7 @@ const styles = StyleSheet.create({
     paddingTop: 30,
     paddingBottom: 20,
     paddingHorizontal: 24,
+    flex: 1,
   },
   title: {
     textAlign: 'center',
@@ -20,7 +21,6 @@ const styles = StyleSheet.create({
     marginVertical: 5,
   },
   secondaryButton: {
-    marginVertical: 5,
     height: 54,
   },
 });
