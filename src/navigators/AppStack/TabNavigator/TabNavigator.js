@@ -1,22 +1,23 @@
 /* eslint-disable react/no-multi-comp */
 import React from 'react';
+import { object } from 'prop-types';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 
+import MainIcon from 'assets/images/tabIcons/MainIcon/default.png';
+import ProfileIcon from 'assets/images/tabIcons/ProfileIcon/default.png';
 import { MAIN_SCREEN, PROFILE_SCREEN } from 'constants/screens';
 import { PRIMARY, LIGHT_GRAY } from 'constants/colors';
 import testIds from 'constants/testIds';
+import { useSetNavigationOptions } from 'hooks';
 
 import TabIcon from 'components/TabIcon';
-import MainIcon from 'assets/images/tabIcons/MainIcon/default.png';
-import ProfileIcon from 'assets/images/tabIcons/ProfileIcon/default.png';
 
 import MainScreen from 'screens/MainScreen';
 import ProfileScreen from 'screens/ProfileScreen';
-import { useSetNavigationOptions } from 'hooks';
+
 import mainScreenNavigationOptions from 'screens/MainScreen/MainScreen.navigationOptions';
 import profileScreenNavigationOptions from 'screens/ProfileScreen/ProfileScreen.navigationOptions';
-import { object } from 'prop-types';
 
 const Tab = createBottomTabNavigator();
 
