@@ -13,41 +13,51 @@ import ProfileIcon from 'assets/images/tabIcons/ProfileIcon/default.png';
 
 import MainScreen from 'screens/MainScreen';
 import ProfileScreen from 'screens/ProfileScreen';
-import strings from 'locale';
+import { useSetNavigationOptions } from 'hooks';
+import mainScreenNavigationOptions from 'screens/MainScreen/MainScreen.navigationOptions';
+import profileScreenNavigationOptions from 'screens/ProfileScreen/ProfileScreen.navigationOptions';
+import { object } from 'prop-types';
 
 const Tab = createBottomTabNavigator();
 
-export const getHeaderTitle = route => {
-  const routeName = getFocusedRouteNameFromRoute(route) ?? MAIN_SCREEN;
-
-  if (routeName === MAIN_SCREEN) return strings.MAIN_SCREEN.title;
-  if (routeName === PROFILE_SCREEN) return strings.PROFILE_SCREEN.title;
+const navigationOptions = {
+  [MAIN_SCREEN]: mainScreenNavigationOptions,
+  [PROFILE_SCREEN]: profileScreenNavigationOptions,
 };
 
-const TabNavigator = () => (
-  <Tab.Navigator
-    tabBarOptions={{
-      activeTintColor: LIGHT_GRAY,
-      inactiveTintColor: PRIMARY,
-      showLabel: false,
-    }}>
-    <Tab.Screen
-      name={MAIN_SCREEN}
-      component={MainScreen}
-      options={{
-        tabBarTestID: testIds.TABS.main,
-        tabBarIcon: props => <TabIcon {...props} source={MainIcon} />,
-      }}
-    />
-    <Tab.Screen
-      name={PROFILE_SCREEN}
-      component={ProfileScreen}
-      options={{
-        tabBarTestID: testIds.TABS.profile,
-        tabBarIcon: props => <TabIcon {...props} source={ProfileIcon} />,
-      }}
-    />
-  </Tab.Navigator>
-);
+const TabNavigator = ({ route }) => {
+  const routeName = getFocusedRouteNameFromRoute(route) ?? MAIN_SCREEN;
+  useSetNavigationOptions(navigationOptions[routeName]);
+
+  return (
+    <Tab.Navigator
+      tabBarOptions={{
+        activeTintColor: LIGHT_GRAY,
+        inactiveTintColor: PRIMARY,
+        showLabel: false,
+      }}>
+      <Tab.Screen
+        name={MAIN_SCREEN}
+        component={MainScreen}
+        options={{
+          tabBarTestID: testIds.TABS.main,
+          tabBarIcon: props => <TabIcon {...props} source={MainIcon} />,
+        }}
+      />
+      <Tab.Screen
+        name={PROFILE_SCREEN}
+        component={ProfileScreen}
+        options={{
+          tabBarTestID: testIds.TABS.profile,
+          tabBarIcon: props => <TabIcon {...props} source={ProfileIcon} />,
+        }}
+      />
+    </Tab.Navigator>
+  );
+};
+
+TabNavigator.propTypes = {
+  route: object.isRequired,
+};
 
 export default TabNavigator;
