@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 
-import { useSetNavigationOptions } from 'hooks';
+import { useSession, useSetNavigationOptions } from 'hooks';
 import { PROFILE_SCREEN } from 'constants/screens';
 import { SECONDARY, WHITE } from 'constants/colors';
 import { headerStyle } from 'constants/navigationOptions';
@@ -29,11 +29,15 @@ const ProfileScreen = () => {
     headerRight: () => <SignOut />,
   });
 
+  const {
+    user: { name },
+  } = useSession();
+
   return (
     <View style={styles.container} testID={PROFILE_SCREEN}>
       <View style={styles.userInfoContainer}>
         <Text type="H1" style={styles.userInfoText}>
-          PIS Fing
+          {name}
         </Text>
       </View>
       <OneOnOneList />

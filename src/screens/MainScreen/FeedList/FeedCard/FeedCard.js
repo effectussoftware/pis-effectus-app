@@ -13,7 +13,7 @@ import styles from './FeedCard.styles';
 // AVAILABLE FEED TYPES
 const POLL = 'poll';
 const EXCHANGE = 'exchange';
-const ONE_ON_ONE = 'oneOnOne';
+const ONE_ON_ONE = 'review';
 const COMMUNICATION = 'communication';
 
 export const typeShape = oneOf([POLL, EXCHANGE, ONE_ON_ONE, COMMUNICATION]);

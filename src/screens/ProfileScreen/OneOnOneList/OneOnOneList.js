@@ -23,7 +23,7 @@ const OneOnOneList = () => {
     <FlatList
       style={styles.flatList}
       data={list}
-      renderItem={({ item }) => <OneOnOneItem {...item} />}
+      renderItem={({ item }) => <OneOnOneItem item={item} />}
       keyExtractor={item => item.toString()}
       contentContainerStyle={[styles.contentContainer]}
       ListHeaderComponent={() => (
