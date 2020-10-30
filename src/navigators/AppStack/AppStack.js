@@ -2,9 +2,10 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import { COMMUNICATION_SCREEN, TAB_NAVIGATOR } from 'constants/screens';
+import { COMMUNICATION_SCREEN, TAB_NAVIGATOR, ONE_ON_ONE_SCREEN } from 'constants/screens';
 import { HEADER_OPTIONS } from 'constants/navigationOptions';
 
+import OneOnOneScreen from 'screens/OneOnOneScreen';
 import CommunicationScreen from 'screens/CommunicationScreen';
 import TabNavigator, { getHeaderTitle } from './TabNavigator';
 
@@ -20,6 +21,7 @@ const AppStack = () => (
       })}
     />
     <Stack.Screen name={COMMUNICATION_SCREEN} component={CommunicationScreen} />
+    <Stack.Screen name={ONE_ON_ONE_SCREEN} component={OneOnOneScreen} />
   </Stack.Navigator>
 );
 

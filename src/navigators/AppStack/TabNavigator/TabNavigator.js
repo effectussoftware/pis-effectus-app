@@ -10,7 +10,6 @@ import testIds from 'constants/testIds';
 import TabIcon from 'components/TabIcon';
 import MainIcon from 'assets/images/tabIcons/MainIcon/default.png';
 import ProfileIcon from 'assets/images/tabIcons/ProfileIcon/default.png';
-
 import MainScreen from 'screens/MainScreen';
 import ProfileScreen from 'screens/ProfileScreen';
 import strings from 'locale';

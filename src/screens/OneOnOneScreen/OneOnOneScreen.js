@@ -1,69 +1,63 @@
 import React, { useEffect } from 'react';
 import { object } from 'prop-types';
 import { View, FlatList } from 'react-native';
-import Text from 'components/Text';
+import { useDispatch, useSelector } from 'react-redux';
+import { useStatus, SUCCESS } from '@rootstrap/redux-tools';
+
+import { getOneOnOne } from 'actions/oneOnOneActions';
+import { Loader, Text } from 'components';
 import OneOnOneInformation from 'components/OneOnOneInformation/oneOnOneInformation';
-import moment from 'moment';
+
 import ActionItem from 'components/ActionItem/ActionItem';
+import useAlertError from 'hooks/useAlertError';
 import styles from './OneOnOneScreen.styles';
 
-const testOneOnOne = {
-  title: '1 on 1 - 2 Años',
-  date: moment().format(),
-  comments:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec fringilla quam eu faci lisis mollis. ',
-  effectusActions: [
-    {
-      id: '1',
-      title: 'Item 1',
-      confirmed: false,
-    },
-    {
-      id: '2',
-      title: 'Item 2',
-      confirmed: true,
-    },
-  ],
-  myActions: [
-    {
-      id: '1',
-      title: 'Item 1',
-      confirmed: true,
-    },
-    {
-      id: '2',
-      title: 'Item 2',
-      confirmed: false,
-    },
-  ],
-};
+const OneOnOneScreen = ({
+  navigation,
+  route: {
+    params: { idOneOnOne },
+  },
+}) => {
+  const dispatch = useDispatch();
 
-const OneOnOneScreen = ({ navigation }) => {
   useEffect(() => {
-    navigation.setOptions({ title: ' ' });
-  }, [navigation]);
+    navigation.setOptions({ title: null });
+  });
+
+  useEffect(() => {
+    dispatch(getOneOnOne(idOneOnOne));
+  }, [dispatch, idOneOnOne]);
+
+  const oneOnOne = useSelector(({ oneOnOne }) => oneOnOne.data);
+  const { status, error } = useStatus(getOneOnOne);
+
+  useAlertError(error, getOneOnOne, navigation.goBack);
+
+  if (status !== SUCCESS) return <Loader />;
+
+  const { title, comments, createdAt, reviewerActionItems, userActionItems } = oneOnOne;
 
   return (
     <View style={styles.container}>
       <View>
-        <OneOnOneInformation {...testOneOnOne} />
+        <OneOnOneInformation title={title} date={createdAt} comments={comments} />
       </View>
 
       <View style={styles.contentContainer}>
         <Text type="H3">¿A que acciones se compromete Effectus?</Text>
         <FlatList
-          data={testOneOnOne.effectusActions}
-          renderItem={({ item }) => <ActionItem {...item} />}
-          keyExtractor={item => item.id.toString()}
+          data={reviewerActionItems}
+          renderItem={({ item, index }) => <ActionItem id={index} {...item} />}
+          keyExtractor={(item, index) => `key ${index}`}
         />
       </View>
 
       <View style={styles.contentContainer}>
         <Text type="H3">¿A que acciones te comprometes?</Text>
         <FlatList
-          data={testOneOnOne.myActions}
-          renderItem={({ item }) => <ActionItem {...item} />}
-          keyExtractor={item => item.id.toString()}
+          data={userActionItems}
+          renderItem={({ item, index }) => <ActionItem id={index} {...item} />}
+          keyExtractor={(item, index) => `key ${index}`}
         />
       </View>
     </View>
@@ -72,6 +66,7 @@ const OneOnOneScreen = ({ navigation }) => {
 
 OneOnOneScreen.propTypes = {
   navigation: object.isRequired,
+  route: object.isRequired,
 };
 
 export default OneOnOneScreen;
