@@ -6,7 +6,7 @@ import stylesProps from './BottomSheet.styles';
 
 const BottomSheet = ({ children, reference, ...restProps }) => {
   const { bottom } = useSafeAreaInsets();
-  const styles = useMemo(stylesProps(bottom), [bottom]);
+  const styles = useMemo(() => stylesProps(bottom), [bottom]);
   return (
     <RBSheet
       ref={reference}
