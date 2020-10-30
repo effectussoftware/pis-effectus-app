@@ -1,9 +1,9 @@
 import httpClient from 'httpClient';
 
-class FeedService {
+class CommunicationService {
   get(id) {
     return httpClient.get(`/communications/${id}`);
   }
 }
 
-export default new FeedService();
+export default new CommunicationService();
