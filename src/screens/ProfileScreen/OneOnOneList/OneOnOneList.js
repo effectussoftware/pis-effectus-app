@@ -17,14 +17,14 @@ const OneOnOneList = () => {
     dispatch(getOneOnOnes());
   }, [dispatch]);
 
-  const list = useSelector(({ oneOnOne }) => oneOnOne.data);
+  const list = useSelector(({ oneOnOne }) => oneOnOne.myOneOnOnes);
 
   return (
     <FlatList
       style={styles.flatList}
       data={list}
       renderItem={({ item }) => <OneOnOneItem item={item} />}
-      keyExtractor={item => item.toString()}
+      keyExtractor={item => item.id.toString()}
       contentContainerStyle={styles.contentContainer}
       ListHeaderComponent={() => (
         <Text type="H2" style={styles.oneOnOneTitle}>
