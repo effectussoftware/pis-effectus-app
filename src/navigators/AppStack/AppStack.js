@@ -7,19 +7,13 @@ import { HEADER_OPTIONS } from 'constants/navigationOptions';
 
 import OneOnOneScreen from 'screens/OneOnOneScreen';
 import CommunicationScreen from 'screens/CommunicationScreen';
-import TabNavigator, { getHeaderTitle } from './TabNavigator';
+import TabNavigator from './TabNavigator';
 
 const Stack = createStackNavigator();
 
 const AppStack = () => (
   <Stack.Navigator screenOptions={HEADER_OPTIONS}>
-    <Stack.Screen
-      name={TAB_NAVIGATOR}
-      component={TabNavigator}
-      options={({ route }) => ({
-        headerTitle: getHeaderTitle(route),
-      })}
-    />
+    <Stack.Screen name={TAB_NAVIGATOR} component={TabNavigator} />
     <Stack.Screen name={COMMUNICATION_SCREEN} component={CommunicationScreen} />
     <Stack.Screen name={ONE_ON_ONE_SCREEN} component={OneOnOneScreen} />
   </Stack.Navigator>

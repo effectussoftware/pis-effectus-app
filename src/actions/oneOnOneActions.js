@@ -6,3 +6,8 @@ export const getOneOnOne = createThunk(
   'GET_ONEONONE',
   async id => (await oneOnOneService.get(id)).data.review,
 );
+
+export const getOneOnOnes = createThunk(
+  'GET_ONE_ON_ONES',
+  async () => (await oneOnOneService.list()).data.reviews,
+);

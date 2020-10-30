@@ -1,1 +1,1 @@
-export { default, getHeaderTitle } from './TabNavigator';
+export { default } from './TabNavigator';
