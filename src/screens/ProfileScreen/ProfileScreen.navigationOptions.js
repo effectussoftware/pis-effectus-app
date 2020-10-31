@@ -1,20 +1,20 @@
 import React from 'react';
 
 import { SECONDARY, WHITE } from 'constants/colors';
-import { headerStyle } from 'constants/navigationOptions';
-
+import { headerStyle, headerTitleStyle, HEADER_OPTIONS } from 'constants/navigationOptions';
 import strings from 'locale';
-import textStyles from 'components/Text/Text.styles';
+
 import { SignOut } from 'components';
 
 const navigationOptions = {
+  ...HEADER_OPTIONS,
   title: strings.PROFILE_SCREEN.title,
   headerStyle: {
     ...headerStyle,
     backgroundColor: SECONDARY,
   },
   headerTitleStyle: {
-    ...textStyles.H1,
+    ...headerTitleStyle,
     color: WHITE,
   },
   headerRight: () => <SignOut />,
