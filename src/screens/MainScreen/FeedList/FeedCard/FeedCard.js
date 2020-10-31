@@ -29,7 +29,7 @@ const icons = {
 };
 
 const FeedCard = ({ id, type, updatedAt, image, ...restProps }) => {
-  const navigation = useNavigation();
+  const { navigate } = useNavigation();
   const LINES_CUTOFF = 2;
   const [descriptionLines, setDescriptionLines] = useState();
   const [viewMoreActive, setViewMoreActive] = useState(false);
@@ -43,12 +43,14 @@ const FeedCard = ({ id, type, updatedAt, image, ...restProps }) => {
   };
 
   const navigateToOneOnOneDetail = id => {
-    navigation.navigate(ONE_ON_ONE_SCREEN, { idOneOnOne: id });
+    navigate(ONE_ON_ONE_SCREEN, { idOneOnOne: id });
   };
+
   const handleOnClick = (type, id) => {
-    if (type == 'communication') changeActive();
-    else if (type == 'review') navigateToOneOnOneDetail(id);
+    if (type == COMMUNICATION) changeActive();
+    else if (type == ONE_ON_ONE) navigateToOneOnOneDetail(id);
   };
+
   const descriptionProps = {
     numberOfLines: viewMoreActive || !descriptionLines ? undefined : LINES_CUTOFF,
     onTextLayout: setLines,

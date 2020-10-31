@@ -10,10 +10,10 @@ import OneOnOneIcon from 'assets/images/feedIcons/oneOnOne/default.png';
 import strings from 'locale';
 
 const OneOnOneItem = ({ item: { id, title, comments, createdAt } }) => {
-  const navigation = useNavigation();
+  const { navigate } = useNavigation();
 
   const navigateToOneOnOneDetail = id => {
-    navigation.navigate(ONE_ON_ONE_SCREEN, { idOneOnOne: id });
+    navigate(ONE_ON_ONE_SCREEN, { idOneOnOne: id });
   };
 
   return (
