@@ -4,7 +4,9 @@ import { string } from 'prop-types';
 import moment from 'moment';
 
 import Text from 'components/Text';
+import strings from 'locale';
 import { CALENDAR_FORMATS } from 'constants/dateFormats';
+
 import styles from './oneOnOneInformation.styles';
 
 const OneOnOneInformation = ({ title, date, comments }) => {
@@ -16,7 +18,7 @@ const OneOnOneInformation = ({ title, date, comments }) => {
       <Text type="H2">{title}</Text>
       <Text style={styles.P1}>{dateNewStartDate}</Text>
       <Text type="H3" style={styles.comments}>
-        Comentarios:
+        {strings.ONE_ON_ONE.comments}
       </Text>
       <Text style={styles.description}>{comments}</Text>
     </View>
