@@ -12,8 +12,8 @@ import strings from 'locale';
 const OneOnOneItem = ({ item: { id, title, comments, createdAt } }) => {
   const navigation = useNavigation();
 
-  const navigateToOneonOneDetail = id => {
-    navigation.navigate(ONE_ON_ONE_SCREEN, { idOneOnOne: id.toString() });
+  const navigateToOneOnOneDetail = id => {
+    navigation.navigate(ONE_ON_ONE_SCREEN, { idOneOnOne: id });
   };
 
   return (
@@ -22,7 +22,7 @@ const OneOnOneItem = ({ item: { id, title, comments, createdAt } }) => {
       text={comments || strings.ONE_ON_ONES.noComments}
       icon={OneOnOneIcon}
       time={createdAt}
-      onPress={() => navigateToOneonOneDetail(id)}
+      onPress={() => navigateToOneOnOneDetail(id)}
     />
   );
 };

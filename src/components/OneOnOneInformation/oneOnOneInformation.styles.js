@@ -3,31 +3,22 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
-    width: '100%',
     marginBottom: 10,
     alignSelf: 'stretch',
     paddingTop: 10,
     paddingBottom: 25,
     paddingLeft: 20,
   },
-  title: {
-    flexShrink: 1,
-    flexWrap: 'wrap',
+  comments: {
+    paddingTop: 15,
   },
   description: {
     color: BLACK,
-    paddingTop: 10,
+    paddingTop: 15,
   },
   P1: {
     color: DARK_GRAY,
-    paddingTop: 10,
-  },
-  url: {
-    color: 'blue',
-    textDecorationLine: 'underline',
-  },
-  H3: {
-    color: BLACK,
+    paddingTop: 15,
   },
 });
 

@@ -3,16 +3,16 @@ import { getOneOnOne, getOneOnOnes } from 'actions/oneOnOneActions';
 import { logout } from 'actions/userActions';
 
 const initialState = {
-  data: undefined,
-  myOneOnOnes: [],
+  item: undefined,
+  list: [],
 };
 
 const handleGetOneOnOneSuccess = (state, { payload }) => {
-  state.data = payload;
+  state.item = payload;
 };
 
 const handleGetOneOnOnesSuccess = (state, { payload }) => {
-  state.myOneOnOnes = payload;
+  state.list = payload;
 };
 
 const handleResetSuccess = () => {

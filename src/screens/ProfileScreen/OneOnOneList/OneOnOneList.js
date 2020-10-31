@@ -17,7 +17,7 @@ const OneOnOneList = () => {
     dispatch(getOneOnOnes());
   }, [dispatch]);
 
-  const list = useSelector(({ oneOnOne }) => oneOnOne.myOneOnOnes);
+  const list = useSelector(({ oneOnOne }) => oneOnOne.list);
 
   return (
     <FlatList

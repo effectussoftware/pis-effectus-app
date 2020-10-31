@@ -15,9 +15,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   bullet: {
-    width: 17,
+    width: 16,
     aspectRatio: 1,
-    borderRadius: 22,
+    borderRadius: 8,
   },
   odd: {
     backgroundColor: PRIMARY,

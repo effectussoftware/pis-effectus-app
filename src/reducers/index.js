@@ -8,8 +8,8 @@ import { statusReducer } from '@rootstrap/redux-tools';
 
 const AppReducer = combineReducers({
   communication,
-  oneOnOne,
   feed,
+  oneOnOne,
   session,
   statusReducer,
 });

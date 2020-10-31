@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { oneOf, string } from 'prop-types';
+import { oneOf, string, number } from 'prop-types';
 import { useNavigation } from '@react-navigation/native';
 import { ONE_ON_ONE_SCREEN } from 'constants/screens';
 
@@ -8,7 +8,7 @@ import PollIcon from 'assets/images/feedIcons/poll/default.png';
 import ExchangeIcon from 'assets/images/feedIcons/exchange/default.png';
 import NewsIcon from 'assets/images/feedIcons/news/default.png';
 import Card from 'components/Card';
-import Button from 'components/Button';
+import Text from 'components/Text';
 import strings from 'locale';
 
 import styles from './FeedCard.styles';
@@ -42,59 +42,37 @@ const FeedCard = ({ id, type, updatedAt, image, ...restProps }) => {
     !descriptionLines && setDescriptionLines(lines.length);
   };
 
-  const navigateToOneonOneDetail = id => {
-    navigation.navigate(ONE_ON_ONE_SCREEN, { idOneOnOne: id.toString() });
+  const navigateToOneOnOneDetail = id => {
+    navigation.navigate(ONE_ON_ONE_SCREEN, { idOneOnOne: id });
   };
-
+  const handleOnClick = (type, id) => {
+    if (type == 'communication') changeActive();
+    else if (type == 'review') navigateToOneOnOneDetail(id);
+  };
   const descriptionProps = {
     numberOfLines: viewMoreActive || !descriptionLines ? undefined : LINES_CUTOFF,
     onTextLayout: setLines,
   };
 
-  if (type === 'communication') {
-    return (
-      <Card
-        descriptionProps={descriptionProps}
-        icon={icons[type]}
-        time={updatedAt}
-        image={image}
-        onPress={() => {}}
-        {...restProps}>
-        {descriptionLines > LINES_CUTOFF && (
-          <Button
-            style={styles.viewMoreLessButton}
-            title={viewMoreActive ? strings.MAIN_SCREEN.viewLess : strings.MAIN_SCREEN.viewMore}
-            onPress={changeActive}
-            secondary
-          />
-        )}
-      </Card>
-    );
-  }
-  if (type === 'review') {
-    return (
-      <Card
-        descriptionProps={descriptionProps}
-        icon={icons[type]}
-        time={updatedAt}
-        image={image}
-        onPress={() => navigateToOneonOneDetail(id)}
-        {...restProps}>
-        {descriptionLines > LINES_CUTOFF && (
-          <Button
-            style={styles.viewMoreLessButton}
-            title={viewMoreActive ? strings.MAIN_SCREEN.viewLess : strings.MAIN_SCREEN.viewMore}
-            onPress={changeActive}
-            secondary
-          />
-        )}
-      </Card>
-    );
-  }
+  return (
+    <Card
+      descriptionProps={descriptionProps}
+      icon={icons[type]}
+      time={updatedAt}
+      image={image}
+      onPress={() => handleOnClick(type, id)}
+      {...restProps}>
+      {descriptionLines > LINES_CUTOFF && (
+        <Text style={styles.viewMoreLessButton}>
+          {viewMoreActive ? strings.MAIN_SCREEN.viewLess : strings.MAIN_SCREEN.viewMore}
+        </Text>
+      )}
+    </Card>
+  );
 };
 
 FeedCard.propTypes = {
-  id: Number,
+  id: number,
   type: typeShape.isRequired,
   updatedAt: string.isRequired,
 };
