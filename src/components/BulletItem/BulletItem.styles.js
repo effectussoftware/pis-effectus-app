@@ -1,4 +1,5 @@
 import { PRIMARY, SECONDARY, SUPER_LIGHT_GRAY } from 'constants/colors';
+import { DEFAULT_HORIZONTAL_SEPARATION } from 'constants/dimensions';
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
@@ -8,8 +9,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 2,
     borderBottomColor: SUPER_LIGHT_GRAY,
     alignItems: 'center',
-    paddingTop: 16,
-    paddingBottom: 13,
+    paddingVertical: 10,
   },
   innerContainer: {
     flexDirection: 'row',
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
   even: {
     backgroundColor: SECONDARY,
   },
-  text: { paddingHorizontal: 16 },
+  text: { paddingHorizontal: DEFAULT_HORIZONTAL_SEPARATION },
 });
 
 export default styles;

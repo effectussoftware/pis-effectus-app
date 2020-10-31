@@ -1,6 +1,7 @@
 export const LOGIN_SCREEN = 'LoginScreen';
 export const MAIN_SCREEN = 'MainScreen';
 export const PROFILE_SCREEN = 'ProfileScreen';
+export const ONE_ON_ONE_SCREEN = 'OneOnOneScreen';
 export const COMMUNICATION_SCREEN = 'CommunicationScreen';
 
 export const APP_STACK = 'AppStack';

@@ -31,6 +31,9 @@ export default {
     title: 'Resultados 1 on 1',
     emptyState: 'Aún no tienes resultados 1 on 1',
     noComments: 'Sin comentarios',
+    comments: 'Comentarios :',
+    reviewerActionTitle: '¿A que acciones se compromete Effectus?',
+    userActionTitle: '¿A que acciones te comprometes?',
   },
 
   SIGN_UP: {
@@ -46,5 +49,8 @@ export default {
       no: 'No',
       yes: 'Sí',
     },
+  },
+  ONE_ON_ONE_SCREEN: {
+    title: 'Ver Detalle',
   },
 };
