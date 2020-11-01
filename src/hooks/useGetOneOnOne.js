@@ -6,12 +6,12 @@ import { useNavigation } from '@react-navigation/native';
 import { getOneOnOne } from 'actions/oneOnOneActions';
 import useAlertError from './useAlertError';
 
-const useGetOneOnOne = idOneOnOne => {
+const useGetOneOnOne = id => {
   const { goBack } = useNavigation();
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getOneOnOne(idOneOnOne));
-  }, [dispatch, idOneOnOne]);
+    dispatch(getOneOnOne(id));
+  }, [dispatch, id]);
 
   const { status, error } = useStatus(getOneOnOne);
   useAlertError(error, getOneOnOne, goBack);

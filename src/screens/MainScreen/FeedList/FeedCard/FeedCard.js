@@ -7,17 +7,13 @@ import OneOnOneIcon from 'assets/images/feedIcons/oneOnOne/default.png';
 import PollIcon from 'assets/images/feedIcons/poll/default.png';
 import ExchangeIcon from 'assets/images/feedIcons/exchange/default.png';
 import NewsIcon from 'assets/images/feedIcons/news/default.png';
-import Card from 'components/Card';
-import Text from 'components/Text';
+import { POLL, EXCHANGE, ONE_ON_ONE, COMMUNICATION } from 'constants/models';
 import strings from 'locale';
 
-import styles from './FeedCard.styles';
+import Card from 'components/Card';
+import Text from 'components/Text';
 
-// AVAILABLE FEED TYPES
-const POLL = 'poll';
-const EXCHANGE = 'exchange';
-const ONE_ON_ONE = 'review';
-const COMMUNICATION = 'communication';
+import styles from './FeedCard.styles';
 
 export const typeShape = oneOf([POLL, EXCHANGE, ONE_ON_ONE, COMMUNICATION]);
 
@@ -43,7 +39,7 @@ const FeedCard = ({ id, type, updatedAt, image, ...restProps }) => {
   };
 
   const navigateToOneOnOneDetail = id => {
-    navigate(ONE_ON_ONE_SCREEN, { idOneOnOne: id });
+    navigate(ONE_ON_ONE_SCREEN, { id });
   };
 
   const handleOnClick = (type, id) => {

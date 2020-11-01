@@ -6,18 +6,18 @@ import humps from 'humps';
 import { IS_ANDROID, IS_IOS } from 'constants';
 import { updateFirebaseToken } from 'actions/userActions';
 import { navigate } from 'services/navigationService';
-import { COMMUNICATION_SCREEN } from 'constants/screens';
-
-const types = {
-  COMMUNICATION: 'Communication',
-};
+import { ONE_ON_ONE, COMMUNICATION } from 'constants/models';
+import { COMMUNICATION_SCREEN, ONE_ON_ONE_SCREEN } from 'constants/screens';
 
 export const handleNotifications = data => {
   const notification = humps.camelizeKeys(data || {});
 
   const { type, id } = notification;
 
-  if (type === types.COMMUNICATION) navigate(COMMUNICATION_SCREEN, { id });
+  const parsedType = type.toLowerCase();
+
+  if (parsedType === COMMUNICATION) navigate(COMMUNICATION_SCREEN, { id });
+  if (parsedType === ONE_ON_ONE) navigate(ONE_ON_ONE_SCREEN, { id });
 };
 
 export const handleIosPushNotification = info => {

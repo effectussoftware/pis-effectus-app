@@ -16,6 +16,5 @@ export const HEADER_OPTIONS = {
   headerTitleStyle,
   headerBackTitle: strings.NAVIGATION.back,
   headerTintColor: PRIMARY,
-  headerLeft: null,
   headerRight: null,
 };
