@@ -1,4 +1,5 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback } from 'react';
+import { func } from 'prop-types';
 import { FlatList, View } from 'react-native';
 import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 import { LOADING, SUCCESS, useStatus } from '@rootstrap/redux-tools';
@@ -12,16 +13,8 @@ import FeedCard from './FeedCard';
 
 import styles from './FeedList.styles';
 
-const FeedList = () => {
+const FeedList = ({ handleRefresh }) => {
   const dispatch = useDispatch();
-
-  const handleRefresh = useCallback(() => {
-    dispatch(getFeed({ shouldReplace: true }));
-  }, [dispatch]);
-
-  useEffect(() => {
-    handleRefresh();
-  }, [handleRefresh]);
 
   const { status, error } = useStatus(getFeed);
 
@@ -58,6 +51,10 @@ const FeedList = () => {
       }
     />
   );
+};
+
+FeedList.propTypes = {
+  handleRefresh: func.isRequired,
 };
 
 export default FeedList;
