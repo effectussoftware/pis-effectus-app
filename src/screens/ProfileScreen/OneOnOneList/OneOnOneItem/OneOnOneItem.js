@@ -13,7 +13,7 @@ const OneOnOneItem = ({ item: { id, title, comments, createdAt } }) => {
   const { navigate } = useNavigation();
 
   const navigateToOneOnOneDetail = id => {
-    navigate(ONE_ON_ONE_SCREEN, { idOneOnOne: id });
+    navigate(ONE_ON_ONE_SCREEN, { id });
   };
 
   return (
