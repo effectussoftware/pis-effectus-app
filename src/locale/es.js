@@ -23,6 +23,10 @@ export default {
     emptyState: 'Aún no tienes novedades',
   },
 
+  EVENTS_SCREEN: {
+    title: 'Eventos',
+  },
+
   PROFILE_SCREEN: {
     title: 'Perfil',
   },

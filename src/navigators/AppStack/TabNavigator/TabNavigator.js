@@ -6,8 +6,9 @@ import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 
 import TabIcon from 'components/TabIcon';
 import MainIcon from 'assets/images/tabIcons/MainIcon/default.png';
+import EventsIcon from 'assets/images/tabIcons/EventsIcon/default.png';
 import ProfileIcon from 'assets/images/tabIcons/ProfileIcon/default.png';
-import { MAIN_SCREEN, PROFILE_SCREEN } from 'constants/screens';
+import { EVENTS_SCREEN, MAIN_SCREEN, PROFILE_SCREEN } from 'constants/screens';
 import { PRIMARY, LIGHT_GRAY } from 'constants/colors';
 import testIds from 'constants/testIds';
 import { useSetNavigationOptions } from 'hooks';
@@ -16,12 +17,15 @@ import MainScreen from 'screens/MainScreen';
 import ProfileScreen from 'screens/ProfileScreen';
 
 import mainScreenNavigationOptions from 'screens/MainScreen/MainScreen.navigationOptions';
+import eventsScreenNavigationOptions from 'screens/EventsScreen/EventsScreen.navigationOptions';
 import profileScreenNavigationOptions from 'screens/ProfileScreen/ProfileScreen.navigationOptions';
+import EventsScreen from 'screens/EventsScreen';
 
 const Tab = createBottomTabNavigator();
 
 const navigationOptions = {
   [MAIN_SCREEN]: mainScreenNavigationOptions,
+  [EVENTS_SCREEN]: eventsScreenNavigationOptions,
   [PROFILE_SCREEN]: profileScreenNavigationOptions,
 };
 
@@ -42,6 +46,14 @@ const TabNavigator = ({ route }) => {
         options={{
           tabBarTestID: testIds.TABS.main,
           tabBarIcon: props => <TabIcon {...props} source={MainIcon} />,
+        }}
+      />
+      <Tab.Screen
+        name={EVENTS_SCREEN}
+        component={EventsScreen}
+        options={{
+          tabBarTestID: testIds.TABS.events,
+          tabBarIcon: props => <TabIcon {...props} source={EventsIcon} />,
         }}
       />
       <Tab.Screen

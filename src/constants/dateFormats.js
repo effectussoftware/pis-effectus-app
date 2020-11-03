@@ -1,6 +1,9 @@
 export const TIME_FORMAT = 'HH:mm';
 export const DAY_OF_WEEK_FORMAT = 'dddd';
 export const DATE_FORMAT_BEAUTIFIED = 'DD/MM/YY';
+export const MONTH_FORMAT = 'MMMM';
+export const EVENT_CALENDAR = 'YYYY-MM-DD';
+export const EVENT_CALENDAR_YEAR_AND_MONTH = 'YYYY-MM';
 
 /* TODO: figure out date formats for events since the time always matters
  and they can be in the future */
