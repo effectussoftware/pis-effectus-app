@@ -1,28 +1,34 @@
-import React, { useEffect } from 'react';
-import { object } from 'prop-types';
+import React, { useCallback } from 'react';
 import { View } from 'react-native';
+import { useFocusEffect } from '@react-navigation/native';
+import { useDispatch } from 'react-redux';
 
-import strings from 'locale';
+import { getFeed } from 'actions/feedActions';
 import { MAIN_SCREEN } from 'constants/screens';
+import useNotifications from 'hooks/useNotifications';
 
 import FeedList from './FeedList';
 
 import styles from './MainScreen.styles';
 
-const MainScreen = ({ navigation }) => {
-  useEffect(() => {
-    navigation.setOptions({ title: strings.MAIN_SCREEN.title });
-  }, [navigation]);
+const MainScreen = () => {
+  useNotifications();
+
+  const dispatch = useDispatch();
+
+  const handleRefresh = useCallback(() => {
+    dispatch(getFeed({ shouldReplace: true }));
+  }, [dispatch]);
+
+  useFocusEffect(() => {
+    handleRefresh();
+  }, [handleRefresh]);
 
   return (
     <View style={styles.container} testID={MAIN_SCREEN}>
-      <FeedList />
+      <FeedList handleRefresh={handleRefresh} />
     </View>
   );
-};
-
-MainScreen.propTypes = {
-  navigation: object.isRequired,
 };
 
 export default MainScreen;

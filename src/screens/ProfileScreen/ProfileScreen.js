@@ -1,26 +1,29 @@
-import React, { useEffect } from 'react';
-import { object } from 'prop-types';
+import React from 'react';
 import { View } from 'react-native';
 
+import { useSession } from 'hooks';
 import { PROFILE_SCREEN } from 'constants/screens';
-import strings from 'locale';
-import SignOut from 'components/SignOut';
+
+import { Text } from 'components';
+import OneOnOneList from './OneOnOneList';
+
 import styles from './ProfileScreen.styles';
 
-const ProfileScreen = ({ navigation }) => {
-  useEffect(() => {
-    navigation.setOptions({ title: strings.PROFILE_SCREEN.title });
-  }, [navigation]);
+const ProfileScreen = () => {
+  const {
+    user: { name },
+  } = useSession();
 
   return (
     <View style={styles.container} testID={PROFILE_SCREEN}>
-      <SignOut />
+      <View style={styles.userInfoContainer}>
+        <Text type="H1" style={styles.userInfoText}>
+          {name}
+        </Text>
+      </View>
+      <OneOnOneList />
     </View>
   );
-};
-
-ProfileScreen.propTypes = {
-  navigation: object.isRequired,
 };
 
 export default ProfileScreen;

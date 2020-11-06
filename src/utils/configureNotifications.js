@@ -5,10 +5,19 @@ import humps from 'humps';
 
 import { IS_ANDROID, IS_IOS } from 'constants';
 import { updateFirebaseToken } from 'actions/userActions';
+import { navigate } from 'services/navigationService';
+import { ONE_ON_ONE, COMMUNICATION } from 'constants/models';
+import { COMMUNICATION_SCREEN, ONE_ON_ONE_SCREEN } from 'constants/screens';
 
 export const handleNotifications = data => {
   const notification = humps.camelizeKeys(data || {});
-  console.log('notification: ', notification);
+
+  const { type, id } = notification;
+
+  const parsedType = type.toLowerCase();
+
+  if (parsedType === COMMUNICATION) navigate(COMMUNICATION_SCREEN, { id });
+  if (parsedType === ONE_ON_ONE) navigate(ONE_ON_ONE_SCREEN, { id });
 };
 
 export const handleIosPushNotification = info => {
@@ -31,8 +40,8 @@ export const handleIosInitialNotification = async () => {
 export const handleAndroidPushNotification = notification => {
   if (IS_ANDROID) {
     const { foreground, userInteraction } = notification;
-    if (foreground && userInteraction) {
-      handleNotifications(notification.data);
+    if (userInteraction) {
+      handleNotifications(foreground ? notification.data : notification);
     }
   }
 };

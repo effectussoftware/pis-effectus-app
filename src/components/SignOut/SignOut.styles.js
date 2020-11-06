@@ -1,9 +1,12 @@
 import { StyleSheet } from 'react-native';
 
+import { WHITE } from 'constants/colors';
+import { DEFAULT_HORIZONTAL_SEPARATION } from 'constants/dimensions';
+
 const styles = StyleSheet.create({
-  container: {
-    justifyContent: 'center',
-    alignItems: 'center',
+  text: {
+    color: WHITE,
+    marginRight: DEFAULT_HORIZONTAL_SEPARATION,
   },
 });
 

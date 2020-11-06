@@ -4,9 +4,7 @@ import { createThunk, createAction } from '@rootstrap/redux-tools';
 import userService from 'services/userService';
 
 export const registerDevice = createThunk('REGISTER_DEVICE', async (_, getState) => {
-  const { firebaseToken, firebaseTokenUpdated } = getState().session;
-  console.log('fbt: ', firebaseToken);
-  console.log('fbtu: ', firebaseTokenUpdated);
+  const { firebaseToken } = getState().session;
   await userService.registerDevice(firebaseToken);
 });
 
@@ -21,7 +19,14 @@ export const logout = createThunk('LOGOUT', async () => {
   } catch ({ response }) {
     // logout user anyways by catching error and allowing success to be
   } finally {
-    await GoogleSignin.signOut();
+    try {
+      const isSignedIn = await GoogleSignin.isSignedIn();
+      if (isSignedIn) {
+        await GoogleSignin.signOut();
+      }
+    } catch (err) {
+      // don't block the user from logging out in this case
+    }
   }
 });
 

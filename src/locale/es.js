@@ -4,6 +4,10 @@ export default {
     somethingWentWrong: 'Algo salió mal',
   },
 
+  NAVIGATION: {
+    back: 'Atrás',
+  },
+
   LOGIN_SCREEN: {
     submit: 'Iniciar sesión',
   },
@@ -23,6 +27,15 @@ export default {
     title: 'Perfil',
   },
 
+  ONE_ON_ONE: {
+    title: 'Resultados 1 on 1',
+    emptyState: 'Aún no tienes resultados 1 on 1',
+    noComments: 'Sin comentarios',
+    comments: 'Comentarios :',
+    reviewerActionTitle: '¿A que acciones se compromete Effectus?',
+    userActionTitle: '¿A que acciones te comprometes?',
+  },
+
   SIGN_UP: {
     title: 'Registro',
     email: 'Email',
@@ -38,5 +51,8 @@ export default {
       no: 'No',
       yes: 'Sí',
     },
+  },
+  ONE_ON_ONE_SCREEN: {
+    title: 'Ver Detalle',
   },
 };
