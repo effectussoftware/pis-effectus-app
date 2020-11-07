@@ -46,6 +46,7 @@ export default {
 
   EVENT_DETAIL_SCREEN: {
     title: 'Ver evento',
+    participantsListTitle: 'Invitados',
     assistanceSelector: {
       maybe: 'Quizás',
       no: 'No',

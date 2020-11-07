@@ -1,9 +1,8 @@
-import { BLACK, DARK_GRAY } from 'constants/colors';
+import { BLACK, DARK_GRAY, BLUE } from 'constants/colors';
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
-    width: '100%',
     marginBottom: 10,
     alignSelf: 'stretch',
     paddingTop: 10,
@@ -23,7 +22,7 @@ const styles = StyleSheet.create({
     paddingTop: 10,
   },
   url: {
-    color: 'blue',
+    color: BLUE,
     textDecorationLine: 'underline',
   },
 });

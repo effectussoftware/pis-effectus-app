@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { oneOf, string, number } from 'prop-types';
 import { useNavigation } from '@react-navigation/native';
-import { ONE_ON_ONE_SCREEN } from 'constants/screens';
+import { ONE_ON_ONE_SCREEN, EVENT_DETAIL_SCREEN } from 'constants/screens';
 
 import OneOnOneIcon from 'assets/images/feedIcons/oneOnOne/default.png';
 import PollIcon from 'assets/images/feedIcons/poll/default.png';
 import ExchangeIcon from 'assets/images/feedIcons/exchange/default.png';
 import NewsIcon from 'assets/images/feedIcons/news/default.png';
-import { POLL, EXCHANGE, ONE_ON_ONE, COMMUNICATION } from 'constants/models';
+import EventIcon from 'assets/images/feedIcons/event/default.png';
+import { POLL, EXCHANGE, ONE_ON_ONE, COMMUNICATION, EVENT } from 'constants/models';
 import strings from 'locale';
 
 import Card from 'components/Card';
@@ -15,13 +16,14 @@ import Text from 'components/Text';
 
 import styles from './FeedCard.styles';
 
-export const typeShape = oneOf([POLL, EXCHANGE, ONE_ON_ONE, COMMUNICATION]);
+export const typeShape = oneOf([POLL, EXCHANGE, ONE_ON_ONE, COMMUNICATION, EVENT]);
 
 const icons = {
   [POLL]: PollIcon,
   [EXCHANGE]: ExchangeIcon,
   [ONE_ON_ONE]: OneOnOneIcon,
   [COMMUNICATION]: NewsIcon,
+  [EVENT]: EventIcon,
 };
 
 const FeedCard = ({ id, type, updatedAt, image, ...restProps }) => {
@@ -42,9 +44,14 @@ const FeedCard = ({ id, type, updatedAt, image, ...restProps }) => {
     navigate(ONE_ON_ONE_SCREEN, { id });
   };
 
+  const navigateToEventDetail = id => {
+    navigate(EVENT_DETAIL_SCREEN, { id });
+  };
+
   const handleOnClick = (type, id) => {
     if (type == COMMUNICATION) changeActive();
     else if (type == ONE_ON_ONE) navigateToOneOnOneDetail(id);
+    else if (type == EVENT) navigateToEventDetail(id);
   };
 
   const descriptionProps = {
