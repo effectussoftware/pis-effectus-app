@@ -13,14 +13,14 @@ import styles from './OneOnOneScreen.styles';
 const OneOnOneScreen = ({
   navigation,
   route: {
-    params: { idOneOnOne },
+    params: { id },
   },
 }) => {
   useEffect(() => {
     navigation.setOptions({ title: null });
   }, [navigation]);
 
-  const { oneOnOne, loading } = useGetOneOnOne(idOneOnOne);
+  const { oneOnOne, loading } = useGetOneOnOne(id);
   const { title, comments, createdAt, reviewerActionItems, userActionItems } = oneOnOne || {};
   if (loading) return <Loader />;
 
