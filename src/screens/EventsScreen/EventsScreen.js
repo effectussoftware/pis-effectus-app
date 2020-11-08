@@ -3,7 +3,7 @@ import { FlatList, Modal, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import moment from 'moment';
 import { useLoading } from '@rootstrap/redux-tools';
-import MonthPicker from 'react-native-month-year-picker';
+import MonthPicker, { ACTION_DATE_SET } from 'react-native-month-year-picker';
 
 import { getEventsCalendar } from 'actions/eventActions';
 import { EVENT_CALENDAR_YEAR_AND_MONTH } from 'constants/dateFormats';
@@ -38,6 +38,13 @@ const EventsScreen = () => {
 
   const events = useSelector(({ event }) => event.months[currentYearAndMonth]);
 
+  const handleYearAndMonthSelectorAction = (actionType, date) => {
+    if (actionType === ACTION_DATE_SET)
+      setCurrentYearAndMonth(moment(date).format(EVENT_CALENDAR_YEAR_AND_MONTH));
+
+    setShowMonthPicker(false);
+  };
+
   return (
     <View style={styles.container}>
       <CalendarHeader
@@ -48,20 +55,19 @@ const EventsScreen = () => {
       <FlatList
         data={events}
         renderItem={({ item }) => <Card item={item} />}
-        keyExtractor={item => item.date}
+        keyExtractor={item => item.id.toString()}
         refreshing={loading}
+        onRefresh={() => handleGetEventsCalendar(currentYearAndMonth)}
       />
       {showMonthPicker && (
         <Modal transparent>
           <MonthPicker
-            onChange={(_, date) => {
-              console.log('monthPicker: ', date);
-              setCurrentYearAndMonth(moment(date).format(EVENT_CALENDAR_YEAR_AND_MONTH));
-              setShowMonthPicker(false);
-            }}
-            value={new Date()}
-            minimumDate={new Date(2020, 1)}
-            maximumDate={new Date(2025, 5)}
+            onChange={handleYearAndMonthSelectorAction}
+            value={moment(currentYearAndMonth).toDate()}
+            minimumDate={moment('2020-01').toDate()}
+            maximumDate={moment(defaultYearAndMonth)
+              .add({ year: 1 })
+              .toDate()}
             locale="es"
           />
         </Modal>

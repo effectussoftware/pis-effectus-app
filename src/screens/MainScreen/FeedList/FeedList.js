@@ -34,7 +34,7 @@ const FeedList = ({ handleRefresh }) => {
       data={feed}
       contentContainerStyle={styles.contentContainer}
       renderItem={({ item }) => <FeedCard {...item} />}
-      keyExtractor={item => item.id.toString()}
+      keyExtractor={item => `${item.type}-${item.id}`}
       onEndReached={handleLoadMore}
       onEndReachedThreshold={0.5}
       initialNumToRender={10}
