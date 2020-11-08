@@ -1,33 +1,38 @@
 import React from 'react';
 import { object } from 'prop-types';
-
 import { View } from 'react-native';
+
+import { useFormatStartAndEndTime } from 'utils/helpers';
+import strings from 'locale';
 
 import Text from 'components/Text';
 
-import strings from 'locale';
-
 import styles from './Card.styles';
 
-const EventCard = item => {
-  const { id, name, timestamp, address, description, confirmation, attend } = item;
+const EventCard = ({ item }) => {
+  const {
+    id,
+    name,
+    startTime,
+    endTime,
+    address,
+    description,
+    confirmation,
+    attend,
+    cancelled,
+  } = item;
 
-  const ConfirmButton = () => {
-    if (confirmation) {
-      if (attend) {
-        return (
-          <Text type="H3" style={styles.confirmed}>
-            {strings.EVENTS_SCREEN.attend}
-          </Text>
-        );
-      }
-      return (
-        <Text type="H3" style={styles.confirmed}>
-          {strings.EVENTS_SCREEN.notAttend}
-        </Text>
-      );
-    }
-  };
+  const formattedDate = useFormatStartAndEndTime(startTime, endTime);
+
+  let eventStatus = strings.EVENTS_SCREEN.eventStatus.notConfirmed;
+
+  if (cancelled) {
+    eventStatus = strings.EVENTS_SCREEN.eventStatus.cancelled;
+  } else if (confirmation) {
+    eventStatus = attend
+      ? strings.EVENTS_SCREEN.eventStatus.attend
+      : strings.EVENTS_SCREEN.eventStatus.notAttend;
+  }
 
   return (
     <View style={styles.container}>
@@ -37,19 +42,17 @@ const EventCard = item => {
           {name}
         </Text>
         <Text type="P2" style={styles.eventInfo}>
-          {timestamp}
+          {formattedDate}
         </Text>
-        <Text type="P2" style={styles.eventInfo}>
-          {address}
-        </Text>
-        <Text type="P2_S">{description}</Text>
-        {confirmation ? (
-          <ConfirmButton />
-        ) : (
-          <Text type="H3" style={styles.notConfirmed}>
-            {strings.EVENTS_SCREEN.notConfirmed}
+        {!!address && (
+          <Text type="P2" style={styles.eventInfo}>
+            {address}
           </Text>
         )}
+        {!!description && <Text type="P2_S">{description}</Text>}
+        <Text type="H3" style={[styles.eventStatus, !confirmation && styles.notConfirmed]}>
+          {eventStatus}
+        </Text>
       </View>
     </View>
   );

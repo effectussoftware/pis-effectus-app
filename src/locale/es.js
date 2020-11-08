@@ -25,10 +25,12 @@ export default {
 
   EVENTS_SCREEN: {
     title: 'Eventos',
-    attend: 'Asistirás',
-    notAttend: 'No asistirás',
-    cancelled: 'Cancelado',
-    notConfirmed: 'Confirmar asistencia',
+    eventStatus: {
+      attend: 'Asistirás',
+      notAttend: 'No asistirás',
+      cancelled: 'Cancelado',
+      notConfirmed: 'Confirmar asistencia',
+    },
   },
 
   PROFILE_SCREEN: {

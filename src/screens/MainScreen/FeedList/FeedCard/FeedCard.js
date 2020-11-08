@@ -3,10 +3,11 @@ import { oneOf, string, number } from 'prop-types';
 import { useNavigation } from '@react-navigation/native';
 import { ONE_ON_ONE_SCREEN } from 'constants/screens';
 
-import OneOnOneIcon from 'assets/images/feedIcons/oneOnOne/default.png';
-import PollIcon from 'assets/images/feedIcons/poll/default.png';
+import EventIcon from 'assets/images/feedIcons/event/default.png';
 import ExchangeIcon from 'assets/images/feedIcons/exchange/default.png';
 import NewsIcon from 'assets/images/feedIcons/news/default.png';
+import OneOnOneIcon from 'assets/images/feedIcons/oneOnOne/default.png';
+import PollIcon from 'assets/images/feedIcons/poll/default.png';
 import Card from 'components/Card';
 import Text from 'components/Text';
 import strings from 'locale';
@@ -14,18 +15,20 @@ import strings from 'locale';
 import styles from './FeedCard.styles';
 
 // AVAILABLE FEED TYPES
-const POLL = 'poll';
+const COMMUNICATION = 'communication';
+const EVENT = 'event';
 const EXCHANGE = 'exchange';
 const ONE_ON_ONE = 'review';
-const COMMUNICATION = 'communication';
+const POLL = 'poll';
 
-export const typeShape = oneOf([POLL, EXCHANGE, ONE_ON_ONE, COMMUNICATION]);
+export const typeShape = oneOf([COMMUNICATION, EVENT, EXCHANGE, ONE_ON_ONE, POLL]);
 
 const icons = {
-  [POLL]: PollIcon,
+  [COMMUNICATION]: NewsIcon,
+  [EVENT]: EventIcon,
   [EXCHANGE]: ExchangeIcon,
   [ONE_ON_ONE]: OneOnOneIcon,
-  [COMMUNICATION]: NewsIcon,
+  [POLL]: PollIcon,
 };
 
 const FeedCard = ({ id, type, updatedAt, image, ...restProps }) => {

@@ -11,7 +11,7 @@ import { Text } from 'components';
 import styles from './CalendarHeader.styles';
 import {} from 'react-native-gesture-handler';
 
-const CalendarHeader = ({ yearAndMonth, onGetMonth }) => {
+const CalendarHeader = ({ yearAndMonth, onGetMonth, onShowMonthPicker }) => {
   const date = moment(yearAndMonth, EVENT_CALENDAR_YEAR_AND_MONTH);
   return (
     <View style={styles.container}>
@@ -21,12 +21,14 @@ const CalendarHeader = ({ yearAndMonth, onGetMonth }) => {
         }>
         <Image source={ArrowIcon} style={styles.arrow} />
       </TouchableOpacity>
-      <View style={styles.center}>
-        <Text type="H3">{date.year()}</Text>
-        <Text type="H2" style={styles.text}>
-          {date.format(MONTH_FORMAT)}
-        </Text>
-      </View>
+      <TouchableOpacity onPress={() => onShowMonthPicker(true)}>
+        <View style={styles.center}>
+          <Text type="H3">{date.year()}</Text>
+          <Text type="H2" style={styles.text}>
+            {date.format(MONTH_FORMAT)}
+          </Text>
+        </View>
+      </TouchableOpacity>
       <TouchableOpacity
         onPress={() => onGetMonth(date.add({ month: 1 }).format(EVENT_CALENDAR_YEAR_AND_MONTH))}>
         <Image source={ArrowIcon} style={[styles.arrow, styles.flip]} />
@@ -38,6 +40,7 @@ const CalendarHeader = ({ yearAndMonth, onGetMonth }) => {
 CalendarHeader.propTypes = {
   yearAndMonth: string,
   onGetMonth: func.isRequired,
+  onShowMonthPicker: func.isRequired,
 };
 
 export default CalendarHeader;
