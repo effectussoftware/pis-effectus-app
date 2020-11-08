@@ -3,7 +3,7 @@ import { func, string } from 'prop-types';
 import { Image, TouchableOpacity, View } from 'react-native';
 import moment from 'moment';
 
-import { EVENT_CALENDAR_YEAR_AND_MONTH, MONTH_FORMAT } from 'constants/dateFormats';
+import { EVENT_CALENDAR_YEAR_AND_MONTH, MONTH_FORMAT, YEAR_FORMAT } from 'constants/dateFormats';
 import ArrowIcon from 'assets/images/ArrowIcon/default.png';
 
 import { Text } from 'components';
@@ -23,7 +23,7 @@ const CalendarHeader = ({ yearAndMonth, onGetMonth, onShowMonthPicker }) => {
       </TouchableOpacity>
       <TouchableOpacity onPress={() => onShowMonthPicker(true)}>
         <View style={styles.center}>
-          <Text type="H3">{date.year()}</Text>
+          <Text type="H3">{date.format(YEAR_FORMAT)}</Text>
           <Text type="H2" style={styles.text}>
             {date.format(MONTH_FORMAT)}
           </Text>

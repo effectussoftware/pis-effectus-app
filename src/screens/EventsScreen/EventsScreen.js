@@ -1,8 +1,9 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { FlatList, Modal, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import moment from 'moment';
 import { useStatus, LOADING, SUCCESS } from '@rootstrap/redux-tools';
+import { isEmpty } from 'lodash';
 import MonthPicker, { ACTION_DATE_SET } from 'react-native-month-year-picker';
 
 import { getEventsCalendar } from 'actions/eventActions';
@@ -20,12 +21,15 @@ const MINIMUM_YEAR_AND_MONTH = '2020-01';
 
 const EventsScreen = () => {
   const dispatch = useDispatch();
+  const listRef = useRef();
 
   const defaultYearAndMonth = useMemo(() => moment().format(EVENT_CALENDAR_YEAR_AND_MONTH), []);
 
   const [currentYearAndMonth, setCurrentYearAndMonth] = useState(defaultYearAndMonth);
   const [showMonthPicker, setShowMonthPicker] = useState(false);
   const [initialScroll, setInitialScroll] = useState();
+
+  const events = useSelector(({ event }) => event.months[currentYearAndMonth]);
 
   const handleGetEventsCalendar = useCallback(
     yearAndMonth => {
@@ -46,25 +50,28 @@ const EventsScreen = () => {
 
   useAlertError(error, getEventsCalendar);
 
-  const events = useSelector(({ event }) => event.months[currentYearAndMonth]);
-
   useEffect(() => {
-    if (events && defaultYearAndMonth === currentYearAndMonth) {
-      const closestIndex = events.findIndex(
-        ({ startTime }) => !moment(startTime).isBefore(moment()),
-      );
-      setInitialScroll(closestIndex);
+    if (!isEmpty(events)) {
+      if (defaultYearAndMonth === currentYearAndMonth) {
+        const closestIndex = events.findIndex(
+          ({ startTime }) => !moment(startTime).isBefore(moment()),
+        );
+        setInitialScroll(closestIndex);
+      } else {
+        listRef.current.scrollToIndex({ animated: true, index: 0 });
+      }
     }
   }, [events, defaultYearAndMonth, currentYearAndMonth]);
 
   const handleYearAndMonthSelectorAction = (actionType, date) => {
-    if (actionType === ACTION_DATE_SET)
+    if (actionType === ACTION_DATE_SET) {
       setCurrentYearAndMonth(moment(date).format(EVENT_CALENDAR_YEAR_AND_MONTH));
+    }
 
     setShowMonthPicker(false);
   };
 
-  const getItemLayout = (data, index) => ({ length: 150, offset: 150 * index, index });
+  const getItemLayout = (data, index) => ({ length: 177, offset: 177 * index, index });
 
   return (
     <View style={styles.container}>
@@ -74,6 +81,7 @@ const EventsScreen = () => {
         onShowMonthPicker={setShowMonthPicker}
       />
       <FlatList
+        ref={listRef}
         data={events}
         contentContainerStyle={styles.contentContainer}
         renderItem={({ item }) => <EventCard item={item} />}
