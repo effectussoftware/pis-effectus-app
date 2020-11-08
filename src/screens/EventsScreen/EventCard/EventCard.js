@@ -1,13 +1,12 @@
 import React from 'react';
-import { object } from 'prop-types';
 import { View } from 'react-native';
 
-import { useFormatStartAndEndTime } from 'utils/helpers';
-import strings from 'locale';
+import { eventShape } from 'constants/shapes';
+import { formatEventStatus, formatStartAndEndTime } from 'utils/helpers';
 
 import Text from 'components/Text';
 
-import styles from './Card.styles';
+import styles from './EventCard.styles';
 
 const EventCard = ({ item }) => {
   const {
@@ -22,17 +21,13 @@ const EventCard = ({ item }) => {
     cancelled,
   } = item;
 
-  const formattedDate = useFormatStartAndEndTime(startTime, endTime);
-
-  let eventStatus = strings.EVENTS_SCREEN.eventStatus.notConfirmed;
-
-  if (cancelled) {
-    eventStatus = strings.EVENTS_SCREEN.eventStatus.cancelled;
-  } else if (confirmation) {
-    eventStatus = attend
-      ? strings.EVENTS_SCREEN.eventStatus.attend
-      : strings.EVENTS_SCREEN.eventStatus.notAttend;
-  }
+  const formattedDate = formatStartAndEndTime(startTime, endTime);
+  const { statusText, needsAttention } = formatEventStatus(
+    endTime,
+    cancelled,
+    confirmation,
+    attend,
+  );
 
   return (
     <View style={styles.container}>
@@ -50,8 +45,8 @@ const EventCard = ({ item }) => {
           </Text>
         )}
         {!!description && <Text type="P2_S">{description}</Text>}
-        <Text type="H3" style={[styles.eventStatus, !confirmation && styles.notConfirmed]}>
-          {eventStatus}
+        <Text type="H3" style={[styles.eventStatus, needsAttention && styles.notConfirmed]}>
+          {statusText}
         </Text>
       </View>
     </View>
@@ -59,7 +54,7 @@ const EventCard = ({ item }) => {
 };
 
 EventCard.propTypes = {
-  item: object,
+  item: eventShape,
 };
 
 export default EventCard;

@@ -44,7 +44,7 @@ const FeedList = ({ handleRefresh }) => {
         status === SUCCESS &&
         // eslint-disable-next-line react/no-multi-comp
         (() => (
-          <View style={styles.emptyState}>
+          <View style={styles.emptyStateContainer}>
             <Text type="H3">{strings.MAIN_SCREEN.emptyState}</Text>
           </View>
         ))

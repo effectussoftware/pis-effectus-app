@@ -25,11 +25,13 @@ export default {
 
   EVENTS_SCREEN: {
     title: 'Eventos',
+    emptyState: 'No hay eventos para este mes',
     eventStatus: {
       attend: 'Asistirás',
       notAttend: 'No asistirás',
       cancelled: 'Cancelado',
       notConfirmed: 'Confirmar asistencia',
+      ended: 'Finalizado',
     },
   },
 
