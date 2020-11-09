@@ -55,7 +55,10 @@ export default {
     passwordConfirmation: 'Repetir contraseña',
     button: 'Iniciar sesión',
   },
-  EVENT_DETAILS_SCREEN: {
+
+  EVENT_DETAIL_SCREEN: {
+    title: 'Ver evento',
+    participantsListTitle: 'Invitados',
     assistanceSelector: {
       maybe: 'Quizás',
       no: 'No',

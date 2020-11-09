@@ -7,8 +7,9 @@ export const EVENTS_SCREEN = 'EventsScreen';
 export const PROFILE_SCREEN = 'ProfileScreen';
 
 // DETAILS
-export const ONE_ON_ONE_SCREEN = 'OneOnOneScreen';
 export const COMMUNICATION_SCREEN = 'CommunicationScreen';
+export const ONE_ON_ONE_SCREEN = 'OneOnOneScreen';
+export const EVENT_DETAIL_SCREEN = 'EventDetailScreen';
 
 // NAVIGATION
 export const APP_STACK = 'AppStack';

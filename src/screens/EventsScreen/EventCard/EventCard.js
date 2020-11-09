@@ -1,5 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 import { eventShape } from 'constants/shapes';
 import { formatEventStatus, formatStartAndEndTime } from 'utils/helpers';
@@ -7,8 +8,12 @@ import { formatEventStatus, formatStartAndEndTime } from 'utils/helpers';
 import Text from 'components/Text';
 
 import styles from './EventCard.styles';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { EVENT_DETAIL_SCREEN } from 'constants/screens';
 
 const EventCard = ({ item }) => {
+  const navigation = useNavigation();
+
   const {
     id,
     name,
@@ -29,27 +34,31 @@ const EventCard = ({ item }) => {
     attend,
   );
 
+  const handleOnPress = () => navigation.navigate(EVENT_DETAIL_SCREEN, { id });
+
   return (
-    <View style={styles.container}>
-      <View style={[styles.bullet, id % 2 ? styles.odd : styles.even]} />
-      <View style={styles.innerCard}>
-        <Text type="H3" style={styles.name}>
-          {name}
-        </Text>
-        <Text type="P2" style={styles.eventInfo}>
-          {formattedDate}
-        </Text>
-        {!!address && (
-          <Text type="P2" style={styles.eventInfo}>
-            {address}
+    <TouchableOpacity onPress={handleOnPress}>
+      <View style={styles.container}>
+        <View style={[styles.bullet, id % 2 ? styles.odd : styles.even]} />
+        <View style={styles.innerCard}>
+          <Text type="H3" style={styles.name}>
+            {name}
           </Text>
-        )}
-        {!!description && <Text type="P2_S">{description}</Text>}
-        <Text type="H3" style={[styles.eventStatus, needsAttention && styles.notConfirmed]}>
-          {statusText}
-        </Text>
+          <Text type="P2" style={styles.eventInfo}>
+            {formattedDate}
+          </Text>
+          {!!address && (
+            <Text type="P2" style={styles.eventInfo}>
+              {address}
+            </Text>
+          )}
+          {!!description && <Text type="P2_S">{description}</Text>}
+          <Text type="H3" style={[styles.eventStatus, needsAttention && styles.notConfirmed]}>
+            {statusText}
+          </Text>
+        </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

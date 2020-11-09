@@ -1,9 +1,14 @@
 import { createReducer } from '@rootstrap/redux-tools';
-import { getEventsCalendar } from 'actions/eventActions';
+import { getEvent, getEventsCalendar } from 'actions/eventActions';
 import { logout } from 'actions/userActions';
 
 const initialState = {
+  item: undefined,
   months: {},
+};
+
+const handleGetEventSuccess = (state, { payload }) => {
+  state.item = payload;
 };
 
 const handleGetCommunicationSuccess = (state, { payload }) => {
@@ -11,11 +16,16 @@ const handleGetCommunicationSuccess = (state, { payload }) => {
   state.months[yearAndMonth] = data;
 };
 
+const handleGetEventReset = state => {
+  state.item = undefined;
+};
 const handleResetSuccess = () => {
   return initialState;
 };
 
 export default createReducer(initialState, {
+  [getEvent.success]: handleGetEventSuccess,
+  [getEvent.reset]: handleGetEventReset,
   [getEventsCalendar.success]: handleGetCommunicationSuccess,
   [logout.success]: handleResetSuccess,
 });

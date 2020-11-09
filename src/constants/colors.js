@@ -9,3 +9,5 @@ export const DARK_GRAY = '#666666';
 export const BLACK = '#000000';
 
 export const ALERT = '#FF5252';
+
+export const BLUE = '#0000FF';

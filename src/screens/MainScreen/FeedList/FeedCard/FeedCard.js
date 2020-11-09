@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { oneOf, string, number } from 'prop-types';
 import { useNavigation } from '@react-navigation/native';
-import { ONE_ON_ONE_SCREEN } from 'constants/screens';
+import { ONE_ON_ONE_SCREEN, EVENT_DETAIL_SCREEN } from 'constants/screens';
 
 import EventIcon from 'assets/images/feedIcons/event/default.png';
 import ExchangeIcon from 'assets/images/feedIcons/exchange/default.png';
@@ -44,9 +44,14 @@ const FeedCard = ({ id, type, updatedAt, image, ...restProps }) => {
     navigate(ONE_ON_ONE_SCREEN, { id });
   };
 
+  const navigateToEventDetail = id => {
+    navigate(EVENT_DETAIL_SCREEN, { id });
+  };
+
   const handleOnClick = (type, id) => {
     if (type == COMMUNICATION) changeActive();
     else if (type == ONE_ON_ONE) navigateToOneOnOneDetail(id);
+    else if (type == EVENT) navigateToEventDetail(id);
   };
 
   const descriptionProps = {
