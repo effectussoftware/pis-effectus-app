@@ -1,6 +1,7 @@
 export default {
   TABS: {
     main: 'main-tab',
+    events: 'events-tab',
     profile: 'profile-tab',
   },
   LOGIN_SCREEN: {

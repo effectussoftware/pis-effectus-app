@@ -1,3 +1,4 @@
+import useAlertError from './useAlertError';
 import useAppState from './useAppState';
 import useForm from './useForm';
 import useGetOneOnOne from './useGetOneOnOne';
@@ -10,6 +11,7 @@ import useTextInputProps from './useTextInputProps';
 import useValidation from './useValidation';
 
 export {
+  useAlertError,
   useAppState,
   useForm,
   useGetOneOnOne,

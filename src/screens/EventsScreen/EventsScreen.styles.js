@@ -1,16 +1,16 @@
 import { StyleSheet } from 'react-native';
 
-import { DEFAULT_HORIZONTAL_SEPARATION } from 'constants/dimensions';
+import { WHITE } from 'constants/colors';
 import { emptyStateContainer } from 'constants/styles';
 
 const styles = StyleSheet.create({
-  flatList: {
+  container: {
+    display: 'flex',
+    paddingLeft: 20,
+    backgroundColor: WHITE,
     flex: 1,
   },
-  contentContainer: {
-    flexGrow: 1,
-    paddingHorizontal: DEFAULT_HORIZONTAL_SEPARATION,
-  },
+  contentContainer: { flexGrow: 1 },
   emptyStateContainer,
 });
 

@@ -56,7 +56,7 @@ Card.propTypes = {
   onPress: func,
   image: string,
   title: string.isRequired,
-  text: string.isRequired,
+  text: string,
   time: string,
   timeFormats: object,
   icon: number,

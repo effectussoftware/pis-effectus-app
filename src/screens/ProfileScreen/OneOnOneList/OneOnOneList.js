@@ -32,7 +32,7 @@ const OneOnOneList = () => {
         </Text>
       )}
       ListEmptyComponent={() => (
-        <View style={styles.emptyState}>
+        <View style={styles.emptyStateContainer}>
           <Text type="H3">{strings.ONE_ON_ONE.emptyState}</Text>
         </View>
       )}

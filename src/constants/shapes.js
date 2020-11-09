@@ -1,5 +1,6 @@
 import { arrayOf, bool, number, shape, string } from 'prop-types';
 
+// ONE ON ONE
 const actionItemShape = shape({ description: string.isRequired, completed: bool.isRequired });
 
 export const oneOnOneShape = shape({
@@ -10,4 +11,17 @@ export const oneOnOneShape = shape({
   reviewerName: string.isRequired,
   reviewerActionItems: arrayOf(actionItemShape),
   userActionItems: arrayOf(actionItemShape),
+});
+
+// EVENT
+export const eventShape = shape({
+  id: number.isRequired,
+  name: string.isRequired,
+  description: string,
+  startTime: string.isRequired,
+  endTime: string.isRequired,
+  address: string.isRequired,
+  confirmation: bool.isRequired,
+  attend: bool,
+  cancelled: bool.isRequired,
 });
