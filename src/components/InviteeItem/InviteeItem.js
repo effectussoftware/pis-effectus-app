@@ -1,13 +1,14 @@
 import React from 'react';
 import { Image } from 'react-native';
-import { string, bool } from 'prop-types';
+import { bool } from 'prop-types';
 
 import Tick from 'assets/images/tickIcon/default.png';
 import Cross from 'assets/images/crossIcon/default.png';
+import { inviteeShape } from 'constants/shapes';
 
 import BulletItem from 'components/BulletItem';
 
-const InviteeItem = ({ isOdd, name, confirmation, attend }) => {
+const InviteeItem = ({ isOdd, invitee: { name, confirmation, attend } }) => {
   return (
     <BulletItem isOdd={isOdd} text={name}>
       {confirmation && <Image source={attend ? Tick : Cross} />}
@@ -17,9 +18,7 @@ const InviteeItem = ({ isOdd, name, confirmation, attend }) => {
 
 InviteeItem.propTypes = {
   isOdd: bool.isRequired,
-  name: string.isRequired,
-  attend: bool.isRequired,
-  confirmation: bool.isRequired,
+  invitee: inviteeShape,
 };
 
 export default InviteeItem;

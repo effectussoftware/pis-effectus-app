@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     alignSelf: 'stretch',
     paddingTop: 10,
-    paddingBottom: 25,
+    paddingBottom: 18,
     paddingLeft: 20,
   },
   title: {
@@ -15,11 +15,11 @@ const styles = StyleSheet.create({
   },
   description: {
     color: BLACK,
-    paddingTop: 10,
+    paddingTop: 17,
   },
   P1: {
     color: DARK_GRAY,
-    paddingTop: 10,
+    paddingTop: 12,
   },
   url: {
     color: BLUE,
