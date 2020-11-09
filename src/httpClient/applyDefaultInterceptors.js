@@ -36,7 +36,11 @@ export default (store, client) => {
         };
         store.dispatch(updateSession(session));
       }
-      response.data = humps.camelizeKeys(data);
+      response.data = humps.camelizeKeys(data, {
+        process: (key, convert, options) => {
+          return /^[0-9]/g.test(key) ? key : convert(key, options);
+        },
+      });
       return response;
     },
     error => {

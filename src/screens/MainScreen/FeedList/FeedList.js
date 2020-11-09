@@ -34,7 +34,7 @@ const FeedList = ({ handleRefresh }) => {
       data={feed}
       contentContainerStyle={styles.contentContainer}
       renderItem={({ item }) => <FeedCard {...item} />}
-      keyExtractor={item => item.id.toString()}
+      keyExtractor={item => `${item.type}-${item.id}`}
       onEndReached={handleLoadMore}
       onEndReachedThreshold={0.5}
       initialNumToRender={10}
@@ -44,7 +44,7 @@ const FeedList = ({ handleRefresh }) => {
         status === SUCCESS &&
         // eslint-disable-next-line react/no-multi-comp
         (() => (
-          <View style={styles.emptyState}>
+          <View style={styles.emptyStateContainer}>
             <Text type="H3">{strings.MAIN_SCREEN.emptyState}</Text>
           </View>
         ))

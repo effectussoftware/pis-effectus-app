@@ -1,5 +1,7 @@
 import { StyleSheet } from 'react-native';
+
 import { DEFAULT_HORIZONTAL_SEPARATION } from 'constants/dimensions';
+import { emptyStateContainer } from 'constants/styles';
 
 const styles = StyleSheet.create({
   flatList: {
@@ -12,11 +14,7 @@ const styles = StyleSheet.create({
     paddingTop: 17,
     paddingBottom: 9,
   },
-  emptyState: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    flex: 1,
-  },
+  emptyStateContainer,
 });
 
 export default styles;
