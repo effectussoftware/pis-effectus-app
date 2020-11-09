@@ -15,8 +15,4 @@ describe('<ProfileScreen />', () => {
   it('should render the main screen', () => {
     expect(wrapper.queryByTestId(PROFILE_SCREEN)).toBeTruthy();
   });
-
-  it('should render the logout', () => {
-    expect(wrapper.queryByTestId('logout-button')).toBeTruthy();
-  });
 });

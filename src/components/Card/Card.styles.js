@@ -20,7 +20,6 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   bodyContainer: {
-    display: 'flex',
     flexDirection: 'row',
   },
   iconContainer: {
@@ -33,19 +32,20 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   contentContainer: {
-    display: 'flex',
     flex: 1,
   },
   topContent: {
-    display: 'flex',
+    alignSelf: 'stretch',
+    flexShrink: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
   title: {
-    width: '75%',
+    flexShrink: 1,
+    flexWrap: 'wrap',
   },
   date: {
-    width: '25%',
+    paddingLeft: 10,
     color: GRAY,
     textAlign: 'right',
   },

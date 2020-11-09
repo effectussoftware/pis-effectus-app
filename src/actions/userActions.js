@@ -3,7 +3,15 @@ import { createThunk, createAction } from '@rootstrap/redux-tools';
 
 import userService from 'services/userService';
 
-export const login = createThunk('LOGIN', async token => userService.login({ token }).data);
+export const registerDevice = createThunk('REGISTER_DEVICE', async (_, getState) => {
+  const { firebaseToken } = getState().session;
+  await userService.registerDevice(firebaseToken);
+});
+
+export const login = createThunk('LOGIN', async token => {
+  const { data } = await userService.login({ token });
+  return data.user;
+});
 
 export const logout = createThunk('LOGOUT', async () => {
   try {
@@ -11,8 +19,16 @@ export const logout = createThunk('LOGOUT', async () => {
   } catch ({ response }) {
     // logout user anyways by catching error and allowing success to be
   } finally {
-    await GoogleSignin.signOut();
+    try {
+      const isSignedIn = await GoogleSignin.isSignedIn();
+      if (isSignedIn) {
+        await GoogleSignin.signOut();
+      }
+    } catch (err) {
+      // don't block the user from logging out in this case
+    }
   }
 });
 
 export const updateSession = createAction('UPDATE_SESSION');
+export const updateFirebaseToken = createAction('UPDATE_FIREBASE_TOKEN');

@@ -10,3 +10,5 @@ export const BLACK = '#000000';
 export const DIM_BACKGROUND = 'rgba(51, 51, 51, 0.5)';
 
 export const ALERT = '#FF5252';
+
+export const BLUE = '#0000FF';

@@ -2,7 +2,7 @@ import React, { memo, useCallback, useEffect } from 'react';
 import { View, Image, Alert } from 'react-native';
 import { useDispatch } from 'react-redux';
 import Config from 'react-native-config';
-import { useLoading } from '@rootstrap/redux-tools';
+import { useStatus, LOADING } from '@rootstrap/redux-tools';
 
 import { GoogleSignin, statusCodes } from '@react-native-community/google-signin';
 
@@ -10,6 +10,7 @@ import strings from 'locale';
 import { login } from 'actions/userActions';
 import { LOGIN_SCREEN } from 'constants/screens';
 import testIds from 'constants/testIds';
+import useAlertError from 'hooks/useAlertError';
 
 import { Button } from 'components';
 
@@ -21,7 +22,9 @@ const LoginScreen = () => {
   const dispatch = useDispatch();
   const loginRequest = useCallback(user => dispatch(login(user)), [dispatch]);
 
-  const loading = useLoading(login);
+  const { status, error } = useStatus(login);
+
+  const loading = status === LOADING;
 
   useEffect(() => {
     GoogleSignin.configure({
@@ -61,6 +64,8 @@ const LoginScreen = () => {
       // await GoogleSignin.signOut();
     }
   };
+
+  useAlertError(error, login);
 
   return (
     <View style={styles.container} testID={LOGIN_SCREEN}>

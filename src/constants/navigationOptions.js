@@ -1,5 +1,6 @@
 import styles from 'components/Text/Text.styles';
-import { WHITE } from './colors';
+import strings from 'locale';
+import { BLACK, PRIMARY, WHITE } from './colors';
 
 export const headerStyle = {
   backgroundColor: WHITE,
@@ -8,9 +9,12 @@ export const headerStyle = {
   borderBottomWidth: 0,
 };
 
-export const headerTitleStyle = styles.H1;
+export const headerTitleStyle = { ...styles.H1, color: BLACK };
 
 export const HEADER_OPTIONS = {
   headerStyle,
   headerTitleStyle,
+  headerBackTitle: strings.NAVIGATION.back,
+  headerTintColor: PRIMARY,
+  headerRight: null,
 };

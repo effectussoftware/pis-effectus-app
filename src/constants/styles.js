@@ -5,3 +5,9 @@ export const container = {
   alignSelf: 'stretch',
   backgroundColor: WHITE,
 };
+
+export const emptyStateContainer = {
+  alignItems: 'center',
+  justifyContent: 'center',
+  flex: 1,
+};

@@ -1,45 +1,34 @@
-import React, { useEffect } from 'react';
-import { object } from 'prop-types';
+import React, { useCallback } from 'react';
 import { View } from 'react-native';
-import FeedFlatList from 'components/FeedFlatlist';
-import BottomSheet from 'components/BottomSheet';
+import { useFocusEffect } from '@react-navigation/native';
+import { useDispatch } from 'react-redux';
 
-import Button from 'components/Button';
-import ModalCard from 'components/ModalCard';
+import { getFeed } from 'actions/feedActions';
 import { MAIN_SCREEN } from 'constants/screens';
+import useNotifications from 'hooks/useNotifications';
 
-import useBottomSheetRef from 'hooks/useBottomSheetRef';
+import FeedList from './FeedList';
 
-import strings from 'locale';
 import styles from './MainScreen.styles';
 
-const MainScreen = ({ navigation }) => {
-  const [bottomSheetRef, handleOnBottomSheetOpen, handleOnBottomSheetClose] = useBottomSheetRef();
+const MainScreen = () => {
+  useNotifications();
 
-  useEffect(() => {
-    navigation.setOptions({ title: strings.MAIN_SCREEN.title });
-  }, [navigation]);
+  const dispatch = useDispatch();
+
+  const handleRefresh = useCallback(() => {
+    dispatch(getFeed({ shouldReplace: true }));
+  }, [dispatch]);
+
+  useFocusEffect(() => {
+    handleRefresh();
+  }, [handleRefresh]);
 
   return (
     <View style={styles.container} testID={MAIN_SCREEN}>
-      <FeedFlatList />
-
-      <Button title={strings.MAIN_SCREEN.openSheetButton} onPress={handleOnBottomSheetOpen} />
-      <BottomSheet reference={bottomSheetRef}>
-        <ModalCard
-          handleOnClose={handleOnBottomSheetClose}
-          title={strings.MAIN_SCREEN.addGCalTitle}
-          description={strings.MAIN_SCREEN.addGCalDescription}
-          primaryText={strings.MAIN_SCREEN.addButton}
-          secondaryText={strings.MAIN_SCREEN.notNowButton}
-        />
-      </BottomSheet>
+      <FeedList handleRefresh={handleRefresh} />
     </View>
   );
-};
-
-MainScreen.propTypes = {
-  navigation: object.isRequired,
 };
 
 export default MainScreen;
