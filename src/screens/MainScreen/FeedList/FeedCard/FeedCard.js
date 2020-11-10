@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { oneOf, string, number } from 'prop-types';
+import { oneOfType } from 'prop-types';
 import { useNavigation } from '@react-navigation/native';
 import { ONE_ON_ONE_SCREEN, EVENT_DETAIL_SCREEN } from 'constants/screens';
 
@@ -9,14 +9,14 @@ import NewsIcon from 'assets/images/feedIcons/news/default.png';
 import OneOnOneIcon from 'assets/images/feedIcons/oneOnOne/default.png';
 import PollIcon from 'assets/images/feedIcons/poll/default.png';
 import { POLL, EVENT, EXCHANGE, ONE_ON_ONE, COMMUNICATION } from 'constants/models';
+import { eventFeedCardShape, feedCardShape } from 'constants/shapes';
+import { formatStartAndEndTime, formatEventStatus } from 'utils/helpers';
 import strings from 'locale';
 
 import Card from 'components/Card';
 import Text from 'components/Text';
 
 import styles from './FeedCard.styles';
-
-export const typeShape = oneOf([COMMUNICATION, EVENT, EXCHANGE, ONE_ON_ONE, POLL]);
 
 const icons = {
   [COMMUNICATION]: NewsIcon,
@@ -26,7 +26,22 @@ const icons = {
   [POLL]: PollIcon,
 };
 
-const FeedCard = ({ id, type, updatedAt, image, ...restProps }) => {
+const FeedCard = ({
+  item: {
+    id,
+    type,
+    updatedAt,
+    image,
+    text,
+    startTime,
+    endTime,
+    address,
+    cancelled,
+    confirmation,
+    attend,
+    ...restItem
+  },
+}) => {
   const { navigate } = useNavigation();
   const LINES_CUTOFF = 2;
   const [descriptionLines, setDescriptionLines] = useState();
@@ -54,22 +69,51 @@ const FeedCard = ({ id, type, updatedAt, image, ...restProps }) => {
     else if (type == EVENT) navigateToEventDetail(id);
   };
 
-  const descriptionProps = {
-    numberOfLines: viewMoreActive || !descriptionLines ? undefined : LINES_CUTOFF,
-    onTextLayout: setLines,
-  };
+  const formattedDate = formatStartAndEndTime(startTime, endTime);
+  const { statusText, needsAttention } = formatEventStatus(
+    endTime,
+    cancelled,
+    confirmation,
+    attend,
+  );
 
   return (
     <Card
-      descriptionProps={descriptionProps}
       icon={icons[type]}
       time={updatedAt}
       image={image}
       onPress={() => handleOnClick(type, id)}
-      {...restProps}>
+      {...restItem}>
+      {type === EVENT && (
+        <>
+          <Text type="P2" style={styles.subInfo}>
+            {formattedDate}
+          </Text>
+          {!!address && (
+            <Text type="P2" style={styles.subInfo}>
+              {address}
+            </Text>
+          )}
+        </>
+      )}
+      {!!text && (
+        <Text
+          numberOfLines={viewMoreActive || !descriptionLines ? undefined : LINES_CUTOFF}
+          onTextLayout={setLines}
+          style={styles.description}>
+          {text}
+        </Text>
+      )}
       {descriptionLines > LINES_CUTOFF && (
         <Text style={styles.viewMoreLessButton}>
           {viewMoreActive ? strings.MAIN_SCREEN.viewLess : strings.MAIN_SCREEN.viewMore}
+        </Text>
+      )}
+      {type === EVENT && statusText && (
+        <Text
+          type="H3"
+          style={[styles.eventStatus, needsAttention && styles.eventStatusNeedsAttention]}>
+          {statusText}
         </Text>
       )}
     </Card>
@@ -77,9 +121,7 @@ const FeedCard = ({ id, type, updatedAt, image, ...restProps }) => {
 };
 
 FeedCard.propTypes = {
-  id: number,
-  type: typeShape.isRequired,
-  updatedAt: string.isRequired,
+  item: oneOfType([feedCardShape, eventFeedCardShape]).isRequired,
 };
 
 export default FeedCard;

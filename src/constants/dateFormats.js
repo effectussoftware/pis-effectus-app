@@ -1,5 +1,6 @@
 export const TIME_FORMAT = 'HH:mm';
 export const DAY_OF_WEEK_FORMAT = 'dddd';
+export const DAY_OF_LAST_WEEK_FORMAT = `[El pasado] ${DAY_OF_WEEK_FORMAT}`;
 export const DATE_FORMAT_BEAUTIFIED = 'DD/MM/YY';
 export const MONTH_FORMAT = 'MMMM';
 export const YEAR_FORMAT = 'YYYY';
@@ -21,5 +22,6 @@ export const EVENT_DATE_FORMATS = {
   lastDay: '[Ayer]',
   nextDay: '[Mañana]',
   nextWeek: DAY_OF_WEEK_FORMAT,
+  lastWeek: DAY_OF_LAST_WEEK_FORMAT,
   sameElse: DATE_FORMAT_BEAUTIFIED,
 };
