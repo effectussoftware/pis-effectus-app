@@ -4,7 +4,7 @@ import { useStatus, SUCCESS } from '@rootstrap/redux-tools';
 import { useNavigation } from '@react-navigation/native';
 
 import { getEvent } from 'actions/eventActions';
-import useAlertError from '../../hooks/useAlertError';
+import useAlertError from 'hooks/useAlertError';
 
 export const useGetEvent = id => {
   const { goBack } = useNavigation();
