@@ -1,3 +1,4 @@
+import { Linking } from 'react-native';
 import moment from 'moment';
 import queryString from 'query-string';
 
@@ -7,6 +8,15 @@ import strings from 'locale';
 export const applyQueryParams = (url, params) => {
   const queryParams = queryString.stringify(params);
   return `${url}?${queryParams}`;
+};
+
+export const openExternalLink = async url => {
+  try {
+    await Linking.canOpenURL(url);
+    return Linking.openURL(url);
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 export const formatStartAndEndTime = (startTimeAndDate, endTimeAndDate) => {

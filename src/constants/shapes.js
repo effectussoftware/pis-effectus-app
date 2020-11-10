@@ -16,7 +16,7 @@ export const oneOnOneShape = shape({
 // EVENT
 export const inviteeShape = shape({
   name: string.isRequired,
-  attend: bool.isRequired,
+  attend: bool,
   confirmation: bool.isRequired,
 });
 

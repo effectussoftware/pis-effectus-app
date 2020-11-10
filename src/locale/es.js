@@ -39,8 +39,6 @@ export default {
     title: 'Perfil',
   },
 
-  EVENT_SCREEN: {},
-
   ONE_ON_ONE: {
     title: 'Resultados 1 on 1',
     emptyState: 'Aún no tienes resultados 1 on 1',
@@ -67,12 +65,19 @@ export default {
       yes: 'Sí',
     },
     assistanceModal: {
-      openSheetButton: 'Open bottom sheet',
-      title: 'Agregar a Google Calendar',
-      description:
-        'Si el evento fue modificado y ya lo habías agregado, recuerda borrar de tu Google Calendar el evento viejo.',
-      addButton: 'Agregar',
-      notNowButton: 'Por ahora no',
+      yes: {
+        title: 'Agregar a Google Calendar',
+        description:
+          'Si el evento fue modificado y ya lo habías agregado, recuerda borrar de tu Google Calendar el evento viejo.',
+        cta: 'Agregar',
+        notNowButton: 'Por ahora no',
+      },
+      no: {
+        title: 'Borrar de Google Calendar',
+        description: 'Si ya habias agregado el evento a tu calendar, recuerda borrarlo.',
+        cta: 'Ir a Google Calendar',
+        notNowButton: 'Por ahora no',
+      },
     },
   },
   ONE_ON_ONE_SCREEN: {

@@ -4,9 +4,9 @@ import { DARK_GRAY } from 'constants/colors';
 const styles = StyleSheet.create({
   container: {
     paddingTop: 30,
-    paddingBottom: 20,
     paddingHorizontal: 24,
     flex: 1,
+    justifyContent: 'space-between',
   },
   title: {
     textAlign: 'center',

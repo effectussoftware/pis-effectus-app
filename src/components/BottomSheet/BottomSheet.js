@@ -12,7 +12,7 @@ const BottomSheet = ({ children, reference, ...restProps }) => {
       ref={reference}
       closeOnDragDown
       closeOnPressMask={false}
-      height={375}
+      height={330}
       customStyles={styles}
       {...restProps}>
       {children}

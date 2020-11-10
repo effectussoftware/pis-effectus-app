@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image } from 'react-native';
 import { string, bool } from 'prop-types';
-import Tick from 'assets/images/tickIcon/default.png';
+import Tick from 'screens/EventDetailScreen/InviteeItem/node_modules/assets/images/tickIcon/default.png';
 
 import BulletItem from 'components/BulletItem';
 

@@ -1,10 +1,12 @@
+import BottomSheet from './BottomSheet';
 import Button from './Button';
 import Card from './Card';
+import Loader from './Loader';
+import ModalCard from './ModalCard';
 import SignOut from './SignOut';
 import TabIcon from './TabIcon';
-import Loader from './Loader';
 import Text from './Text';
 
 export * from './form';
 
-export { Button, Card, Loader, SignOut, TabIcon, Text };
+export { BottomSheet, Button, Card, Loader, ModalCard, SignOut, TabIcon, Text };
