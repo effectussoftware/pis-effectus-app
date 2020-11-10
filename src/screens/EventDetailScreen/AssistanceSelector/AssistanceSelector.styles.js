@@ -1,4 +1,4 @@
-import { GRAY, LIGHT_GRAY, PRIMARY, SUPER_LIGHT_GRAY, WHITE } from 'constants/colors';
+import { GRAY, LIGHT_GRAY, PRIMARY, SUPER_LIGHT_GRAY, DARK_GRAY, WHITE } from 'constants/colors';
 import { DEFAULT_HORIZONTAL_SEPARATION } from 'constants/dimensions';
 import { StyleSheet } from 'react-native';
 
@@ -33,6 +33,11 @@ const styles = StyleSheet.create({
   },
   optionTextSelected: {
     color: PRIMARY,
+  },
+  disclaimer: {
+    color: DARK_GRAY,
+    marginBottom: 10,
+    textAlign: 'center',
   },
 });
 
