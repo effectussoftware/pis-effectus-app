@@ -42,9 +42,11 @@ const Card = ({
               {moment(time).calendar(timeFormats)}
             </Text>
           </View>
-          <Text {...descriptionProps} style={styles.description}>
-            {text}
-          </Text>
+          {!!text && (
+            <Text {...descriptionProps} style={styles.description}>
+              {text}
+            </Text>
+          )}
           {children}
         </View>
       </View>

@@ -50,7 +50,6 @@ const styles = StyleSheet.create({
     textAlign: 'right',
   },
   description: {
-    color: BLACK,
     paddingTop: 10,
   },
 });
