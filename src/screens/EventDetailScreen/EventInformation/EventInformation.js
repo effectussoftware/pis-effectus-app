@@ -1,8 +1,8 @@
 import React from 'react';
-import { View, Linking } from 'react-native';
+import { View } from 'react-native';
 import ParsedText from 'react-native-parsed-text';
 
-import { formatStartAndEndTime } from 'utils/helpers';
+import { formatStartAndEndTime, openExternalLink } from 'utils/helpers';
 import { eventShape } from 'constants/shapes';
 
 import Text from 'components/Text';
@@ -18,7 +18,7 @@ const EventInformation = ({ event: { name, address, startTime, endTime, descript
       {!!description && (
         <ParsedText
           style={styles.description}
-          parse={[{ type: 'url', style: styles.url, onPress: Linking.openURL }]}
+          parse={[{ type: 'url', style: styles.url, onPress: openExternalLink }]}
           childrenProps={{ allowFontScaling: false }}>
           {description}
         </ParsedText>

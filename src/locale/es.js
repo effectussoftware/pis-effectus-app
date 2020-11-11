@@ -64,6 +64,21 @@ export default {
       no: 'No',
       yes: 'Sí',
     },
+    assistanceModal: {
+      yes: {
+        title: 'Agregar a Google Calendar',
+        description:
+          'Si el evento fue modificado y ya lo habías agregado, recuerda borrar de tu Google Calendar el evento viejo.',
+        cta: 'Agregar',
+        notNowButton: 'Por ahora no',
+      },
+      no: {
+        title: 'Borrar de Google Calendar',
+        description: 'Si ya habias agregado el evento a tu calendar, recuerda borrarlo.',
+        cta: 'Ir a Google Calendar',
+        notNowButton: 'Por ahora no',
+      },
+    },
   },
   ONE_ON_ONE_SCREEN: {
     title: 'Ver Detalle',

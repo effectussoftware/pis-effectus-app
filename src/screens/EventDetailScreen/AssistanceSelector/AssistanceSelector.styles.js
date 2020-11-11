@@ -1,8 +1,15 @@
 import { GRAY, LIGHT_GRAY, PRIMARY, SUPER_LIGHT_GRAY, WHITE } from 'constants/colors';
+import { DEFAULT_HORIZONTAL_SEPARATION } from 'constants/dimensions';
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
+    alignSelf: 'stretch',
+    paddingTop: 12,
+    backgroundColor: WHITE,
+    paddingHorizontal: DEFAULT_HORIZONTAL_SEPARATION,
+  },
+  innerContainer: {
     alignSelf: 'stretch',
     flexDirection: 'row',
     backgroundColor: SUPER_LIGHT_GRAY,

@@ -4,9 +4,9 @@ import { useStatus, SUCCESS } from '@rootstrap/redux-tools';
 import { useNavigation } from '@react-navigation/native';
 
 import { getEvent } from 'actions/eventActions';
-import useAlertError from './useAlertError';
+import useAlertError from 'hooks/useAlertError';
 
-const useGetEvent = id => {
+export const useGetEvent = id => {
   const { goBack } = useNavigation();
   const dispatch = useDispatch();
   useEffect(() => {
@@ -19,5 +19,3 @@ const useGetEvent = id => {
 
   return { event, loading: status !== SUCCESS };
 };
-
-export default useGetEvent;
