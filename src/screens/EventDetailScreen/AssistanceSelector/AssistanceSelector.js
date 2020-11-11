@@ -15,11 +15,16 @@ export const YES = 'yes';
 
 const options = [MAYBE, NO, YES];
 
-const AssistanceSelector = ({ currentSelection, onPress }) => {
+const AssistanceSelector = ({ currentSelection, changedLastSeen, onPress }) => {
   const { bottom } = useSafeAreaInsets();
 
   return (
     <View style={[styles.container, { paddingBottom: bottom + 12 }]}>
+      {changedLastSeen && (
+        <Text type="P2" style={styles.disclaimer}>
+          {strings.EVENT_DETAIL_SCREEN.lastSeenDisclaimer}
+        </Text>
+      )}
       <View style={styles.innerContainer}>
         {options.map(option => {
           const isSelected = currentSelection === option;

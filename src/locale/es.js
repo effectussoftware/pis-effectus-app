@@ -64,6 +64,8 @@ export default {
       no: 'No',
       yes: 'Sí',
     },
+    lastSeenDisclaimer:
+      '* El evento fue actualizado. En caso de querer agregar el evento actualizado en tu calendario presiona sí',
     assistanceModal: {
       yes: {
         title: 'Agregar a Google Calendar',

@@ -2,9 +2,12 @@
 import React, { useEffect, useState } from 'react';
 import { object } from 'prop-types';
 import { View, ScrollView } from 'react-native';
+import { useDispatch } from 'react-redux';
 import { google } from 'calendar-link';
 import moment from 'moment';
+import { isEmpty } from 'lodash';
 
+import { updateEventAssistance } from 'actions/eventActions';
 import { useBottomSheetRef, useSetNavigationOptions } from 'hooks';
 import { useGetEvent } from './EventDetailScreen.hooks';
 import strings from 'locale';
@@ -23,6 +26,8 @@ const EventDetailScreen = ({
     params: { id },
   },
 }) => {
+  const dispatch = useDispatch();
+
   useSetNavigationOptions({ title: null });
 
   const { event, loading } = useGetEvent(id);
@@ -37,7 +42,7 @@ const EventDetailScreen = ({
     if (confirmation) newSelectedAssistance = attend ? YES : NO;
 
     setSelectedAssistance(newSelectedAssistance);
-  }, [event]);
+  }, [dispatch, event]);
 
   const [bottomSheetRef, handleOnBottomSheetOpen, handleOnBottomSheetClose] = useBottomSheetRef();
 
@@ -49,10 +54,16 @@ const EventDetailScreen = ({
       )
         handleOnBottomSheetOpen();
     }
+    dispatch(
+      updateEventAssistance(id, {
+        confirmation: newSelectedAssistance !== MAYBE,
+        attend: newSelectedAssistance === YES,
+      }),
+    );
     setSelectedAssistance(newSelectedAssistance);
   };
 
-  const { name, description, address, startTime, endTime } = event;
+  const { name, description, address, startTime, endTime, changedLastSeen } = event;
 
   const eventLink = google({
     title: name,
@@ -67,7 +78,7 @@ const EventDetailScreen = ({
     handleOnBottomSheetClose();
   };
 
-  if (loading) return <Loader />;
+  if (isEmpty(event) && loading) return <Loader />;
 
   return (
     <View style={styles.container}>
@@ -83,6 +94,7 @@ const EventDetailScreen = ({
       </ScrollView>
       {!!selectedAssistance && (
         <AssistanceSelector
+          changedLastSeen={changedLastSeen}
           currentSelection={selectedAssistance}
           onPress={handleSelectAssistance}
         />

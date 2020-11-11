@@ -13,3 +13,13 @@ export const getEvent = createThunk(
   'GET_EVENT',
   async id => (await eventService.get(id)).data.event,
 );
+
+export const updateEventAssistance = createThunk(
+  'UPDATE_EVENT_ASSISTANCE',
+  async (id, params) => (await eventService.updateAssistance(id, params)).data.invitation,
+);
+
+export const markEventAsSeen = createThunk(
+  'MARK_EVENT_AS_SEEN',
+  async id => (await eventService.markAsSeen(id)).data.invitation,
+);
