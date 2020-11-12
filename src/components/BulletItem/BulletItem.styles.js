@@ -13,6 +13,7 @@ const styles = StyleSheet.create({
   },
   innerContainer: {
     flexDirection: 'row',
+    flexShrink: 1,
   },
   bullet: {
     width: 16,
