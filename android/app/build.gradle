@@ -142,8 +142,8 @@ android {
         applicationId "com.effectussoftware.effectus"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 7
-        versionName "0.3.1"
+        versionCode 8
+        versionName "0.4.0"
         multiDexEnabled true
         resValue "string", "build_config_package", "com.effectussoftware.effectus"
     }
