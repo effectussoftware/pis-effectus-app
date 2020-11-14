@@ -104,7 +104,7 @@ const FeedCard = ({
           {text}
         </Text>
       )}
-      {descriptionLines > LINES_CUTOFF && (
+      {type === COMMUNICATION && descriptionLines > LINES_CUTOFF && (
         <Text style={styles.viewMoreLessButton}>
           {viewMoreActive ? strings.MAIN_SCREEN.viewLess : strings.MAIN_SCREEN.viewMore}
         </Text>

@@ -11,7 +11,7 @@ const handleGetEventSuccess = (state, { payload }) => {
   state.item = payload;
 };
 
-const handleGetCommunicationSuccess = (state, { payload }) => {
+const handleGetEventsCalendarSuccess = (state, { payload }) => {
   const { yearAndMonth, data } = payload;
   state.months[yearAndMonth] = data;
 };
@@ -26,6 +26,6 @@ const handleResetSuccess = () => {
 export default createReducer(initialState, {
   [getEvent.success]: handleGetEventSuccess,
   [getEvent.reset]: handleGetEventReset,
-  [getEventsCalendar.success]: handleGetCommunicationSuccess,
+  [getEventsCalendar.success]: handleGetEventsCalendarSuccess,
   [logout.success]: handleResetSuccess,
 });

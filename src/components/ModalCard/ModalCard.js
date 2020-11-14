@@ -19,7 +19,7 @@ const ModalCard = ({
         <Text numberOfLines={2} type="H2" style={styles.title}>
           {title}
         </Text>
-        <Text type="P1_S" numberOfLines={3} style={styles.description}>
+        <Text type="P1_S" style={styles.description}>
           {description}
         </Text>
       </View>

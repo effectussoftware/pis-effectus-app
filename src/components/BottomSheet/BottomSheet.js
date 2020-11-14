@@ -2,6 +2,9 @@ import React, { useMemo } from 'react';
 import { object, node } from 'prop-types';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import RBSheet from 'react-native-raw-bottom-sheet';
+
+import { FONT_SCALE } from 'constants/dimensions';
+
 import stylesProps from './BottomSheet.styles';
 
 const BottomSheet = ({ children, reference, ...restProps }) => {
@@ -12,7 +15,7 @@ const BottomSheet = ({ children, reference, ...restProps }) => {
       ref={reference}
       closeOnDragDown
       closeOnPressMask={false}
-      height={330}
+      height={340 * FONT_SCALE}
       customStyles={styles}
       {...restProps}>
       {children}
