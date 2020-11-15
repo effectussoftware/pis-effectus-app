@@ -32,6 +32,7 @@ export const useGetEvent = id => {
   useEffect(() => {
     if (updateEventAssistanceStatus === SUCCESS) {
       dispatch(getEvent(id));
+      dispatch(updateEventAssistance.reset());
     }
   }, [dispatch, id, updateEventAssistanceStatus]);
 

@@ -1,6 +1,6 @@
 // AVAILABLE MODELS TYPES
-export const POLL = 'poll';
-export const EVENT = 'event';
-export const EXCHANGE = 'exchange';
-export const ONE_ON_ONE = 'review';
-export const COMMUNICATION = 'communication';
+export const POLL = 'Poll';
+export const EVENT = 'Event';
+export const INVITATION = 'Invitation';
+export const ONE_ON_ONE = 'Review';
+export const COMMUNICATION = 'Communication';

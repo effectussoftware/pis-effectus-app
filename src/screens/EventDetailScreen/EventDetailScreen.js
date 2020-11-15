@@ -63,7 +63,7 @@ const EventDetailScreen = ({
     setSelectedAssistance(newSelectedAssistance);
   };
 
-  const { name, description, address, startTime, endTime, changedLastSeen } = event;
+  const { name, description, address, startTime, endTime, changedLastSeen, cancelled } = event;
 
   const eventLink = google({
     title: name,
@@ -99,7 +99,8 @@ const EventDetailScreen = ({
           changedLastSeen={changedLastSeen}
           currentSelection={selectedAssistance}
           onPress={handleSelectAssistance}
-          disabled={hasStarted}
+          cancelled={cancelled}
+          disabled={hasStarted || cancelled}
         />
       )}
       <BottomSheet reference={bottomSheetRef}>

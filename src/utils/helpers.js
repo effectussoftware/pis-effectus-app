@@ -42,6 +42,7 @@ export const formatEventStatus = (endDate, cancelled, confirmation, attend) => {
 
   if (cancelled) {
     statusText = strings.EVENTS_SCREEN.eventStatus.cancelled;
+    needsAttention = false;
   } else if (moment(endDate).isBefore(moment())) {
     statusText = strings.EVENTS_SCREEN.eventStatus.ended;
     needsAttention = false;

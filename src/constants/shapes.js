@@ -1,6 +1,6 @@
 import { arrayOf, bool, number, oneOf, shape, string } from 'prop-types';
 
-import { POLL, EVENT, EXCHANGE, ONE_ON_ONE, COMMUNICATION } from 'constants/models';
+import { POLL, EVENT, ONE_ON_ONE, COMMUNICATION } from 'constants/models';
 
 // ONE ON ONE
 const actionItemShape = shape({ description: string.isRequired, completed: bool.isRequired });
@@ -16,7 +16,7 @@ export const oneOnOneShape = shape({
 });
 
 // EVENT
-export const typeShape = oneOf([COMMUNICATION, EVENT, EXCHANGE, ONE_ON_ONE, POLL]);
+export const typeShape = oneOf([COMMUNICATION, EVENT, ONE_ON_ONE, POLL]);
 
 export const inviteeShape = shape({
   name: string.isRequired,
@@ -39,6 +39,7 @@ export const eventShape = shape({
 // FEED
 const feedCardBase = {
   id: number,
+  title: string.isRequired,
   type: typeShape.isRequired,
   image: string,
   text: string,
@@ -50,7 +51,8 @@ export const eventFeedCardShape = shape({
   ...feedCardBase,
   startTime: string.isRequired,
   endTime: string.isRequired,
-  canceled: bool.isRequired,
+  changedLastSeen: bool.isRequired,
+  cancelled: bool.isRequired,
   confirmation: bool.isRequired,
   attend: bool,
 });
