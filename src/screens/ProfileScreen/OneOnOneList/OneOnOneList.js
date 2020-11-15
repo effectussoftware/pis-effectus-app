@@ -1,6 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { FlatList, View } from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
+import { func } from 'prop-types';
+import { useSelector } from 'react-redux';
+import { LOADING, useStatus } from '@rootstrap/redux-tools';
 
 import { getOneOnOnes } from 'actions/oneOnOneActions';
 import strings from 'locale';
@@ -10,12 +12,10 @@ import OneOnOneItem from './OneOnOneItem';
 
 import styles from './OneOnOneList.styles';
 
-const OneOnOneList = () => {
-  const dispatch = useDispatch();
+const OneOnOneList = ({ handleRefresh }) => {
+  const { status } = useStatus(getOneOnOnes);
 
-  useEffect(() => {
-    dispatch(getOneOnOnes());
-  }, [dispatch]);
+  const loading = status === LOADING;
 
   const list = useSelector(({ oneOnOne }) => oneOnOne.list);
 
@@ -26,6 +26,8 @@ const OneOnOneList = () => {
       renderItem={({ item }) => <OneOnOneItem item={item} />}
       keyExtractor={({ id }) => id.toString()}
       contentContainerStyle={styles.contentContainer}
+      onRefresh={handleRefresh}
+      refreshing={loading}
       ListHeaderComponent={() => (
         <Text type="H2" style={styles.oneOnOneTitle}>
           {strings.ONE_ON_ONE.title}
@@ -38,6 +40,10 @@ const OneOnOneList = () => {
       )}
     />
   );
+};
+
+OneOnOneList.propTypes = {
+  handleRefresh: func.isRequired,
 };
 
 export default OneOnOneList;
