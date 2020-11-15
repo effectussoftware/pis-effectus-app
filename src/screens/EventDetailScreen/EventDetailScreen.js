@@ -47,7 +47,10 @@ const EventDetailScreen = ({
   const [bottomSheetRef, handleOnBottomSheetOpen, handleOnBottomSheetClose] = useBottomSheetRef();
 
   const handleSelectAssistance = newSelectedAssistance => {
-    if (newSelectedAssistance !== selectedAssistance && newSelectedAssistance !== MAYBE) {
+    if (
+      newSelectedAssistance === YES ||
+      (newSelectedAssistance !== selectedAssistance && newSelectedAssistance !== MAYBE)
+    ) {
       if (
         newSelectedAssistance === YES ||
         (selectedAssistance === YES && newSelectedAssistance === NO)
