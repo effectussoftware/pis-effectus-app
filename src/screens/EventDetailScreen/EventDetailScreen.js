@@ -47,7 +47,10 @@ const EventDetailScreen = ({
   const [bottomSheetRef, handleOnBottomSheetOpen, handleOnBottomSheetClose] = useBottomSheetRef();
 
   const handleSelectAssistance = newSelectedAssistance => {
-    if (newSelectedAssistance !== selectedAssistance && newSelectedAssistance !== MAYBE) {
+    if (
+      newSelectedAssistance === YES ||
+      (newSelectedAssistance !== selectedAssistance && newSelectedAssistance !== MAYBE)
+    ) {
       if (
         newSelectedAssistance === YES ||
         (selectedAssistance === YES && newSelectedAssistance === NO)
@@ -89,7 +92,7 @@ const EventDetailScreen = ({
 
         <View style={styles.contentContainer}>
           <Text type="H3">{strings.EVENT_DETAIL_SCREEN.participantsListTitle}</Text>
-          {event.users.map((invitee, index) => (
+          {event.users?.map((invitee, index) => (
             <InviteeItem key={index} isOdd={index % 2 === 0} invitee={invitee} />
           ))}
         </View>
