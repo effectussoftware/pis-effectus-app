@@ -78,6 +78,8 @@ const EventDetailScreen = ({
     handleOnBottomSheetClose();
   };
 
+  const hasStarted = moment(startTime).isBefore(moment());
+
   if (isEmpty(event) && loading) return <Loader />;
 
   return (
@@ -97,6 +99,7 @@ const EventDetailScreen = ({
           changedLastSeen={changedLastSeen}
           currentSelection={selectedAssistance}
           onPress={handleSelectAssistance}
+          disabled={hasStarted}
         />
       )}
       <BottomSheet reference={bottomSheetRef}>

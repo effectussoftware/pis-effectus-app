@@ -1,4 +1,5 @@
 import { BLACK, DARK_GRAY } from 'constants/colors';
+import { DEFAULT_HORIZONTAL_SEPARATION } from 'constants/dimensions';
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
@@ -7,7 +8,7 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
     paddingTop: 10,
     paddingBottom: 25,
-    paddingLeft: 20,
+    paddingHorizontal: DEFAULT_HORIZONTAL_SEPARATION,
   },
   comments: {
     paddingTop: 15,

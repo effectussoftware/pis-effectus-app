@@ -1,4 +1,4 @@
-import { func, string } from 'prop-types';
+import { bool, func, string } from 'prop-types';
 import React from 'react';
 import { TouchableWithoutFeedback, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -15,7 +15,7 @@ export const YES = 'yes';
 
 const options = [MAYBE, NO, YES];
 
-const AssistanceSelector = ({ currentSelection, changedLastSeen, onPress }) => {
+const AssistanceSelector = ({ currentSelection, changedLastSeen, onPress, disabled }) => {
   const { bottom } = useSafeAreaInsets();
 
   return (
@@ -34,11 +34,11 @@ const AssistanceSelector = ({ currentSelection, changedLastSeen, onPress }) => {
           };
 
           return (
-            <TouchableWithoutFeedback key={option} onPress={handleOnPress}>
+            <TouchableWithoutFeedback key={option} onPress={handleOnPress} disabled={disabled}>
               <View style={[styles.option, isSelected && styles.optionSelected]}>
                 <Text
                   type={isSelected ? 'H3' : 'P1_S'}
-                  style={[styles.optionText, isSelected && styles.optionTextSelected]}>
+                  style={[styles.optionText, isSelected && !disabled && styles.optionTextSelected]}>
                   {strings.EVENT_DETAIL_SCREEN.assistanceSelector[option]}
                 </Text>
               </View>
@@ -52,7 +52,9 @@ const AssistanceSelector = ({ currentSelection, changedLastSeen, onPress }) => {
 
 AssistanceSelector.propTypes = {
   currentSelection: string,
+  changedLastSeen: bool.isRequired,
   onPress: func.isRequired,
+  disabled: bool.isRequired,
 };
 
 export default AssistanceSelector;

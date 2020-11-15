@@ -1,4 +1,4 @@
-import { Dimensions } from 'react-native';
+import { Dimensions, PixelRatio } from 'react-native';
 
 const { width, height } = Dimensions.get('window');
 
@@ -11,3 +11,5 @@ export const SCREEN_HEIGHT_FACTOR = SCREEN_HEIGHT / 812;
 export const SMALL_DEVICE_HEIGHT = 600;
 
 export const SMALL_DEVICE = height < SMALL_DEVICE_HEIGHT;
+
+export const FONT_SCALE = PixelRatio.getFontScale();
