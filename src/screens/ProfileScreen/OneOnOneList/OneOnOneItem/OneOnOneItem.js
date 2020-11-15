@@ -19,7 +19,7 @@ const OneOnOneItem = ({ item: { id, title, comments, createdAt } }) => {
   return (
     <Card
       title={title}
-      text={comments || strings.ONE_ON_ONES.noComments}
+      text={comments || strings.ONE_ON_ONE.noComments}
       icon={OneOnOneIcon}
       time={createdAt}
       onPress={() => navigateToOneOnOneDetail(id)}
