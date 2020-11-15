@@ -6,18 +6,17 @@ import humps from 'humps';
 import { IS_ANDROID, IS_IOS } from 'constants';
 import { updateFirebaseToken } from 'actions/userActions';
 import { navigate } from 'services/navigationService';
-import { ONE_ON_ONE, COMMUNICATION } from 'constants/models';
-import { COMMUNICATION_SCREEN, ONE_ON_ONE_SCREEN } from 'constants/screens';
+import { COMMUNICATION, EVENT, INVITATION, ONE_ON_ONE } from 'constants/models';
+import { COMMUNICATION_SCREEN, EVENT_DETAIL_SCREEN, ONE_ON_ONE_SCREEN } from 'constants/screens';
 
 export const handleNotifications = data => {
   const notification = humps.camelizeKeys(data || {});
 
-  const { type, id } = notification;
+  const { type, id, event } = notification;
 
-  const parsedType = type.toLowerCase();
-
-  if (parsedType === COMMUNICATION) navigate(COMMUNICATION_SCREEN, { id });
-  if (parsedType === ONE_ON_ONE) navigate(ONE_ON_ONE_SCREEN, { id });
+  if (type === COMMUNICATION) navigate(COMMUNICATION_SCREEN, { id });
+  if (type === EVENT || type === INVITATION) navigate(EVENT_DETAIL_SCREEN, { id: event || id });
+  if (type === ONE_ON_ONE) navigate(ONE_ON_ONE_SCREEN, { id });
 };
 
 export const handleIosPushNotification = info => {

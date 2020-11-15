@@ -4,11 +4,10 @@ import { useNavigation } from '@react-navigation/native';
 import { ONE_ON_ONE_SCREEN, EVENT_DETAIL_SCREEN } from 'constants/screens';
 
 import EventIcon from 'assets/images/feedIcons/event/default.png';
-import ExchangeIcon from 'assets/images/feedIcons/exchange/default.png';
 import NewsIcon from 'assets/images/feedIcons/news/default.png';
 import OneOnOneIcon from 'assets/images/feedIcons/oneOnOne/default.png';
 import PollIcon from 'assets/images/feedIcons/poll/default.png';
-import { POLL, EVENT, EXCHANGE, ONE_ON_ONE, COMMUNICATION } from 'constants/models';
+import { POLL, EVENT, ONE_ON_ONE, COMMUNICATION } from 'constants/models';
 import { eventFeedCardShape, feedCardShape } from 'constants/shapes';
 import { formatStartAndEndTime, formatEventStatus } from 'utils/helpers';
 import strings from 'locale';
@@ -21,7 +20,6 @@ import styles from './FeedCard.styles';
 const icons = {
   [COMMUNICATION]: NewsIcon,
   [EVENT]: EventIcon,
-  [EXCHANGE]: ExchangeIcon,
   [ONE_ON_ONE]: OneOnOneIcon,
   [POLL]: PollIcon,
 };

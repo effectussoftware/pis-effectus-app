@@ -15,14 +15,22 @@ export const YES = 'yes';
 
 const options = [MAYBE, NO, YES];
 
-const AssistanceSelector = ({ currentSelection, changedLastSeen, onPress, disabled }) => {
+const AssistanceSelector = ({
+  currentSelection,
+  changedLastSeen,
+  onPress,
+  disabled,
+  cancelled,
+}) => {
   const { bottom } = useSafeAreaInsets();
 
   return (
     <View style={[styles.container, { paddingBottom: bottom + 12 }]}>
-      {changedLastSeen && (
+      {(changedLastSeen || cancelled) && (
         <Text type="P2" style={styles.disclaimer}>
-          {strings.EVENT_DETAIL_SCREEN.lastSeenDisclaimer}
+          {cancelled
+            ? strings.EVENT_DETAIL_SCREEN.cancelledDisclaimer
+            : strings.EVENT_DETAIL_SCREEN.lastSeenDisclaimer}
         </Text>
       )}
       <View style={styles.innerContainer}>
@@ -55,6 +63,7 @@ AssistanceSelector.propTypes = {
   changedLastSeen: bool.isRequired,
   onPress: func.isRequired,
   disabled: bool.isRequired,
+  cancelled: bool.isRequired,
 };
 
 export default AssistanceSelector;
