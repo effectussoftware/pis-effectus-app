@@ -34,6 +34,8 @@ const EventDetailScreen = ({
 
   const [selectedAssistance, setSelectedAssistance] = useState();
 
+  const finished = moment(event.endTime).isBefore(moment());
+
   useEffect(() => {
     if (!event) return;
     const { confirmation, attend } = event;
@@ -103,7 +105,8 @@ const EventDetailScreen = ({
           currentSelection={selectedAssistance}
           onPress={handleSelectAssistance}
           cancelled={cancelled}
-          disabled={hasStarted || cancelled}
+          disabled={hasStarted || cancelled || finished}
+          finished={finished}
         />
       )}
       <BottomSheet reference={bottomSheetRef}>
