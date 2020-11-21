@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { oneOfType } from 'prop-types';
 import { useNavigation } from '@react-navigation/native';
+import ParsedText from 'react-native-parsed-text';
 import { ONE_ON_ONE_SCREEN, EVENT_DETAIL_SCREEN } from 'constants/screens';
 
 import EventIcon from 'assets/images/feedIcons/event/default.png';
@@ -9,7 +10,7 @@ import OneOnOneIcon from 'assets/images/feedIcons/oneOnOne/default.png';
 import PollIcon from 'assets/images/feedIcons/poll/default.png';
 import { POLL, EVENT, ONE_ON_ONE, COMMUNICATION } from 'constants/models';
 import { eventFeedCardShape, feedCardShape } from 'constants/shapes';
-import { formatStartAndEndTime, formatEventStatus } from 'utils/helpers';
+import { formatStartAndEndTime, formatEventStatus, openExternalLink } from 'utils/helpers';
 import strings from 'locale';
 
 import Card from 'components/Card';
@@ -43,6 +44,7 @@ const FeedCard = ({
   const { navigate } = useNavigation();
   const LINES_CUTOFF = 2;
   const [descriptionLines, setDescriptionLines] = useState();
+  const [addressLines, setAddressLines] = useState();
   const [viewMoreActive, setViewMoreActive] = useState(false);
 
   const changeActive = () => {
@@ -51,6 +53,10 @@ const FeedCard = ({
 
   const setLines = ({ nativeEvent: { lines } }) => {
     !descriptionLines && setDescriptionLines(lines.length);
+  };
+
+  const handleSetAddressLines = ({ nativeEvent: { lines } }) => {
+    !addressLines && setAddressLines(lines.length);
   };
 
   const navigateToOneOnOneDetail = id => {
@@ -88,19 +94,24 @@ const FeedCard = ({
             {formattedDate}
           </Text>
           {!!address && (
-            <Text type="P2" style={styles.subInfo}>
+            <Text
+              type="P2"
+              style={styles.subInfo}
+              numberOfLines={!addressLines ? undefined : LINES_CUTOFF}
+              onTextLayout={handleSetAddressLines}>
               {address}
             </Text>
           )}
         </>
       )}
       {!!text && (
-        <Text
+        <ParsedText
           numberOfLines={viewMoreActive || !descriptionLines ? undefined : LINES_CUTOFF}
           onTextLayout={setLines}
+          parse={[{ type: 'url', style: styles.url, onPress: openExternalLink }]}
           style={styles.description}>
           {text}
-        </Text>
+        </ParsedText>
       )}
       {type === COMMUNICATION && descriptionLines > LINES_CUTOFF && (
         <Text style={styles.viewMoreLessButton}>

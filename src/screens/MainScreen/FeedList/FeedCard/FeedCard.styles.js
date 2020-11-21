@@ -19,6 +19,10 @@ const styles = StyleSheet.create({
   description: {
     paddingTop: 7,
   },
+  url: {
+    color: PRIMARY,
+    textDecorationLine: 'underline',
+  },
 });
 
 export default styles;
