@@ -1,15 +1,14 @@
 import React from 'react';
-import { View } from 'react-native';
+import { TouchableOpacity, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
+import { EVENT_DETAIL_SCREEN } from 'constants/screens';
 import { eventShape } from 'constants/shapes';
 import { formatEventStatus, formatStartAndEndTime } from 'utils/helpers';
 
-import Text from 'components/Text';
+import { Text } from 'components';
 
 import styles from './EventCard.styles';
-import { TouchableOpacity } from 'react-native-gesture-handler';
-import { EVENT_DETAIL_SCREEN } from 'constants/screens';
 
 const EventCard = ({ item }) => {
   const navigation = useNavigation();

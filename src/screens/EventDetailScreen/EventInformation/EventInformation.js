@@ -5,7 +5,7 @@ import ParsedText from 'react-native-parsed-text';
 import { formatStartAndEndTime, openExternalLink } from 'utils/helpers';
 import { eventShape } from 'constants/shapes';
 
-import Text from 'components/Text';
+import { Text } from 'components';
 import styles from './EventInformation.styles';
 
 const EventInformation = ({ event: { name, address, startTime, endTime, description } }) => {

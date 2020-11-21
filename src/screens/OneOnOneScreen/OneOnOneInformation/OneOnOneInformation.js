@@ -3,9 +3,10 @@ import { View } from 'react-native';
 import { string } from 'prop-types';
 import moment from 'moment';
 
-import Text from 'components/Text';
 import strings from 'locale';
 import { CALENDAR_FORMATS } from 'constants/dateFormats';
+
+import { Text } from 'components';
 
 import styles from './OneOnOneInformation.styles';
 
