@@ -1,4 +1,4 @@
-import { DARK_GRAY, GRAY, PRIMARY } from 'constants/colors';
+import { PRIMARY } from 'constants/colors';
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
