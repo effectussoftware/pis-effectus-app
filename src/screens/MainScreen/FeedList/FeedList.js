@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo } from 'react';
+import React, { useCallback } from 'react';
 import { func } from 'prop-types';
 import { SectionList, View } from 'react-native';
 import { useDispatch, useSelector, shallowEqual } from 'react-redux';
@@ -10,6 +10,7 @@ import useAlertError from 'hooks/useAlertError';
 
 import { Text } from 'components';
 import FeedCard from './FeedCard';
+import FeedSectionHeader from './FeedSectionHeader';
 
 import styles from './FeedList.styles';
 
@@ -31,8 +32,8 @@ const FeedList = ({ handleRefresh }) => {
   }, [endReached, dispatch, data]);
 
   const feed = [
-    { title: 'Novedades importantes', data: priorityData },
-    { title: 'Novedades', data },
+    { title: strings.MAIN_SCREEN.priorityTitle, data: priorityData },
+    { title: strings.MAIN_SCREEN.title, data },
   ];
 
   return (
@@ -41,13 +42,14 @@ const FeedList = ({ handleRefresh }) => {
       sections={feed}
       contentContainerStyle={styles.contentContainer}
       renderItem={({ item }) => <FeedCard item={item} />}
-      renderSectionHeader={({ section: { title } }) => <Text style={styles.header}>{title}</Text>}
+      renderSectionHeader={FeedSectionHeader}
       keyExtractor={item => `${item.type}-${item.id}`}
       onEndReached={handleLoadMore}
       onEndReachedThreshold={0.5}
       initialNumToRender={10}
       onRefresh={handleRefresh}
       refreshing={loading}
+      stickySectionHeadersEnabled={false}
       ListEmptyComponent={
         feedStatus === SUCCESS &&
         priorityFeedStatus === SUCCESS &&
