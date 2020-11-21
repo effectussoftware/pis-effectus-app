@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
 import { useDispatch } from 'react-redux';
 
-import { getFeed } from 'actions/feedActions';
+import { getFeed, getPriorityFeed } from 'actions/feedActions';
 import { MAIN_SCREEN } from 'constants/screens';
 import useNotifications from 'hooks/useNotifications';
 
@@ -17,6 +17,7 @@ const MainScreen = () => {
   const dispatch = useDispatch();
 
   const handleRefresh = useCallback(() => {
+    dispatch(getPriorityFeed());
     dispatch(getFeed({ shouldReplace: true }));
   }, [dispatch]);
 

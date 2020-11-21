@@ -1,10 +1,11 @@
 import { createReducer } from '@rootstrap/redux-tools';
-import { getFeed } from 'actions/feedActions';
+import { getFeed, getPriorityFeed } from 'actions/feedActions';
 import { logout } from 'actions/userActions';
 import { isEmpty } from 'lodash';
 
 const initialState = {
   data: [],
+  priorityData: [],
   endReached: false,
 };
 
@@ -20,11 +21,16 @@ const handleGetFeedSuccess = (state, { payload }) => {
   }
 };
 
+const handleGetPriorityFeedSuccess = (state, { payload }) => {
+  state.priorityData = payload;
+};
+
 const handleLogoutSuccess = () => {
   return initialState;
 };
 
 export default createReducer(initialState, {
   [getFeed.success]: handleGetFeedSuccess,
+  [getPriorityFeed.success]: handleGetPriorityFeedSuccess,
   [logout.success]: handleLogoutSuccess,
 });
