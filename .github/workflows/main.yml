@@ -8,7 +8,7 @@ on:
   # push:
   #   branches: [ master ]
   pull_request:
-    branches: [ master ]
+    branches: [master]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -26,4 +26,7 @@ jobs:
       - name: Test the app
         run: |
           npm install
-          npm test
+          npm run lint
+
+# Commented since no specs are available
+# npm test

@@ -7,7 +7,7 @@ import Text from 'components/Text';
 import strings from 'locale';
 import { CALENDAR_FORMATS } from 'constants/dateFormats';
 
-import styles from './oneOnOneInformation.styles';
+import styles from './OneOnOneInformation.styles';
 
 const OneOnOneInformation = ({ title, date, comments }) => {
   const newStartDate = moment(date);

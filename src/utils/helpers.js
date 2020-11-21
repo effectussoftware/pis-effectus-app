@@ -1,14 +1,8 @@
 import { Linking } from 'react-native';
 import moment from 'moment';
-import queryString from 'query-string';
 
 import { EVENT_DATE_FORMATS, TIME_FORMAT } from 'constants/dateFormats';
 import strings from 'locale';
-
-export const applyQueryParams = (url, params) => {
-  const queryParams = queryString.stringify(params);
-  return `${url}?${queryParams}`;
-};
 
 export const openExternalLink = async url => {
   try {
