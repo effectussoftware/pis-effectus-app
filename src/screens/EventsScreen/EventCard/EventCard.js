@@ -43,7 +43,7 @@ const EventCard = ({ item }) => {
     !descriptionLines && setDescriptionLines(lines.length);
   };
 
-  const setAddrLines = ({ nativeEvent: { lines } }) => {
+  const handleSetAddressLines = ({ nativeEvent: { lines } }) => {
     !addressLines && setAddressLines(lines.length);
   };
 
@@ -65,7 +65,7 @@ const EventCard = ({ item }) => {
               type="P2"
               style={styles.eventInfo}
               numberOfLines={!addressLines ? undefined : LINES_CUTOFF}
-              onTextLayout={setAddrLines}>
+              onTextLayout={handleSetAddressLines}>
               {address}
             </Text>
           )}

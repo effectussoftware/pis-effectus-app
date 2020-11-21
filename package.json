@@ -43,7 +43,6 @@
     "moment": "^2.29.1",
     "prop-types": "15.7.2",
     "react": "16.13.1",
-    "react-devtools": "^4.10.0",
     "react-native": "0.63.3",
     "react-native-config": "0.12.0",
     "react-native-gesture-handler": "^1.5.6",

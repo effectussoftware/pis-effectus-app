@@ -55,7 +55,7 @@ const FeedCard = ({
     !descriptionLines && setDescriptionLines(lines.length);
   };
 
-  const setAddrLines = ({ nativeEvent: { lines } }) => {
+  const handleSetAddressLines = ({ nativeEvent: { lines } }) => {
     !addressLines && setAddressLines(lines.length);
   };
 
@@ -98,7 +98,7 @@ const FeedCard = ({
               type="P2"
               style={styles.subInfo}
               numberOfLines={!addressLines ? undefined : LINES_CUTOFF}
-              onTextLayout={setAddrLines}>
+              onTextLayout={handleSetAddressLines}>
               {address}
             </Text>
           )}
