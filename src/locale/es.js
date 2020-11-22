@@ -18,6 +18,7 @@ export default {
 
   MAIN_SCREEN: {
     title: 'Novedades',
+    priorityTitle: 'Novedades Importantes',
     viewMore: 'Ver más',
     viewLess: 'Ver menos',
     emptyState: 'Aún no tienes novedades',

@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     flexGrow: 1,
-    paddingHorizontal: DEFAULT_HORIZONTAL_SEPARATION,
+    padding: DEFAULT_HORIZONTAL_SEPARATION,
   },
   emptyStateContainer,
 });
