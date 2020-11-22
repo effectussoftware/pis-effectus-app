@@ -1,8 +1,10 @@
 import React from 'react';
-import { View } from 'react-native';
-import { Button, Text } from 'components';
-
 import { func, string } from 'prop-types';
+import { View } from 'react-native';
+
+import Button from 'components/Button';
+import Text from 'components/Text';
+
 import styles from './ModalCard.styles';
 
 const ModalCard = ({

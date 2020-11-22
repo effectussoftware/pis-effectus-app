@@ -4,22 +4,22 @@ import { object } from 'prop-types';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 
-import TabIcon from 'components/TabIcon';
 import MainIcon from 'assets/images/tabIcons/MainIcon/default.png';
 import EventsIcon from 'assets/images/tabIcons/EventsIcon/default.png';
 import ProfileIcon from 'assets/images/tabIcons/ProfileIcon/default.png';
-import { EVENTS_SCREEN, MAIN_SCREEN, PROFILE_SCREEN } from 'constants/screens';
 import { PRIMARY, LIGHT_GRAY } from 'constants/colors';
+import { EVENTS_SCREEN, MAIN_SCREEN, PROFILE_SCREEN } from 'constants/screens';
 import testIds from 'constants/testIds';
 import { useSetNavigationOptions } from 'hooks';
 
+import { TabIcon } from 'components';
 import MainScreen from 'screens/MainScreen';
+import EventsScreen from 'screens/EventsScreen';
 import ProfileScreen from 'screens/ProfileScreen';
 
 import mainScreenNavigationOptions from 'screens/MainScreen/MainScreen.navigationOptions';
 import eventsScreenNavigationOptions from 'screens/EventsScreen/EventsScreen.navigationOptions';
 import profileScreenNavigationOptions from 'screens/ProfileScreen/ProfileScreen.navigationOptions';
-import EventsScreen from 'screens/EventsScreen';
 
 const Tab = createBottomTabNavigator();
 

@@ -3,7 +3,7 @@ import { Image } from 'react-native';
 import { string, bool } from 'prop-types';
 import Tick from 'assets/images/tickIcon/default.png';
 
-import BulletItem from 'components/BulletItem';
+import { BulletItem } from 'components';
 
 const ActionItem = ({ isOdd, description, completed }) => {
   return (

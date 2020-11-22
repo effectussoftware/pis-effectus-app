@@ -3,10 +3,11 @@ import { object } from 'prop-types';
 import { View, ScrollView } from 'react-native';
 import useGetOneOnOne from 'hooks/useGetOneOnOne';
 
-import { Text, Loader } from 'components';
-import OneOnOneInformation from 'components/OneOnOneInformation/oneOnOneInformation';
-import ActionItem from 'components/ActionItem/ActionItem';
 import strings from 'locale';
+
+import { Text, Loader } from 'components';
+import ActionItem from './ActionItem';
+import OneOnOneInformation from './OneOnOneInformation';
 
 import styles from './OneOnOneScreen.styles';
 

@@ -6,7 +6,7 @@ import Tick from 'assets/images/tickIcon/default.png';
 import Cross from 'assets/images/crossIcon/default.png';
 import { inviteeShape } from 'constants/shapes';
 
-import BulletItem from 'components/BulletItem';
+import { BulletItem } from 'components';
 
 const InviteeItem = ({ isOdd, invitee: { name, confirmation, attend } }) => {
   return (

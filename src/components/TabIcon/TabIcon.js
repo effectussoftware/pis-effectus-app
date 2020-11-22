@@ -2,7 +2,7 @@ import React from 'react';
 import { bool, number, string } from 'prop-types';
 import { Image, View } from 'react-native';
 
-import styles from 'components/TabIcon/TabIcon.styles';
+import styles from './TabIcon.styles';
 
 const TabIcon = ({ color, source, focused }) => {
   return (

@@ -13,8 +13,7 @@ import { eventFeedCardShape, feedCardShape } from 'constants/shapes';
 import { formatStartAndEndTime, formatEventStatus, openExternalLink } from 'utils/helpers';
 import strings from 'locale';
 
-import Card from 'components/Card';
-import Text from 'components/Text';
+import { Card, Text } from 'components';
 
 import styles from './FeedCard.styles';
 

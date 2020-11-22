@@ -5,7 +5,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import strings from 'locale';
 
-import Text from 'components/Text';
+import { Text } from 'components';
 
 import styles from './AssistanceSelector.styles';
 
