@@ -15,7 +15,6 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
     flex: 1,
   },
-
   name: {
     textTransform: 'capitalize',
   },
@@ -32,18 +31,20 @@ const styles = StyleSheet.create({
   notConfirmed: {
     color: PRIMARY,
   },
-
   bullet: {
     width: 17,
     aspectRatio: 1,
     borderRadius: 17 / 2,
   },
-
   odd: {
     backgroundColor: PRIMARY,
   },
   even: {
     backgroundColor: SECONDARY,
+  },
+  url: {
+    color: PRIMARY,
+    textDecorationLine: 'underline',
   },
 });
 

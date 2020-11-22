@@ -68,6 +68,7 @@ export default {
     lastSeenDisclaimer:
       '* El evento fue actualizado. En caso de querer agregar el evento actualizado en tu calendario presiona sí',
     cancelledDisclaimer: '* El evento fue cancelado',
+    finishedDisclaimer: '* El evento finalizó',
     assistanceModal: {
       yes: {
         title: 'Agregar a Google Calendar',

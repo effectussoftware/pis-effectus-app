@@ -1,5 +1,6 @@
-import { BLACK, DARK_GRAY, BLUE } from 'constants/colors';
+import { BLACK, DARK_GRAY, PRIMARY } from 'constants/colors';
 import { StyleSheet } from 'react-native';
+import { DEFAULT_HORIZONTAL_SEPARATION } from 'constants/dimensions';
 
 const styles = StyleSheet.create({
   container: {
@@ -7,7 +8,7 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
     paddingTop: 10,
     paddingBottom: 18,
-    paddingLeft: 20,
+    paddingHorizontal: DEFAULT_HORIZONTAL_SEPARATION,
   },
   title: {
     flexShrink: 1,
@@ -22,7 +23,7 @@ const styles = StyleSheet.create({
     paddingTop: 12,
   },
   url: {
-    color: BLUE,
+    color: PRIMARY,
     textDecorationLine: 'underline',
   },
 });
