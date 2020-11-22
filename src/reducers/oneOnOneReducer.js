@@ -23,5 +23,6 @@ export default createReducer(initialState, {
   [getOneOnOne.success]: handleGetOneOnOneSuccess,
   [getOneOnOne.reset]: handleResetSuccess,
   [getOneOnOnes.success]: handleGetOneOnOnesSuccess,
+  // Clean reducer on logout
   [logout.success]: handleResetSuccess,
 });

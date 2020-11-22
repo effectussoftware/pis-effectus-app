@@ -38,6 +38,23 @@ pod install
 
 2. as always with any iOS development, make sure that the account that you are signed into has access to the app and can create the correct certificates to develop and deploy.
 
+## Folder Structure
+As many react native projects, we have at the root of the project an `android` and and `ios` folder for the native side of things. We also have a `src` folder that has the main contents of the application and what we will be focusing this section on.
+
+Contents of the `src` folder:
+- `actions`: All the actions separated by concern that conect with the services and the store.
+- `assets`: Fonts and images.
+- `components`: Reused components (screen specific components live inside the component of the screen at the `screens` folder).
+- `constants`: Various types of constants defined like `colors`, `dimensions`, `dateFormats` and more.
+- `hooks`: Useful custom hooks like `useSession` and `useAlertError`.
+- `httpClient`: Axios config to communicate with the backend.
+- `navigators`: Structure of the app with `react-navigation`
+- `reducers`: As with actions, we have one reducer per concern here and export a reducer that combines them all.
+- `screens`: Screen components so they are separated from all the other components and more organized.
+- `services`: Connections to backend endpoints, one file per concern.
+- `store`: Redux store config.
+- `utils`: Has helper functions that did not justify being a hook or it was not needed.
+
 ## Code Climate Configuration
 
 Code climate is already configured, the configuration can be found at `.codeclimate.yml`.
@@ -153,6 +170,5 @@ The default configuration is the following:
 - [Redux](https://www.npmjs.com/package/redux) Our state container tool.
 - [Redux-Thunk](https://www.npmjs.com/package/redux-thunk) for component interaction with the backend and the store.
 - [Redux-Persist](https://www.npmjs.com/package/redux-persist) for saving the session of the user and keep them logged in even after closing the app.
-- [validate.js](https://github.com/ansman/validate.js) Our preferred validation library
 - [Jest](https://github.com/facebook/jest) for testing
 - [Enzyme](https://github.com/airbnb/enzyme) for testing

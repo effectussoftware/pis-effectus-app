@@ -11,6 +11,8 @@ export const headerStyle = {
 
 export const headerTitleStyle = { ...styles.H1, color: BLACK };
 
+// DEFAULT HEADER OPTIONS
+// All header options should be based on this one.
 export const HEADER_OPTIONS = {
   headerStyle,
   headerTitleStyle,

@@ -17,5 +17,6 @@ const handleResetSuccess = () => {
 export default createReducer(initialState, {
   [getCommunication.success]: handleGetCommunicationSuccess,
   [getCommunication.reset]: handleResetSuccess,
+  // Clean reducer on logout
   [logout.success]: handleResetSuccess,
 });

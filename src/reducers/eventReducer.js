@@ -27,5 +27,6 @@ export default createReducer(initialState, {
   [getEvent.success]: handleGetEventSuccess,
   [getEvent.reset]: handleGetEventReset,
   [getEventsCalendar.success]: handleGetEventsCalendarSuccess,
+  // Clean reducer on logout
   [logout.success]: handleResetSuccess,
 });

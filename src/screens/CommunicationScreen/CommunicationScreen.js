@@ -11,6 +11,7 @@ import useAlertError from 'hooks/useAlertError';
 
 import { Loader, Text } from 'components';
 
+import { useSetNavigationOptions } from 'hooks';
 import styles from './CommunicationScreen.styles';
 
 const CommunicationScreen = ({
@@ -19,22 +20,23 @@ const CommunicationScreen = ({
     params: { id },
   },
 }) => {
-  const dispatch = useDispatch();
+  // SET NAVIGATION OPTIONS
+  useSetNavigationOptions({ title: null });
 
-  useEffect(() => {
-    navigation.setOptions({ title: null });
-  });
+  // DATA FETCH
+  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getCommunication(id));
   }, [dispatch, id]);
 
-  const communication = useSelector(({ communication }) => communication.data);
-
   const { status, error } = useStatus(getCommunication);
-
   useAlertError(error, getCommunication, navigation.goBack);
 
+  // DATA READ
+  const communication = useSelector(({ communication }) => communication.data);
+
+  // RENDER
   if (status !== SUCCESS) return <Loader />;
 
   const { title, text, image, updatedAt } = communication;

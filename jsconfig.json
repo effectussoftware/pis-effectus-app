@@ -17,7 +17,6 @@
       "utils/*": ["src/utils/*"],
       "navigators/*": ["src/navigators/*"],
       "services/*": ["src/services/*"],
-      "validations/*": ["src/validations/*"]
     }
   }
 }

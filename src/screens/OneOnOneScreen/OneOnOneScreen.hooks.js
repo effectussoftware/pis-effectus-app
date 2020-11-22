@@ -4,7 +4,7 @@ import { useStatus, SUCCESS } from '@rootstrap/redux-tools';
 import { useNavigation } from '@react-navigation/native';
 
 import { getOneOnOne } from 'actions/oneOnOneActions';
-import useAlertError from './useAlertError';
+import { useAlertError } from 'hooks';
 
 const useGetOneOnOne = id => {
   const { goBack } = useNavigation();

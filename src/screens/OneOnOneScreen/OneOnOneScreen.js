@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { object } from 'prop-types';
 import { View, ScrollView } from 'react-native';
-import useGetOneOnOne from 'hooks/useGetOneOnOne';
 
 import strings from 'locale';
 
@@ -9,6 +8,7 @@ import { Text, Loader } from 'components';
 import ActionItem from './ActionItem';
 import OneOnOneInformation from './OneOnOneInformation';
 
+import useGetOneOnOne from './OneOnOneScreen.hooks';
 import styles from './OneOnOneScreen.styles';
 
 const OneOnOneScreen = ({
