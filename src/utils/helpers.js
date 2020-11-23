@@ -6,8 +6,9 @@ import strings from 'locale';
 
 export const openExternalLink = async url => {
   try {
-    await Linking.canOpenURL(url);
-    return Linking.openURL(url);
+    const urlWithProtocol = url.includes('://') ? url : `http://${url}`;
+    await Linking.canOpenURL(urlWithProtocol);
+    return Linking.openURL(urlWithProtocol);
   } catch (error) {
     console.error(error);
   }
