@@ -3,6 +3,7 @@ import { func } from 'prop-types';
 import { SectionList, View } from 'react-native';
 import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 import { LOADING, SUCCESS, useStatus } from '@rootstrap/redux-tools';
+import { isEmpty } from 'lodash';
 
 import strings from 'locale';
 import { getFeed, getPriorityFeed } from 'actions/feedActions';
@@ -42,7 +43,7 @@ const FeedList = ({ handleRefresh }) => {
       sections={feed}
       contentContainerStyle={styles.contentContainer}
       renderItem={({ item }) => <FeedCard item={item} />}
-      renderSectionHeader={FeedSectionHeader}
+      renderSectionHeader={isEmpty(priorityData) ? undefined : FeedSectionHeader}
       keyExtractor={item => `${item.type}-${item.id}`}
       onEndReached={handleLoadMore}
       onEndReachedThreshold={0.5}
