@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
   },
   description: {
     color: BLACK,
-    paddingTop: 17,
+    marginTop: 17,
   },
   P1: {
     color: DARK_GRAY,
