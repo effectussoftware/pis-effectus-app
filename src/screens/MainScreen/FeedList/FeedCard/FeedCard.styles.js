@@ -11,6 +11,7 @@ const styles = StyleSheet.create({
   },
   eventStatus: {
     marginLeft: 'auto',
+    marginTop: 15,
     color: GRAY,
   },
   eventStatusNeedsAttention: {
