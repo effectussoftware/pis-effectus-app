@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 
 import { getFeed, getPriorityFeed } from 'actions/feedActions';
 import { MAIN_SCREEN } from 'constants/screens';
-import useNotifications from 'hooks/useNotifications';
+import { useNotifications } from 'hooks';
 
 import FeedList from './FeedList';
 

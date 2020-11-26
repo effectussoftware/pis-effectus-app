@@ -7,12 +7,13 @@ import { getEvent, markEventAsSeen, updateEventAssistance } from 'actions/eventA
 import useAlertError from 'hooks/useAlertError';
 
 export const useGetEvent = id => {
-  const { goBack } = useNavigation();
+  // DATA FETCH
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getEvent(id));
   }, [dispatch, id]);
 
+  const { goBack } = useNavigation();
   const { status, error } = useStatus(getEvent);
   useAlertError(error, getEvent, goBack);
 
@@ -21,8 +22,10 @@ export const useGetEvent = id => {
   );
   useAlertError(updateEventAssistanceError, updateEventAssistance);
 
+  // DATA READ
   const event = useSelector(({ event }) => event.item || {});
 
+  // HANDLE EVENTS
   useEffect(() => {
     if (status === SUCCESS) {
       dispatch(markEventAsSeen(id));
@@ -36,5 +39,6 @@ export const useGetEvent = id => {
     }
   }, [dispatch, id, updateEventAssistanceStatus]);
 
+  // RETURN
   return { event, loading: status !== SUCCESS };
 };

@@ -26,15 +26,21 @@ const EventDetailScreen = ({
     params: { id },
   },
 }) => {
-  const dispatch = useDispatch();
-
+  // SET NAVIGATION OPTIONS
   useSetNavigationOptions({ title: null });
+
+  // DATA FETCH & READ
+  const dispatch = useDispatch();
 
   const { event, loading } = useGetEvent(id);
 
   const [selectedAssistance, setSelectedAssistance] = useState();
 
+  // DATA PARSE
+  const { name, description, address, startTime, endTime, changedLastSeen, cancelled } = event;
+
   const finished = moment(event.endTime).isBefore(moment());
+  const hasStarted = moment(startTime).isBefore(moment());
 
   useEffect(() => {
     if (!event) return;
@@ -46,6 +52,15 @@ const EventDetailScreen = ({
     setSelectedAssistance(newSelectedAssistance);
   }, [dispatch, event]);
 
+  const eventLink = google({
+    title: name,
+    description,
+    location: address,
+    start: moment(startTime).toISOString(),
+    end: moment(endTime).toISOString(),
+  });
+
+  // HANDLE EVENTS
   const [bottomSheetRef, handleOnBottomSheetOpen, handleOnBottomSheetClose] = useBottomSheetRef();
 
   const handleSelectAssistance = newSelectedAssistance => {
@@ -68,23 +83,12 @@ const EventDetailScreen = ({
     setSelectedAssistance(newSelectedAssistance);
   };
 
-  const { name, description, address, startTime, endTime, changedLastSeen, cancelled } = event;
-
-  const eventLink = google({
-    title: name,
-    description,
-    location: address,
-    start: moment(startTime).toISOString(),
-    end: moment(endTime).toISOString(),
-  });
-
   const handleBottomSheetCTAPress = () => {
     openExternalLink(selectedAssistance === YES ? eventLink : GOOGLE_CALENDAR_URL);
     handleOnBottomSheetClose();
   };
 
-  const hasStarted = moment(startTime).isBefore(moment());
-
+  // RENDER
   if (isEmpty(event) && loading) return <Loader />;
 
   return (

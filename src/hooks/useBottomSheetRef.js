@@ -1,5 +1,11 @@
 import { useRef } from 'react';
-
+/**
+ * useBottomSheetRef
+ *
+ * hook to handle the useage of a bottom sheet that needs a ref.
+ *
+ * @return {array}
+ */
 const useBottomSheetRef = () => {
   const ref = useRef();
 

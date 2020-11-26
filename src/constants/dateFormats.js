@@ -7,9 +7,6 @@ export const YEAR_FORMAT = 'YYYY';
 export const EVENT_CALENDAR = 'YYYY-MM-DD';
 export const EVENT_CALENDAR_YEAR_AND_MONTH = 'YYYY-MM';
 
-/* TODO: figure out date formats for events since the time always matters
- and they can be in the future */
-
 export const CALENDAR_FORMATS = {
   sameDay: TIME_FORMAT,
   lastDay: '[Ayer]',
