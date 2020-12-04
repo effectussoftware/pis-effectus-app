@@ -4,6 +4,7 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   viewMoreLessButton: {
     marginLeft: 'auto',
+    color: PRIMARY,
   },
   subInfo: {
     color: DARK_GRAY,
@@ -18,7 +19,7 @@ const styles = StyleSheet.create({
     color: PRIMARY,
   },
   description: {
-    paddingTop: 7,
+    paddingVertical: 7,
   },
   url: {
     color: PRIMARY,

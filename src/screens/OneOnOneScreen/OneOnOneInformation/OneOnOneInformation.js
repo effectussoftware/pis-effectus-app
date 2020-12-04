@@ -21,7 +21,7 @@ const OneOnOneInformation = ({ title, date, comments }) => {
       <Text type="H3" style={styles.comments}>
         {strings.ONE_ON_ONE.comments}
       </Text>
-      <Text style={styles.description}>{comments}</Text>
+      <Text style={styles.description}>{comments || strings.ONE_ON_ONE.noComments}</Text>
     </View>
   );
 };

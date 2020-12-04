@@ -12,6 +12,8 @@ import Navigation from 'navigators';
 import configureStore from 'store/configureStore';
 import configureNotifications from 'utils/configureNotifications';
 
+console.disableYellowBox = true;
+
 const { store, persistor } = configureStore({});
 
 applyDefaultInterceptors(store, httpClient);

@@ -32,10 +32,10 @@ const FeedList = ({ handleRefresh }) => {
     !endReached && data.length && dispatch(getFeed({ start: data[data.length - 1].updatedAt }));
   }, [endReached, dispatch, data]);
 
-  const feed = [
-    { title: strings.MAIN_SCREEN.priorityTitle, data: priorityData },
-    { title: strings.MAIN_SCREEN.title, data },
-  ];
+  const feed = [];
+  !isEmpty(priorityData) &&
+    feed.push({ title: strings.MAIN_SCREEN.priorityTitle, data: priorityData });
+  !isEmpty(data) && feed.push({ title: strings.MAIN_SCREEN.title, data });
 
   return (
     <SectionList

@@ -12,6 +12,9 @@ const styles = StyleSheet.create({
     paddingBottom: 25,
     paddingHorizontal: DEFAULT_HORIZONTAL_SEPARATION,
   },
+  emptyActionables: {
+    marginTop: 8,
+  },
 });
 
 export default styles;

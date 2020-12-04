@@ -5,6 +5,7 @@ import { View, ScrollView } from 'react-native';
 import strings from 'locale';
 
 import { Text, Loader } from 'components';
+import { isEmpty } from 'lodash';
 import ActionItem from './ActionItem';
 import OneOnOneInformation from './OneOnOneInformation';
 
@@ -36,6 +37,11 @@ const OneOnOneScreen = ({
         {reviewerActionItems.map((element, index) => (
           <ActionItem key={index} isOdd={index % 2 === 0} {...element} />
         ))}
+        {isEmpty(reviewerActionItems) && (
+          <Text type="P1" style={styles.emptyActionables}>
+            {strings.ONE_ON_ONE.noActionables}
+          </Text>
+        )}
       </View>
 
       <View style={styles.contentContainer}>
@@ -43,6 +49,11 @@ const OneOnOneScreen = ({
         {userActionItems.map((element, index) => {
           return <ActionItem key={index} isOdd={index % 2 === 0} {...element} />;
         })}
+        {isEmpty(userActionItems) && (
+          <Text type="P1" style={styles.emptyActionables}>
+            {strings.ONE_ON_ONE.noActionables}
+          </Text>
+        )}
       </View>
     </ScrollView>
   );
