@@ -8,10 +8,13 @@ import { registerDevice } from 'actions/userActions';
  */
 const useRegisterDevice = () => {
   const dispatch = useDispatch();
-  const { user, info, firebaseToken } = useSelector(({ session }) => session, shallowEqual);
+  const { user, info, firebaseToken, registeredDevice } = useSelector(
+    ({ session }) => session,
+    shallowEqual,
+  );
   useEffect(() => {
-    user && info && dispatch(registerDevice());
-  }, [user, info, dispatch, firebaseToken]);
+    user && info && firebaseToken && !registeredDevice && dispatch(registerDevice());
+  }, [user, info, dispatch, firebaseToken, registeredDevice]);
 };
 
 export default useRegisterDevice;

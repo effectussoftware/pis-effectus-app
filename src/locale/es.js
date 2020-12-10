@@ -44,6 +44,7 @@ export default {
     title: 'Resultados 1 on 1',
     emptyState: 'Aún no tienes resultados 1 on 1',
     noComments: 'Sin comentarios',
+    noActionables: 'Sin accionables',
     comments: 'Comentarios :',
     reviewerActionTitle: '¿A que acciones se compromete Effectus?',
     userActionTitle: '¿A que acciones te comprometes?',
