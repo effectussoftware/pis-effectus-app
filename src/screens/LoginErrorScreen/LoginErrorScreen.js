@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, Image } from 'react-native';
 
-import Text from '../../components/Text';
 import { Button } from 'components';
+import Text from '../../components/Text';
 import {
   SOMETHING_WENT_WRONG,
   PLEASE_TRY_AGAIN,

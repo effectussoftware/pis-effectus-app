@@ -6,7 +6,7 @@ import { createStore } from 'redux';
 
 import LoginScreen from '../LoginScreen';
 import { GoogleSignin } from '../../../../tests/__mocks__/@react-native-google-signin/google-signin';
-import { isConnected } from '../../../../tests/__mocks__/@react-native-community/netinfo';
+import isConnected from '../../../../tests/__mocks__/@react-native-community/netinfo';
 import reducer from '../../../reducers';
 
 const initialState = {};

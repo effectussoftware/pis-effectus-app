@@ -1,6 +1,6 @@
 import React from 'react';
 import { string, func, bool } from 'prop-types';
-import { Text as RNText, TouchableOpacity, View, ViewPropTypes, Image } from 'react-native';
+import { TouchableOpacity, View, ViewPropTypes, Image } from 'react-native';
 
 import Text from 'components/Text';
 import styles from './Button.styles';

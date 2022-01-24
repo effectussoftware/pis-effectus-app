@@ -16,7 +16,7 @@ import {
 } from 'constants/screens';
 import { Button } from 'components';
 import Text from 'components/Text';
-import SplashScren from 'screens/SplashScreen/SplashScren';
+import SplashScren from 'screens/SplashScreen';
 import LoginErrorScreen from 'screens/LoginErrorScreen';
 import appLogo from 'assets/images/appLogo/default.png';
 import styles from './LoginScreen.styles';
