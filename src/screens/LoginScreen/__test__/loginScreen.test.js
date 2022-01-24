@@ -2,14 +2,15 @@ import React from 'react';
 import { render, fireEvent, act } from '@testing-library/react-native';
 import { Provider } from 'react-redux';
 import Config from 'react-native-config';
+import { createStore } from 'redux';
 
 import LoginScreen from '../LoginScreen';
 import { GoogleSignin } from '../../../../tests/__mocks__/@react-native-google-signin/google-signin';
-import { addEventListener } from '../../../../tests/__mocks__/@react-native-community/netinfo';
-import { createStore } from 'redux';
+import { isConnected } from '../../../../tests/__mocks__/@react-native-community/netinfo';
 import reducer from '../../../reducers';
 
-const store = createStore(reducer, (initialState = {}));
+const initialState = {};
+const store = createStore(reducer, initialState);
 
 beforeAll(
   () =>
@@ -18,7 +19,7 @@ beforeAll(
       forceCodeForRefreshToken: true,
       offlineAccess: true,
     }),
-  addEventListener(),
+  isConnected.addEventListener(),
 );
 
 beforeEach(() => jest.useFakeTimers());

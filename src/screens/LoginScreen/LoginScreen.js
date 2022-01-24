@@ -71,27 +71,29 @@ const LoginScreen = () => {
     setLoginError(error);
   }, [error]);
 
-  return splashDelay ? (
-    <SplashScren />
-  ) : loginError ? (
-    <LoginErrorScreen onPress={signIn} hasInternetConnection={isConnected} />
-  ) : (
-    <View style={styles.container} testID={LOGIN_SCREEN}>
-      <Image style={styles.logo} source={appLogo} />
-      <Text style={styles.welcomeText} type="P5">
-        {LOGIN_WELCOME_TEXT}
-      </Text>
-      <Text style={styles.welcomeSubText} type="P4">
-        {LOGIN_WELCOME_SUBTEXT}
-      </Text>
-      <Button
-        onPress={signIn}
-        style={styles.button}
-        title={loading ? strings.COMMON.loading : YOUR_GOOGLE_ACCOUNT}
-        imageSrc={require('assets/images/loginIcons/googleIcon.png')}
-      />
-    </View>
-  );
+  const showLoginScreen = () => {
+    return loginError ? (
+      <LoginErrorScreen onPress={signIn} hasInternetConnection={isConnected} />
+    ) : (
+      <View style={styles.container} testID={LOGIN_SCREEN}>
+        <Image style={styles.logo} source={appLogo} />
+        <Text style={styles.welcomeText} type="P5">
+          {LOGIN_WELCOME_TEXT}
+        </Text>
+        <Text style={styles.welcomeSubText} type="P4">
+          {LOGIN_WELCOME_SUBTEXT}
+        </Text>
+        <Button
+          onPress={signIn}
+          style={styles.button}
+          title={loading ? strings.COMMON.loading : YOUR_GOOGLE_ACCOUNT}
+          imageSrc={require('assets/images/loginIcons/googleIcon.png')}
+        />
+      </View>
+    );
+  };
+
+  return splashDelay ? <SplashScren /> : showLoginScreen();
 };
 
 export default memo(LoginScreen);

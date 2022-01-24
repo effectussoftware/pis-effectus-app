@@ -69,7 +69,9 @@ const configureNotifications = store => {
       }
       store.dispatch(updateFirebaseToken(fcmToken));
     },
-    onRegistrationError: err => {},
+    onRegistrationError: err => {
+      return err;
+    },
 
     // ON NOTIFICATION
     onNotification: handleAndroidPushNotification,

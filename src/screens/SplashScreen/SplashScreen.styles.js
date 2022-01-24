@@ -12,7 +12,6 @@ const styles = StyleSheet.create({
     backgroundColor: BLACK_BACKGROUND,
   },
   logo: {
-    //marginBottom: 80,
     width: 146.11,
     height: 146.1,
   },

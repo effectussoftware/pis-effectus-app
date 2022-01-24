@@ -5,16 +5,7 @@ import { Text as RNText, TouchableOpacity, View, ViewPropTypes, Image } from 're
 import Text from 'components/Text';
 import styles from './Button.styles';
 
-const Button = ({
-  title,
-  onPress,
-  secondary,
-
-  textStyle = {},
-  disabled = false,
-  imageSrc,
-  ...restProps
-}) => {
+const Button = ({ title, onPress, secondary, disabled = false, imageSrc, ...restProps }) => {
   return (
     <View>
       <TouchableOpacity style={styles.button} onPress={onPress} disabled={disabled} {...restProps}>
@@ -37,7 +28,6 @@ Button.propTypes = {
   secondary: bool,
   style: ViewPropTypes.style,
   disabled: bool,
-  textStyle: RNText.propTypes.style,
 };
 
 export default Button;

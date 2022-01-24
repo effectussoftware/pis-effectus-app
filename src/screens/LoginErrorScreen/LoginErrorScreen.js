@@ -1,6 +1,8 @@
 import React from 'react';
 import { View, Image } from 'react-native';
 
+import Text from '../../components/Text';
+import { Button } from 'components';
 import {
   SOMETHING_WENT_WRONG,
   PLEASE_TRY_AGAIN,
@@ -10,8 +12,6 @@ import {
 import errorAvatar from '../../assets/images/loginIcons/errorAvatar.png';
 import ohhMessage from '../../assets/images/loginIcons/Ohh...SH_T.png';
 import connectionErrorAvatar from '../../assets/images/loginIcons/connectionErrorAvatar.png';
-import Text from '../../components/Text';
-import { Button } from 'components';
 import styles from './LoginErrorScreen.styles';
 
 const LoginErrorScreen = ({ onPress, hasInternetConnection }) => {
