@@ -15,8 +15,11 @@ const P2 = 'P2';
 const P2_S = 'P2_S';
 const P3 = 'P3';
 const P3_B = 'P3_B';
+const P4 = 'P4';
+const P5 = 'P5';
+const P6 = 'P6';
 
-export const typeShape = oneOf([H1, H2, H3, H4, P1, P1_S, P2, P2_S, P3, P3_B]);
+export const typeShape = oneOf([H1, H2, H3, H4, P1, P1_S, P2, P2_S, P3, P3_B, P4, P5, P6]);
 
 const Text = ({ children = '', type = P1, style, ...restProps }) => (
   <RNText style={[styles.base, styles[type], style]} {...restProps}>

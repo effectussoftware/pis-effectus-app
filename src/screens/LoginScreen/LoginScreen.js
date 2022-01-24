@@ -1,80 +1,94 @@
-import React, { memo, useCallback, useEffect } from 'react';
-import { View, Image, Alert } from 'react-native';
+import React, { useState, memo, useCallback, useEffect } from 'react';
+import { View, Image } from 'react-native';
 import { useDispatch } from 'react-redux';
+import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import Config from 'react-native-config';
 import { useStatus, LOADING } from '@rootstrap/redux-tools';
-
-import { GoogleSignin, statusCodes } from '@react-native-community/google-signin';
+import NetInfo from '@react-native-community/netinfo';
 
 import strings from 'locale';
 import { login } from 'actions/userActions';
-import { LOGIN_SCREEN } from 'constants/screens';
-import testIds from 'constants/testIds';
-import useAlertError from 'hooks/useAlertError';
-
+import {
+  LOGIN_SCREEN,
+  LOGIN_WELCOME_SUBTEXT,
+  LOGIN_WELCOME_TEXT,
+  YOUR_GOOGLE_ACCOUNT,
+} from 'constants/screens';
 import { Button } from 'components';
-
+import Text from 'components/Text';
+import SplashScren from 'screens/SplashScreen/SplashScren';
+import LoginErrorScreen from 'screens/LoginErrorScreen';
 import appLogo from 'assets/images/appLogo/default.png';
-
 import styles from './LoginScreen.styles';
 
 const LoginScreen = () => {
   const dispatch = useDispatch();
   const loginRequest = useCallback(user => dispatch(login(user)), [dispatch]);
+  const [splashDelay, setSplashDelay] = useState(true);
+  const [isConnected, setIsConnected] = useState(true);
+  const [loginError, setLoginError] = useState(false);
 
-  const { status, error } = useStatus(login);
+  const { error, status } = useStatus(login);
 
   const loading = status === LOADING;
-
   useEffect(() => {
     GoogleSignin.configure({
       webClientId: Config.GOOGLE_AUTH_CLIENT_ID_SERVER,
-      iosClientId: Config.GOOGLE_AUTH_CLIENT_ID_IOS,
-      hostedDomain: 'effectussoftware.com',
+      forceCodeForRefreshToken: true,
+      offlineAccess: true,
     });
+  }, []);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setSplashDelay(false);
+    }, 1500);
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    const unsubscribe = NetInfo.addEventListener(state => {
+      setIsConnected(state.isConnected);
+    });
+    return () => {
+      unsubscribe();
+    };
   }, []);
 
   const signIn = async () => {
     try {
       await GoogleSignin.hasPlayServices();
-
       const { idToken } = await GoogleSignin.signIn();
 
       loginRequest(idToken);
     } catch (error) {
       await GoogleSignin.revokeAccess();
       await GoogleSignin.signOut();
-      switch (error.code) {
-        case statusCodes.SIGN_IN_CANCELLED:
-          // sign in was cancelled
-          Alert.alert('cancelled');
-          break;
-        case statusCodes.IN_PROGRESS:
-          // operation (eg. sign in) already in progress
-          Alert.alert('in progress');
-          break;
-        case statusCodes.PLAY_SERVICES_NOT_AVAILABLE:
-          // android only
-          Alert.alert('play services not available or outdated');
-          break;
-        default:
-          Alert.alert('Something went wrong', error.toString());
-      }
-      // await GoogleSignin.revokeAccess();
-      // await GoogleSignin.signOut();
     }
   };
 
-  useAlertError(error, login);
+  useEffect(() => {
+    setLoginError(error);
+  }, [error]);
 
-  return (
+  return splashDelay ? (
+    <SplashScren />
+  ) : loginError ? (
+    <LoginErrorScreen onPress={signIn} hasInternetConnection={isConnected} />
+  ) : (
     <View style={styles.container} testID={LOGIN_SCREEN}>
       <Image style={styles.logo} source={appLogo} />
+      <Text style={styles.welcomeText} type="P5">
+        {LOGIN_WELCOME_TEXT}
+      </Text>
+      <Text style={styles.welcomeSubText} type="P4">
+        {LOGIN_WELCOME_SUBTEXT}
+      </Text>
       <Button
-        title={loading ? strings.COMMON.loading : strings.LOGIN_SCREEN.submit}
         onPress={signIn}
-        testID={testIds.LOGIN_SCREEN.submitButton}
-        disabled={loading}
+        style={styles.button}
+        title={loading ? strings.COMMON.loading : YOUR_GOOGLE_ACCOUNT}
+        imageSrc={require('assets/images/loginIcons/googleIcon.png')}
       />
     </View>
   );

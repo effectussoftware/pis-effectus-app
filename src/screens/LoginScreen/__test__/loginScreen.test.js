@@ -1,0 +1,52 @@
+import React from 'react';
+import { render, fireEvent, act } from '@testing-library/react-native';
+import { Provider } from 'react-redux';
+import Config from 'react-native-config';
+
+import LoginScreen from '../LoginScreen';
+import { GoogleSignin } from '../../../../tests/__mocks__/@react-native-google-signin/google-signin';
+import { addEventListener } from '../../../../tests/__mocks__/@react-native-community/netinfo';
+import { createStore } from 'redux';
+import reducer from '../../../reducers';
+
+const store = createStore(reducer, (initialState = {}));
+
+beforeAll(
+  () =>
+    GoogleSignin.configure({
+      webClientId: Config.GOOGLE_AUTH_CLIENT_ID_SERVER,
+      forceCodeForRefreshToken: true,
+      offlineAccess: true,
+    }),
+  addEventListener(),
+);
+
+beforeEach(() => jest.useFakeTimers());
+
+afterEach(() => {
+  jest.runOnlyPendingTimers();
+  jest.useRealTimers();
+});
+
+test('should render Login screen ', () => {
+  render(
+    <Provider store={store}>
+      <LoginScreen />
+    </Provider>,
+  );
+  act(() => jest.advanceTimersByTime(1500));
+});
+
+test('should click in GoogleSignIn button', () => {
+  const { getByText } = render(
+    <Provider store={store}>
+      <LoginScreen />
+    </Provider>,
+  );
+
+  act(() => jest.advanceTimersByTime(1500));
+
+  const button = getByText(/Tu cuenta de Google/i);
+
+  fireEvent.press(button);
+});

@@ -15,3 +15,13 @@ export const EVENT_DETAIL_SCREEN = 'EventDetailScreen';
 export const APP_STACK = 'AppStack';
 export const AUTH_STACK = 'AuthStack';
 export const TAB_NAVIGATOR = 'TabNavigator';
+
+// LOGIN
+export const CHECK_YOUR_INTERNET_CONNECTION =
+  'Por favor revisa tu conexión de internet e intenta de nuevo.';
+export const TRY_AGAIN = 'Intentar de nuevo';
+export const LOGIN_WELCOME_TEXT = 'Hola!';
+export const LOGIN_WELCOME_SUBTEXT = 'Iniciá sesion con';
+export const PLEASE_TRY_AGAIN = 'Por favor, intenta de nuevo.';
+export const SOMETHING_WENT_WRONG = 'Algo salió mal.';
+export const YOUR_GOOGLE_ACCOUNT = 'Tu cuenta de Google';
