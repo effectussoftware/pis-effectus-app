@@ -10,6 +10,7 @@ export default {
 
   LOGIN_SCREEN: {
     submit: 'Iniciar sesión',
+    signinButton: 'Tu cuenta de Google',
   },
 
   SIGN_OUT: {

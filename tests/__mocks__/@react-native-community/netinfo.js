@@ -20,7 +20,7 @@ export default {
   removeListeners: jest.fn(),
   isConnected: {
     fetch: () => {
-      return Promise.resolve(true);
+      Promise.resolve(true);
     },
     addEventListener: jest.fn(),
     removeEventListener: jest.fn(),

@@ -4,10 +4,11 @@ import { Provider } from 'react-redux';
 import Config from 'react-native-config';
 import { createStore } from 'redux';
 
-import LoginScreen from '../LoginScreen';
-import { GoogleSignin } from '../../../../tests/__mocks__/@react-native-google-signin/google-signin';
-import isConnected from '../../../../tests/__mocks__/@react-native-community/netinfo';
-import reducer from '../../../reducers';
+import LoginScreen from 'screens/LoginScreen';
+import { GoogleSignin } from 'tests/__mocks__/@react-native-google-signin/google-signin';
+import isConnected from 'tests/__mocks__/@react-native-community/netinfo';
+import es from 'locale/es';
+import reducer from 'reducers';
 
 const initialState = {};
 const store = createStore(reducer, initialState);
@@ -39,6 +40,7 @@ test('should render Login screen ', () => {
 });
 
 test('should click in GoogleSignIn button', () => {
+  const { signinButton } = es.LOGIN_SCREEN;
   const { getByText } = render(
     <Provider store={store}>
       <LoginScreen />
@@ -47,7 +49,7 @@ test('should click in GoogleSignIn button', () => {
 
   act(() => jest.advanceTimersByTime(1500));
 
-  const button = getByText(/Tu cuenta de Google/i);
+  const button = getByText(signinButton);
 
   fireEvent.press(button);
 });

@@ -14,8 +14,7 @@ import {
   LOGIN_WELCOME_TEXT,
   YOUR_GOOGLE_ACCOUNT,
 } from 'constants/screens';
-import { Button } from 'components';
-import Text from 'components/Text';
+import { Button, Text } from 'components';
 import SplashScren from 'screens/SplashScreen';
 import LoginErrorScreen from 'screens/LoginErrorScreen';
 import appLogo from 'assets/images/appLogo/default.png';

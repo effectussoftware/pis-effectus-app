@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react-native';
 
-import LoginErrorScreen from '../LoginErrorScreen';
+import LoginErrorScreen from 'screens/LoginErrorScreen';
 
 test('should render Login Error screen ', () => {
   const onPress = jest.fn();

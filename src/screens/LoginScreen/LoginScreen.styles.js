@@ -23,7 +23,6 @@ const styles = StyleSheet.create({
     fontStyle: 'normal',
     marginBottom: 12,
   },
-  loginButton: {},
   button: {
     borderWidth: 2,
     borderColor: VIOLET_BLUE,
