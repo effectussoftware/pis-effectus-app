@@ -12,16 +12,20 @@ const styles = StyleSheet.create({
     backgroundColor: BLACK_BACKGROUND,
   },
   logo: {
-    marginBottom: 80,
-    width: 78.13,
-    height: 78.12,
+    marginBottom: 60,
+    width: 247,
+    height: 247,
   },
-  welcomeText: {
+  ohMessageImg: {
+    marginBottom: 30,
+  },
+  somethingWentWrong: {
     fontStyle: 'normal',
   },
-  welcomeSubText: {
+  pleaseTryAgain: {
     fontStyle: 'normal',
-    marginBottom: 12,
+    marginBottom: 50,
+    textAlign: 'center',
   },
   button: {
     borderWidth: 2,

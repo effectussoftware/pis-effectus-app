@@ -1,35 +1,23 @@
 import { StyleSheet } from 'react-native';
-import { GRAY, PRIMARY, WHITE } from 'constants/colors';
+import { WHITE } from 'constants/colors';
 
 const styles = StyleSheet.create({
-  containerPrimary: {
-    backgroundColor: PRIMARY,
-    height: 54,
-    borderRadius: 54 / 2,
-    alignSelf: 'stretch',
+  button: {
+    borderWidth: 2,
+    borderRadius: 30,
   },
-  containerSecondary: {
-    // Make pressable area bigger, take into account for spacing
-    padding: 5,
-    alignSelf: 'auto',
-  },
-  textPrimary: {
-    color: WHITE,
-  },
-  textSecondary: {
-    color: PRIMARY,
-  },
-  pressable: {
-    alignSelf: 'stretch',
-    flex: 1,
+  container: {
+    flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
+    paddingVertical: 16,
+    paddingHorizontal: 60,
   },
-  containerDisabledPrimary: {
-    backgroundColor: GRAY,
+  image: {
+    marginRight: 21,
   },
-  textDisabledSecondary: {
-    color: GRAY,
+  text: {
+    color: WHITE,
   },
 });
 

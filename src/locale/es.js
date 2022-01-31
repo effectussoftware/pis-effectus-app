@@ -1,6 +1,6 @@
 export default {
   COMMON: {
-    loading: 'Cargando',
+    loading: 'Cargando...',
     somethingWentWrong: 'Algo salió mal',
   },
 
@@ -10,6 +10,7 @@ export default {
 
   LOGIN_SCREEN: {
     submit: 'Iniciar sesión',
+    signinButton: 'Tu cuenta de Google',
   },
 
   SIGN_OUT: {

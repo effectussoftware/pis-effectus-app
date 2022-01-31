@@ -1,4 +1,4 @@
-import { GoogleSignin } from '@react-native-community/google-signin';
+import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import { createThunk, createAction } from '@rootstrap/redux-tools';
 
 import userService from 'services/userService';

@@ -70,7 +70,7 @@ const configureNotifications = store => {
       store.dispatch(updateFirebaseToken(fcmToken));
     },
     onRegistrationError: err => {
-      console.log(err);
+      err;
     },
 
     // ON NOTIFICATION

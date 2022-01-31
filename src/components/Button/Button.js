@@ -1,52 +1,33 @@
 import React from 'react';
 import { string, func, bool } from 'prop-types';
-import { Text as RNText, TouchableOpacity, View, ViewPropTypes } from 'react-native';
+import { TouchableOpacity, View, ViewPropTypes, Image } from 'react-native';
 
 import Text from 'components/Text';
 import styles from './Button.styles';
 
-const Button = ({
-  title,
-  onPress,
-  secondary,
-  style = {},
-  textStyle = {},
-  disabled = false,
-  ...restProps
-}) => {
+const Button = ({ title, onPress, secondary, disabled = false, imageSrc, ...restProps }) => {
   return (
-    <View
-      style={[
-        secondary ? styles.containerSecondary : styles.containerPrimary,
-        style,
-        disabled && !secondary && styles.containerDisabledPrimary,
-      ]}>
-      <TouchableOpacity
-        style={styles.pressable}
-        onPress={onPress}
-        disabled={disabled}
-        {...restProps}>
-        <Text
-          type="H3"
-          style={[
-            secondary ? styles.textSecondary : styles.textPrimary,
-            textStyle,
-            disabled && secondary && styles.textDisabledSecondary,
-          ]}>
-          {title}
-        </Text>
+    <View>
+      <TouchableOpacity style={styles.button} onPress={onPress} disabled={disabled} {...restProps}>
+        <View style={styles.container}>
+          {imageSrc && <Image source={imageSrc} style={styles.image} />}
+          {title && (
+            <Text type="P6" style={styles.text}>
+              {title}
+            </Text>
+          )}
+        </View>
       </TouchableOpacity>
     </View>
   );
 };
 
 Button.propTypes = {
-  title: string.isRequired,
+  title: string,
   onPress: func.isRequired,
   secondary: bool,
   style: ViewPropTypes.style,
   disabled: bool,
-  textStyle: RNText.propTypes.style,
 };
 
 export default Button;

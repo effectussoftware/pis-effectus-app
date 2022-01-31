@@ -3,6 +3,7 @@ module.exports = {
   setupFiles: [
     './tests/__mocks__/index.js',
     '<rootDir>/node_modules/react-native-gesture-handler/jestSetup.js',
+    '<rootDir>/jest.setup.js',
   ],
   setupFilesAfterEnv: ['<rootDir>/tests/setup-tests.js'],
   transformIgnorePatterns: [

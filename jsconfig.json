@@ -16,7 +16,7 @@
       "store/*": ["src/store/*"],
       "utils/*": ["src/utils/*"],
       "navigators/*": ["src/navigators/*"],
-      "services/*": ["src/services/*"],
+      "services/*": ["src/services/*"]
     }
   }
 }

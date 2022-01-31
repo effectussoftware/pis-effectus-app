@@ -51,13 +51,14 @@
 		</dict>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string/>
 	<key>UIAppFonts</key>
 	<array>
 		<string>NunitoSans-Bold.ttf</string>
 		<string>NunitoSans-Light.ttf</string>
 		<string>NunitoSans-Regular.ttf</string>
 		<string>NunitoSans-SemiBold.ttf</string>
+		<string>Nunito-Regular.ttf</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>

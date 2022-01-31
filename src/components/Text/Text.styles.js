@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 
 import { PRIMARY_FONT_REGULAR, PRIMARY_FONT_BOLD, PRIMARY_FONT_SEMI } from 'constants/fonts';
-import { BLACK } from 'constants/colors';
+import { BLACK, WHITE } from 'constants/colors';
 
 const styles = StyleSheet.create({
   base: { color: BLACK },
@@ -54,6 +54,24 @@ const styles = StyleSheet.create({
     fontFamily: PRIMARY_FONT_BOLD,
     fontSize: 10,
     lineHeight: 14,
+  },
+  P4: {
+    color: WHITE,
+    fontFamily: PRIMARY_FONT_REGULAR,
+    fontSize: 20,
+    lineHeight: 27,
+  },
+  P5: {
+    color: WHITE,
+    fontFamily: PRIMARY_FONT_REGULAR,
+    fontSize: 30,
+    lineHeight: 41,
+  },
+  P6: {
+    color: WHITE,
+    fontFamily: PRIMARY_FONT_REGULAR,
+    fontSize: 16,
+    lineHeight: 22,
   },
 });
 
